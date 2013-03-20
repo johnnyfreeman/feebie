@@ -3,4 +3,4 @@
 .sass-cache
 .local
 *.DS_Store
-
+config
