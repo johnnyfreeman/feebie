@@ -48,7 +48,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         var modelField = $target.data('model-field');
         var changedData = {};
 
-        if (FF.Number.isNumeric(newValue)) {
+        if (modelField === 'quantity') {
           newValue = parseFloat(newValue);
         };
 
