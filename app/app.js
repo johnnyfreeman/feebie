@@ -18,7 +18,7 @@ var express = require('express'),
     fs      = require('fs');
 
 // make web server listen on specific port
-server.listen(process.env.PORT || 5000);
+server.listen(8080);
 
 
 /**
