@@ -142,7 +142,7 @@ app.get('/api/fees', function(req, res) {
 // Main route for our single page app
 app.get('/', function(req, res)
 {
-    fs.readFile('../public/index.html', function (err, html)
+    fs.readFile('public/index.html', function (err, html)
     {
         if (err) 
         {
@@ -155,7 +155,7 @@ app.get('/', function(req, res)
 
 app.get('/:code', function(req, res)
 {
-    fs.readFile('../public/index.html', function (err, html)
+    fs.readFile('public/index.html', function (err, html)
     {
         if (err) 
         {
