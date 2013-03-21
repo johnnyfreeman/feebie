@@ -17,6 +17,7 @@ FF.Models.Code = Backbone.Model.extend({
   feesCollection: null,
 
   initialize: function() {
+    console.log('new code model');
     var code = this;
 
     this.feesCollection = new FF.Collections.Fees;
@@ -25,7 +26,7 @@ FF.Models.Code = Backbone.Model.extend({
     this.listenTo(this, 'change:fees', function(code, fees) {
       code.feesCollection.reset(fees);
     });
-  },
+  }
 
 
 });

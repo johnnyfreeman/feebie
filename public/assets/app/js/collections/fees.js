@@ -4,15 +4,18 @@ FF.Collections.Fees = Backbone.Collection.extend({
 
   model: FF.Models.Fees,
 
-  config: {
-    coInsuranceMultiplier: .2,
-    selfPayMultiplier: 1.2
-  },
+  config: {},
 
   activeFees: null,
 
   initialize: function() {
   	var that = this;
+
+  	this.config = {
+	    coInsuranceMultiplier: .2,
+	    selfPayMultiplier: 1.2
+  	};
+
     // on fees reset, recalculate the fees
     this.listenTo(this, 'reset', function() {
       that.setActiveFees(that.at(0), true);
