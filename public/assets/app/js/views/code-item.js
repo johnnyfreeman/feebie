@@ -31,7 +31,7 @@ FF.Views.Code = Marionette.ItemView.extend({
     this.optionsItemView = new FF.Views.OptionsItem({model: this.model.feesCollection.activeFees});
     this.feesItemView = new FF.Views.FeesItem({model: this.model.feesCollection.activeFees});
 
-    this.listenTo(this.model.feesCollection, 'change:activeFees', _.bind(this.renderChildViews, this))
+    this.listenTo(this.model.feesCollection, 'change:activeFees', _.bind(this.renderChildViews, this));
   },
 
   closeOnEscape: null,
