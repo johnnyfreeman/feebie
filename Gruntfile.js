@@ -21,7 +21,10 @@ module.exports = function(grunt) {
             'public/assets/zclip/zclip.min.js',
             'public/assets/bootstrap/js/bootstrap.js',
             'public/assets/flat-ui/js/jquery.placeholder.js',
-            'public/assets/greensock-v12-js/src/minified/TweenMax.js',
+
+            'public/assets/greensock-v12-js/src/uncompressed/easing/EasePack.js',
+            'public/assets/greensock-v12-js/src/uncompressed/plugins/CSSPlugin.js',
+            'public/assets/greensock-v12-js/src/uncompressed/TweenLite.js',
 
             'public/assets/app/js/application.js',
             'public/assets/app/js/models/code.js',
