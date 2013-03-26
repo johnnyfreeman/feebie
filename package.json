@@ -1,9 +1,14 @@
 {
-  "name": "FeeFinder.org",
+  "name": "fee-finder-org",
   "version": "1.0.0",
   "dependencies": {
     "express": "3.1.0",
     "mongoose": "3.5.7"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2"
   },
   "engines": {
     "node": "0.10.0",
