@@ -26,7 +26,7 @@ FF.Models.Fees = Backbone.Model.extend({
 
     // fac
     var fac = this.get('fac');
-    this.set('fac', fac ? 'Out of Office' : 'In Office');
+    this.set('fac', fac ? 'Facility' : 'Non-Facility');
 
     // modifier1
     if (!this.get('modifier1')) {
