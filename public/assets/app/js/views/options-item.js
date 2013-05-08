@@ -40,8 +40,8 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         $target.siblings('.popover').find('input').trigger('focus');
       };
 
-      // handles finding the new modal and firing 
-      // change events so that all appropriate 
+      // handles finding the new modal and firing
+      // change events so that all appropriate
       // views are re-rendered
       if ($target.hasClass('changeModel')) {
         var newValue = $target.text();
@@ -128,7 +128,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         placement: 'bottom',
         trigger: 'manual',
         html: true,
-        content: '<input placeholder="' + this.model.get('coInsuranceMultiplier') + '" type="text">'
+        content: '<input placeholder="' + this.model.get('coInsuranceMultiplier') + '" type="text"><button class="btn btn-success"><i class="icon-ok"></i></button>'
       });
   }
 });

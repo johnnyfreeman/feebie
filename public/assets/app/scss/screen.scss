@@ -54,10 +54,10 @@ $options-arrow-size: 8px;
     font-size: 20px;
     height: 40px;
     margin: 0;
-  }
 
-  input::-webkit-input-placeholder {
-    color: $silver;
+    &::-webkit-input-placeholder {
+      color: $silver;
+    }
   }
 }
 
@@ -82,6 +82,7 @@ $options-arrow-size: 8px;
     h1 {
       margin-left: 12px;
       color: $wet-asphalt;
+      margin-top: 0;
 
       small {
         color: $concrete;
@@ -96,10 +97,6 @@ $options-arrow-size: 8px;
     }
     .icon-remove-sign { color: $alizarin; }
     .icon-remove-circle { color: $clouds;}
-
-    h1 {
-      margin-top: 0;
-    }
   }
 
 
@@ -118,16 +115,30 @@ $options-arrow-size: 8px;
     padding: 20px 15px;
     position: relative;
 
+    // options arrow
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 0 $options-arrow-size $options-arrow-size $options-arrow-size;
+      border-color: transparent transparent $config-bg transparent;
+      height: 0px;
+      position: absolute;
+      left: 53px;
+      top: -$options-arrow-size;
+      width: 0px;
+      -webkit-transform: rotate(360deg);
+    }
+
     .option {
       display: inline;
       padding-left: $config-spacing;
       padding-right: $config-spacing;
       border-left: 1px dotted $asbestos;
-    }
 
-    .option:first-child {
-      padding-left: 0;
-      border-left: none;
+      &:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
     }
 
     a {
@@ -146,98 +157,107 @@ $options-arrow-size: 8px;
       border: 0px solid $green-sea;
       padding: 0;
 
-      .arrow {
-        top: -12px;
-      }
-
-      .arrow:after {
-        border-bottom-color: $green-sea;
-      }
-
       // .popover-title {
       //   background-color: $midnight-blue;
       //   color: white;
       //   border-bottom: 1px solid rgba(#fff, .1);
       // }
-      
-      .popover-content {}
+
+      .popover-content {
+        background-color: $clouds;
+        @include border-radius(5px);
+      }
 
       input {
-        background-color: $turquoise;
-        border-color: $green-sea;
-        margin: -10px -15px;
+        background-color: white;
+        border-color: $silver;
+        // margin: -10px -15px;
+        margin-bottom: 0;
         color: $midnight-blue;
+        width: 70px;
+
+        &::-webkit-input-placeholder,  /* WebKit browsers */
+        &:-moz-placeholder,  /* Mozilla Firefox 4 to 18 */
+        &::-moz-placeholder,  /* Mozilla Firefox 19+ */
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+          color: $silver;
+        }
       }
 
-      input::-webkit-input-placeholder { /* WebKit browsers */
-        color: $green-sea;
-      }
-      input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        color: $green-sea;
-      }
-      input::-moz-placeholder { /* Mozilla Firefox 19+ */
-        color: $green-sea;
-      }
-      input:-ms-input-placeholder { /* Internet Explorer 10+ */
-        color: $green-sea;
+      button {
+        margin-left: 3px;
       }
 
       ul {
         margin: -10px -15px;
         @include border-radius(5px);
         overflow: hidden;
-        background-color: $turquoise;
+        background-color: $clouds;
+        min-width: 80px;
 
         li {
           list-style: none;
-          display: inline;
+          // display: inline;
+
+          // rounded top corners
+          &:first-child {
+            span, a {
+              @include border-radius(5px 5px 0 0);
+            }
+          }
+
+          // rounded bottom corners
+          &:last-child {
+            span, a {
+              @include border-radius(0 0 5px 5px);
+            }
+          }
 
           span, a {
-            display: inline-block;
+            display: block;
             padding: 8px 13px;
           }
 
           a {
             background-color: transparent;
-            color: #fff;
+            color: $wet-asphalt;
             text-decoration: none;
-          }
 
-          a:hover { background-color: #2FE2BF; }
+            &:hover { background-color: $silver; }
+          }
 
           span {
-            background-color: $green-sea;
-            color: rgba(white, .3);
+            background-color: $clouds;
+            color: $silver;
           }
         }
+      }
 
-        li:first-child {
-          span, a {
-            @include border-radius(5px 0 0 5px);
-          }
+      .arrow {
+        top: -12px;
+        border-width: $options-arrow-size + 1;
+
+        &:after {
+          border-bottom-color: $clouds;
+          border-width: $options-arrow-size;
         }
+      }
 
-        li:last-child {
-          span, a {
-            @include border-radius(0 5px 5px 0);
+      &.bottom {
+        .arrow {
+          top: -$options-arrow-size - 1;
+          left: 50%;
+          margin-left: -$options-arrow-size - 1;
+          border-top-width: 0;
+
+          &:after {
+            top: 1px;
+            margin-left: -$options-arrow-size;
+            border-top-width: 0;
           }
         }
       }
     }
-  }
-
-  // options arrow
-  .options:before {
-    content: "";
-    border-style: solid;
-    border-width: 0 $options-arrow-size $options-arrow-size $options-arrow-size;
-    border-color: transparent transparent $config-bg transparent;
-    height: 0px;
-    position: absolute;
-    left: 53px;
-    top: -$options-arrow-size;
-    width: 0px;
-    -webkit-transform: rotate(360deg);
   }
 
 
@@ -257,6 +277,10 @@ $options-arrow-size: 8px;
       margin-bottom: 15px;
       text-align: center;
 
+      &:first-child {
+        margin-left: 0;
+      }
+
       .description {
         @include border-radius(0);
         background-color: transparent;
@@ -270,7 +294,7 @@ $options-arrow-size: 8px;
         font-size: 36px;
         padding: 0 0 20px;
         font-weight: normal;
-        
+
         .dollar {
           font-size: 16px;
           color: $nephritis;
@@ -327,8 +351,6 @@ $options-arrow-size: 8px;
         }
       }
     }
-
-    .fee:first-child { margin-left: 0; }
   }
 }
 
@@ -371,4 +393,29 @@ footer {
 }
 footer {
   margin-bottom: 50px;
+}
+
+// add bottom border to buttons
+.btn {
+  border-bottom: 2px solid $midnight-blue;
+
+  &.btn-primary {
+    border-bottom-color: $green-sea;
+  }
+
+  &.btn-info {
+    border-bottom-color: $belize-hole;
+  }
+
+  &.btn-success {
+    border-bottom-color: $nephritis;
+  }
+
+  &.btn-danger {
+    border-bottom-color: $pomegranate;
+  }
+
+  &.btn-warning {
+    border-bottom-color: $orange;
+  }
 }
