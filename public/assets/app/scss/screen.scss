@@ -174,7 +174,8 @@ $options-arrow-size: 8px;
         // margin: -10px -15px;
         margin-bottom: 0;
         color: $midnight-blue;
-        width: 70px;
+        width: 100px;
+        padding: 4px 5px;
 
         &::-webkit-input-placeholder,  /* WebKit browsers */
         &:-moz-placeholder,  /* Mozilla Firefox 4 to 18 */
