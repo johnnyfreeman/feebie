@@ -434,3 +434,8 @@ footer {
 .btn.btn-warning {
   border-bottom-color: #f39c12;
 }
+
+/* line 424, ../scss/screen.scss */
+.close-fee {
+  cursor: pointer;
+}

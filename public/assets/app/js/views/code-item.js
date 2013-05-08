@@ -28,6 +28,15 @@ FF.Views.Code = Marionette.ItemView.extend({
 
     this.$body.on('keydown', this.closeOnEscape);
 
+    // hide all popovers when clicking outside
+    // of a popover and not clicking on a trigger
+    this.$body.on('click', function(e) {
+      var $target = $(e.target);
+      if ($target.closest('.popover').length === 0 && $target.hasClass('popover-trigger') === false) {
+        $('.popover-trigger').popover('hide');
+      };
+    });
+
     this.optionsItemView = new FF.Views.OptionsItem({model: this.model.feesCollection.activeFees});
     this.feesItemView = new FF.Views.FeesItem({model: this.model.feesCollection.activeFees});
 
