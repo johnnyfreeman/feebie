@@ -1,7 +1,10 @@
 /**
  * Color Swatches
  */
-/* line 30, ../scss/screen.scss */
+/**
+ * Arrows
+ */
+/* line 33, ../scss/screen.scss */
 #main {
   margin: 30px 0;
   overflow: hidden;
@@ -11,11 +14,11 @@
 /**
  * Search box
  */
-/* line 39, ../scss/screen.scss */
+/* line 42, ../scss/screen.scss */
 #search {
   position: relative;
 }
-/* line 42, ../scss/screen.scss */
+/* line 45, ../scss/screen.scss */
 #search .icon-search {
   color: #34495e;
   font-size: 28px;
@@ -23,13 +26,13 @@
   top: 15px;
   right: 20px;
 }
-/* line 50, ../scss/screen.scss */
+/* line 53, ../scss/screen.scss */
 #search input {
   font-size: 20px;
   height: 40px;
   margin: 0;
 }
-/* line 56, ../scss/screen.scss */
+/* line 59, ../scss/screen.scss */
 #search input::-webkit-input-placeholder {
   color: #bdc3c7;
 }
@@ -37,7 +40,7 @@
 /**
  * Fee Finder
  */
-/* line 66, ../scss/screen.scss */
+/* line 69, ../scss/screen.scss */
 #code {
   color: #34495e;
   text-align: left;
@@ -52,7 +55,7 @@
    * Fees
    */
 }
-/* line 75, ../scss/screen.scss */
+/* line 78, ../scss/screen.scss */
 #code .header {
   margin-bottom: 15px;
   -webkit-border-radius: 8px;
@@ -61,35 +64,35 @@
   -o-border-radius: 8px;
   border-radius: 8px;
 }
-/* line 79, ../scss/screen.scss */
+/* line 82, ../scss/screen.scss */
 #code .header h1 {
   margin-left: 12px;
   color: #34495e;
 }
-/* line 83, ../scss/screen.scss */
+/* line 86, ../scss/screen.scss */
 #code .header h1 small {
   color: #95a5a6;
 }
-/* line 89, ../scss/screen.scss */
+/* line 92, ../scss/screen.scss */
 #code .header .icon-remove-circle,
 #code .header .icon-remove-sign {
   margin-top: 2px;
   margin-right: 17px;
   font-size: 36px;
 }
-/* line 94, ../scss/screen.scss */
+/* line 97, ../scss/screen.scss */
 #code .header .icon-remove-sign {
   color: #e74c3c;
 }
-/* line 95, ../scss/screen.scss */
+/* line 98, ../scss/screen.scss */
 #code .header .icon-remove-circle {
   color: #ecf0f1;
 }
-/* line 97, ../scss/screen.scss */
+/* line 100, ../scss/screen.scss */
 #code .header h1 {
   margin-top: 0;
 }
-/* line 109, ../scss/screen.scss */
+/* line 112, ../scss/screen.scss */
 #code .options {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -103,73 +106,73 @@
   padding: 20px 15px;
   position: relative;
 }
-/* line 118, ../scss/screen.scss */
+/* line 121, ../scss/screen.scss */
 #code .options .option {
   display: inline;
   padding-left: 30px;
   padding-right: 30px;
   border-left: 1px dotted #7f8c8d;
 }
-/* line 125, ../scss/screen.scss */
+/* line 128, ../scss/screen.scss */
 #code .options .option:first-child {
   padding-left: 0;
   border-left: none;
 }
-/* line 130, ../scss/screen.scss */
+/* line 133, ../scss/screen.scss */
 #code .options a {
   color: #1abc9c;
 }
-/* line 134, ../scss/screen.scss */
+/* line 137, ../scss/screen.scss */
 #code .options .faded {
   color: #7f8c8d;
 }
-/* line 138, ../scss/screen.scss */
+/* line 141, ../scss/screen.scss */
 #code .options .fac-true .nonfac, #code .options .fac-false .fac {
   display: none;
 }
-/* line 140, ../scss/screen.scss */
+/* line 143, ../scss/screen.scss */
 #code .options .popover {
   color: #333;
   background-color: transparent;
   border: 0px solid #16a085;
   padding: 0;
 }
-/* line 146, ../scss/screen.scss */
+/* line 149, ../scss/screen.scss */
 #code .options .popover .arrow {
   top: -12px;
 }
-/* line 150, ../scss/screen.scss */
+/* line 153, ../scss/screen.scss */
 #code .options .popover .arrow:after {
   border-bottom-color: #16a085;
 }
-/* line 162, ../scss/screen.scss */
+/* line 165, ../scss/screen.scss */
 #code .options .popover input {
   background-color: #1abc9c;
   border-color: #16a085;
   margin: -10px -15px;
   color: #2c3e50;
 }
-/* line 169, ../scss/screen.scss */
+/* line 172, ../scss/screen.scss */
 #code .options .popover input::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #16a085;
 }
-/* line 172, ../scss/screen.scss */
+/* line 175, ../scss/screen.scss */
 #code .options .popover input:-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
   color: #16a085;
 }
-/* line 175, ../scss/screen.scss */
+/* line 178, ../scss/screen.scss */
 #code .options .popover input::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: #16a085;
 }
-/* line 178, ../scss/screen.scss */
+/* line 181, ../scss/screen.scss */
 #code .options .popover input:-ms-input-placeholder {
   /* Internet Explorer 10+ */
   color: #16a085;
 }
-/* line 182, ../scss/screen.scss */
+/* line 185, ../scss/screen.scss */
 #code .options .popover ul {
   margin: -10px -15px;
   -webkit-border-radius: 5px;
@@ -180,32 +183,32 @@
   overflow: hidden;
   background-color: #1abc9c;
 }
-/* line 188, ../scss/screen.scss */
+/* line 191, ../scss/screen.scss */
 #code .options .popover ul li {
   list-style: none;
   display: inline;
 }
-/* line 192, ../scss/screen.scss */
+/* line 195, ../scss/screen.scss */
 #code .options .popover ul li span, #code .options .popover ul li a {
   display: inline-block;
   padding: 8px 13px;
 }
-/* line 197, ../scss/screen.scss */
+/* line 200, ../scss/screen.scss */
 #code .options .popover ul li a {
   background-color: transparent;
   color: #fff;
   text-decoration: none;
 }
-/* line 203, ../scss/screen.scss */
+/* line 206, ../scss/screen.scss */
 #code .options .popover ul li a:hover {
   background-color: #2FE2BF;
 }
-/* line 205, ../scss/screen.scss */
+/* line 208, ../scss/screen.scss */
 #code .options .popover ul li span {
   background-color: #16a085;
   color: rgba(255, 255, 255, 0.3);
 }
-/* line 212, ../scss/screen.scss */
+/* line 215, ../scss/screen.scss */
 #code .options .popover ul li:first-child span, #code .options .popover ul li:first-child a {
   -webkit-border-radius: 5px 0 0 5px;
   -moz-border-radius: 5px 0 0 5px;
@@ -213,7 +216,7 @@
   -o-border-radius: 5px 0 0 5px;
   border-radius: 5px 0 0 5px;
 }
-/* line 218, ../scss/screen.scss */
+/* line 221, ../scss/screen.scss */
 #code .options .popover ul li:last-child span, #code .options .popover ul li:last-child a {
   -webkit-border-radius: 0 5px 5px 0;
   -moz-border-radius: 0 5px 5px 0;
@@ -221,24 +224,24 @@
   -o-border-radius: 0 5px 5px 0;
   border-radius: 0 5px 5px 0;
 }
-/* line 226, ../scss/screen.scss */
+/* line 230, ../scss/screen.scss */
 #code .options:before {
   content: "";
   border-style: solid;
-  border-width: 0 9px 9px 9px;
+  border-width: 0 8px 8px 8px;
   border-color: transparent transparent #34495e transparent;
   height: 0px;
   position: absolute;
   left: 53px;
-  top: -9px;
+  top: -8px;
   width: 0px;
   -webkit-transform: rotate(360deg);
 }
-/* line 243, ../scss/screen.scss */
+/* line 247, ../scss/screen.scss */
 #code .fees {
   margin: 15px 0;
 }
-/* line 246, ../scss/screen.scss */
+/* line 250, ../scss/screen.scss */
 #code .fees .fee {
   background-color: #ecf0f1;
   -webkit-border-radius: 8px;
@@ -253,7 +256,7 @@
   margin-bottom: 15px;
   text-align: center;
 }
-/* line 256, ../scss/screen.scss */
+/* line 260, ../scss/screen.scss */
 #code .fees .fee .description {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -266,64 +269,64 @@
   font-size: 13px;
   color: #95a5a6;
 }
-/* line 265, ../scss/screen.scss */
+/* line 269, ../scss/screen.scss */
 #code .fees .fee .amount {
   font-size: 36px;
   padding: 0 0 20px;
   font-weight: normal;
 }
-/* line 270, ../scss/screen.scss */
+/* line 274, ../scss/screen.scss */
 #code .fees .fee .amount .dollar {
   font-size: 16px;
   color: #27ae60;
   vertical-align: 12px;
 }
-/* line 277, ../scss/screen.scss */
+/* line 281, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container {
   position: relative;
   display: block;
   height: 50px;
   width: 100%;
 }
-/* line 285, ../scss/screen.scss */
+/* line 289, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn, #code .fees .fee .btn-copy-container .btn-content {
   -moz-transition: none;
   -webkit-transition: none;
   -o-transition: color 0 ease-in;
   transition: none;
 }
-/* line 292, ../scss/screen.scss */
+/* line 296, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn {
   position: absolute;
   left: 0;
 }
-/* line 297, ../scss/screen.scss */
+/* line 301, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-copied {
   top: 0;
 }
-/* line 298, ../scss/screen.scss */
+/* line 302, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-copy {
   top: -50px;
 }
-/* line 300, ../scss/screen.scss */
+/* line 304, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content {
   position: absolute;
   left: 30px;
 }
-/* line 305, ../scss/screen.scss */
+/* line 309, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content-copied {
   top: 0;
 }
-/* line 306, ../scss/screen.scss */
+/* line 310, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content-copy {
   top: -50px;
 }
-/* line 309, ../scss/screen.scss */
+/* line 313, ../scss/screen.scss */
 #code .fees .fee .copy-to-clipboard {
   position: relative;
   overflow: hidden;
 }
-/* line 313, ../scss/screen.scss */
+/* line 317, ../scss/screen.scss */
 #code .fees .fee .copy-to-clipboard .copied {
   position: absolute;
   background-color: #2ecc71;
@@ -335,7 +338,7 @@
   -o-transition: color 0 ease-in;
   transition: none;
 }
-/* line 327, ../scss/screen.scss */
+/* line 331, ../scss/screen.scss */
 #code .fees .fee:first-child {
   margin-left: 0;
 }
@@ -343,40 +346,40 @@
 /**
  * Misc
  */
-/* line 334, ../scss/screen.scss */
+/* line 338, ../scss/screen.scss */
 .demo-headline {
   padding: 60px 0 0px;
   text-align: center;
 }
-/* line 337, ../scss/screen.scss */
+/* line 341, ../scss/screen.scss */
 .demo-headline small {
   color: #bdc3c7;
 }
 
-/* line 341, ../scss/screen.scss */
+/* line 345, ../scss/screen.scss */
 footer {
   background-color: transparent;
   color: #bdc3c7;
   text-align: center;
 }
-/* line 345, ../scss/screen.scss */
+/* line 349, ../scss/screen.scss */
 footer a {
   color: #1abc9c;
   font-weight: normal;
 }
-/* line 349, ../scss/screen.scss */
+/* line 353, ../scss/screen.scss */
 footer .pipe {
   color: #ecf0f1;
   display: inline-block;
   margin: 0 5px;
 }
 
-/* line 355, ../scss/screen.scss */
+/* line 359, ../scss/screen.scss */
 .muted {
   color: #95a5a6;
 }
 
-/* line 358, ../scss/screen.scss */
+/* line 362, ../scss/screen.scss */
 .alert-error {
   background-color: #e74c3c;
   border-color: #e74c3c;
@@ -384,13 +387,13 @@ footer .pipe {
   text-shadow: 0 1px 0 #c0392b;
 }
 
-/* line 364, ../scss/screen.scss */
+/* line 368, ../scss/screen.scss */
 .alert {
   padding-bottom: 21px;
   padding-top: 21px;
 }
 
-/* line 368, ../scss/screen.scss */
+/* line 372, ../scss/screen.scss */
 footer {
   margin-bottom: 50px;
 }

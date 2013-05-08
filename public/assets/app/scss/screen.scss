@@ -25,7 +25,10 @@ $silver: #BDC3C7;
 $concrete: #95A5A6;
 $asbestos: #7F8C8D;
 
-
+/**
+ * Arrows
+ */
+$options-arrow-size: 8px;
 
 #main {
   margin: 30px 0;
@@ -223,15 +226,16 @@ $asbestos: #7F8C8D;
     }
   }
 
+  // options arrow
   .options:before {
     content: "";
     border-style: solid;
-    border-width: 0 9px 9px 9px;
+    border-width: 0 $options-arrow-size $options-arrow-size $options-arrow-size;
     border-color: transparent transparent $config-bg transparent;
     height: 0px;
     position: absolute;
     left: 53px;
-    top: -9px;
+    top: -$options-arrow-size;
     width: 0px;
     -webkit-transform: rotate(360deg);
   }

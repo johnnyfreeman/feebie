@@ -52,8 +52,6 @@ var Fee = mongoose.model('fees', mongoose.Schema({
     fees: Array
 }));
 
-
-
 /**
  * ADMIN ROUTES
  * ----------------------------------------------------
@@ -139,8 +137,7 @@ app.get('/api/fees', function(req, res) {
  * Here are all of the public facing routes.
  */
 
-// Main route for our single page app
-app.get('/', function(req, res)
+var indexController = function(req, res)
 {
     fs.readFile('public/index.html', function (err, html)
     {
@@ -148,20 +145,10 @@ app.get('/', function(req, res)
         {
             throw err;
         }
-
         res.send(html.toString('utf8'));
     });
-});
+};
 
-app.get('/:code', function(req, res)
-{
-    fs.readFile('public/index.html', function (err, html)
-    {
-        if (err) 
-        {
-            throw err;
-        }
-
-        res.send(html.toString('utf8'));
-    });
-});
+// Main routes for our single page app
+app.get('/', indexController);
+app.get('/:code', indexController);

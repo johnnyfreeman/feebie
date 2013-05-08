@@ -37,4 +37,5 @@ var FF = new Marionette.Application({
       return string.replace(',', '');
     }
   }
+  
 });
