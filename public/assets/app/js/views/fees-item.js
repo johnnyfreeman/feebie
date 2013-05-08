@@ -11,14 +11,11 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
   },
 
   initialize: function() {
-    // this.zclipped = false;
-
     this.listenTo(this.model, 'change', _.bind(this.render, this));
   },
 
   onRender: function(e) {
     setTimeout(_.bind(this.zclip, this), 0);
-    // this.zclip();
   },
 
   // zclip
@@ -34,10 +31,10 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
         afterCopy:function(){
           var copied = $(this).find('.copied')[0];
           TweenLite.to(copied, 0.2, {
-            left: 0, 
+            left: 0,
             onComplete:function() {
               TweenLite.to(copied, 0.2, {
-                left:273, 
+                left:273,
                 delay: 2,
                 onComplete: function() {
                   $(copied).css('left', -273);
@@ -47,7 +44,6 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
           });
         }
       });
-      // this.zclipped = true;
     };
   }
 });
