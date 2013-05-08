@@ -101,7 +101,9 @@ module.exports = function(grunt) {
   });
 
   // Load tasks
-  grunt.loadNpmTasks('grunt-contrib');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-regarde');
   grunt.loadNpmTasks('grunt-develop');
 
