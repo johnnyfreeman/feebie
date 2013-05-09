@@ -9,12 +9,12 @@ FF.Collections.Fees = Backbone.Collection.extend({
   activeFees: null,
 
   initialize: function() {
-  	var that = this;
+    var that = this;
 
-  	this.config = {
-	    coInsuranceMultiplier: .2,
-	    selfPayMultiplier: 1.2
-  	};
+    this.config = {
+      coInsuranceMultiplier: .2,
+      selfPayMultiplier: 1.2
+    };
 
     // on fees reset, recalculate the fees
     this.listenTo(this, 'reset', function() {
@@ -23,15 +23,15 @@ FF.Collections.Fees = Backbone.Collection.extend({
   },
 
   setActiveFees: function(model, silence) {
-  	if (typeof silence === undefined) silence = false;
-  	this.activeFees = model;
-  	if (!silence) this.trigger('change:activeFees');
+    if (typeof silence === undefined) silence = false;
+    this.activeFees = model;
+    if (!silence) this.trigger('change:activeFees');
   },
 
   setCoInsurance: function(multiplier, silence) {
-  	if (typeof silence === undefined) silence = false;
-  	this.config.coInsuranceMultiplier = multiplier / 100;
-  	if (!silence) this.trigger('change:config:coInsuranceMultiplier');
+    if (typeof silence === undefined) silence = false;
+    this.config.coInsuranceMultiplier = multiplier / 100;
+    if (!silence) this.trigger('change:config:coInsuranceMultiplier');
   }
 
 });

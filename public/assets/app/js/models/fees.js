@@ -31,12 +31,12 @@ FF.Models.Fees = Backbone.Model.extend({
     // modifier1
     if (!this.get('modifier1')) {
       this.set('modifier1', 'none');
-    };
+    }
 
     // modifier2
     if (!this.get('modifier2')) {
       this.set('modifier2', 'none');
-    };
+    }
 
     this.listenTo(this.collection, 'change:config:coInsuranceMultiplier', _.bind(this.calculateCoInsurance, this));
   },

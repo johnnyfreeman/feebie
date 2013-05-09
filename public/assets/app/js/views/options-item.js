@@ -38,7 +38,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         that.ui.popoverTriggers.not(target).popover('hide');
         $target.popover('toggle');
         $target.siblings('.popover').find('input').trigger('focus');
-      };
+      }
 
       // update coinsurance button
       if ($target.closest('.btn').length > 0) {
@@ -46,7 +46,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         that.model.collection.setCoInsurance($target.closest('.btn').siblings('input').val());
         // hides popover
         $target.closest('.popover').siblings('.popover-trigger').popover('hide');
-      };
+      }
 
       // handles finding the new modal and firing
       // change events so that all appropriate
@@ -58,7 +58,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
 
         if (modelField === 'quantity') {
           newValue = parseFloat(newValue);
-        };
+        }
 
         changedData[modelField] = newValue;
         var searchData = _.extend({
@@ -74,7 +74,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
 
         // triggers change event
         that.model.collection.setActiveFees(_.first(results));
-      };
+      }
     });
 
     this.$el.on('keydown', function(e) {
@@ -85,8 +85,8 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         if (e.which === 13) {
           e.preventDefault();
           that.model.collection.setCoInsurance($target.val());
-        };
-      };
+        }
+      }
     });
   },
 
@@ -114,9 +114,9 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
           html += '<li><span>' + value + '</span></li>';
         } else {
           html += '<li><a class="changeModel" data-model-field="' + modelField + '" href="#">' + value + '</a></li>';
-        };
+        }
         uniqueValues.push(value);
-      };
+      }
     });
     html += '</ul>';
     if (uniqueValues.length < 2) {
@@ -128,7 +128,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         html: true,
         content: html
       });
-    };
+    }
   },
 
   buildCoInsurancePopover: function() {

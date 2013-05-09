@@ -44,6 +44,6 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
           });
         }
       });
-    };
+    }
   }
 });

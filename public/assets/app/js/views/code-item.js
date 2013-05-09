@@ -34,7 +34,7 @@ FF.Views.Code = Marionette.ItemView.extend({
       var $target = $(e.target);
       if ($target.closest('.popover').length === 0 && $target.hasClass('popover-trigger') === false) {
         $('.popover-trigger').popover('hide');
-      };
+      }
     });
 
     this.optionsItemView = new FF.Views.OptionsItem({model: this.model.feesCollection.activeFees});
