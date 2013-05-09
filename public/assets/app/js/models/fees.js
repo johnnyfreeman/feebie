@@ -42,9 +42,12 @@ FF.Models.Fees = Backbone.Model.extend({
   },
 
   calculateCoInsurance: function() {
-    var newValue = FF.Number.fromMoney(this.get('allowable')) * this.collection.config.coInsuranceMultiplier;
-    this.set('coInsurance', FF.Number.toMoney(newValue));
-    this.set('coInsuranceMultiplier', parseInt(this.collection.config.coInsuranceMultiplier * 100));
+    var newMultiplier = this.collection.config.coInsuranceMultiplier;
+    var newValue = FF.Number.fromMoney(this.get('allowable')) * newMultiplier;
+    this.set({
+      'coInsuranceMultiplier': parseInt(newMultiplier * 100),
+      'coInsurance': FF.Number.toMoney(newValue)
+    });
   }
 
 });
