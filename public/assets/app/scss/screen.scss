@@ -255,6 +255,8 @@ $options-arrow-size: 8px;
   border: 0px solid $green-sea;
   padding: 0;
 
+  p { margin: 0; }
+
   .popover-title {
     display: none;
   }
@@ -332,7 +334,7 @@ $options-arrow-size: 8px;
 
   // arrow
   &.bottom {
-    .arrow {
+    .arrow:after {
       border-bottom-color: $clouds;
     }
   }

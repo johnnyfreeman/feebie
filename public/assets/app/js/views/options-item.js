@@ -37,7 +37,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
       if ($target.hasClass('popover-trigger')) {
         that.ui.popoverTriggers.not(target).popover('hide');
         $target.popover('toggle');
-        $('.popover').find('input').trigger('focus');
+        $target.closest('.option').find('input').trigger('focus');
       }
 
       // update coinsurance button
@@ -126,7 +126,8 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         placement: 'bottom',
         trigger: 'manual',
         html: true,
-        content: html
+        content: html,
+        container: domField.closest('.option')
       });
     }
   },
@@ -136,7 +137,8 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         placement: 'bottom',
         trigger: 'manual',
         html: true,
-        content: '<input placeholder="' + this.model.get('coInsuranceMultiplier') + '" type="text"><button class="btn btn-success"><i class="icon-ok"></i></button>'
+        content: '<input placeholder="' + this.model.get('coInsuranceMultiplier') + '" type="text"><button class="btn btn-success"><i class="icon-ok"></i></button>',
+        container: this.ui.coInsuranceOption
       });
   }
 });
