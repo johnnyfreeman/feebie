@@ -10,14 +10,7 @@
  */
 (function ($, window, document) {
 
-  var ie6 = false;
-
-  // Help prevent flashes of unstyled content
-  // if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
-  //   ie6 = true;
-  // } else {
-    // document.documentElement.className = document.documentElement.className + ' dk_fouc';
-  // }
+  document.documentElement.className = document.documentElement.className + ' dk_fouc';
   
   var
     // Public methods exposed to $.fn.dropkick()
@@ -37,9 +30,10 @@
 
     // HTML template for the dropdowns
     dropdownTemplate = [
-      '<div class="dk_container" id="dk_container_{{ id }}" tabindex="{{ tabindex }}">',
+      '<div class="dk_container {{ classname }}" id="dk_container_{{ id }}" tabindex="{{ tabindex }}">',
         '<a class="dk_toggle">',
           '<span class="dk_label">{{ label }}</span>',
+          '<span class="select-icon"></span>',
         '</a>',
         '<div class="dk_options">',
           '<ul class="dk_options_inner">',
@@ -53,7 +47,7 @@
 
     // Some nice default values
     defaults = {
-      startSpeed : 1000,  // I recommend a high value here, I feel it makes the changes less noticeable to the user
+      startSpeed : 100,  // I recommend a high value here, I feel it makes the changes less noticeable to the user
       theme  : false,
       change : false
     },
@@ -89,6 +83,9 @@
         // Check if we have a tabindex set or not
         tabindex  = $select.attr('tabindex') ? $select.attr('tabindex') : '',
 
+        // Check if we have a class name set or not
+        classname  = $select.attr('class') ? $select.attr('class') : '',
+
         // The completed dk_container element
         $dk = false,
 
@@ -101,6 +98,7 @@
       } else {
         data.settings  = settings;
         data.tabindex  = tabindex;
+        data.classname = classname;
         data.id        = id;
         data.$original = $original;
         data.$select   = $select;
@@ -114,14 +112,15 @@
 
       // Make the dropdown fixed width if desired
       $dk.find('.dk_toggle').css({
-        'width' : width + 'px'
+        // Disable inline width since it should fill all available parrent space
+        // 'width' : width + 'px'
       });
 
       // Hide the <select> list and place our new one in front of it
       $select.before($dk);
 
       // Update the reference to $dk
-      $dk = $('#dk_container_' + id).fadeIn(settings.startSpeed);
+      $dk = $('#dk_container_' + id).addClass('dk_shown');
 
       // Save the current theme
       theme = settings.theme ? settings.theme : 'default';
@@ -185,12 +184,10 @@
 
   // Expose the plugin
   $.fn.dropkick = function (method) {
-    if (!ie6) {
-      if (methods[method]) {
-        return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-      } else if (typeof method === 'object' || ! method) {
-        return methods.init.apply(this, arguments);
-      }
+    if (methods[method]) {
+      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+    } else if (typeof method === 'object' || ! method) {
+      return methods.init.apply(this, arguments);
     }
   };
 
@@ -313,6 +310,7 @@
     template = template.replace('{{ id }}', view.id);
     template = template.replace('{{ label }}', view.label);
     template = template.replace('{{ tabindex }}', view.tabindex);
+    template = template.replace('{{ classname }}', view.classname);
 
     if (view.options && view.options.length) {
       for (var i = 0, l = view.options.length; i < l; i++) {
@@ -343,69 +341,34 @@
   $(function () {
 
     // Handle click events on the dropdown toggler
-    // $('.dk_toggle').live('click', function (e) {
-    //   var $dk  = $(this).parents('.dk_container').first();
+    $(document).on('click', '.dk_toggle', function (e) {
+      var $dk  = $(this).parents('.dk_container').first();
 
-    //   _openDropdown($dk);
+      _openDropdown($dk);
 
-    //   if ("ontouchstart" in window) {
-    //     $dk.addClass('dk_touch');
-    //     $dk.find('.dk_options_inner').addClass('scrollable vertical');
-    //   }
+      if ("ontouchstart" in window) {
+        $dk.addClass('dk_touch');
+        $dk.find('.dk_options_inner').addClass('scrollable vertical');
+      }
 
-    //   e.preventDefault();
-    //   return false;
-    // });
-
-    $('body').on('click', function (e) {
-      if ($(e.target).hasClass('.dk_toggle')) {
-        var $dk  = $(this).closest('.dk_container');
-
-        _openDropdown($dk);
-
-        if ("ontouchstart" in window) {
-          $dk.addClass('dk_touch');
-          $dk.find('.dk_options_inner').addClass('scrollable vertical');
-        }
-
-        e.preventDefault();
-        return false;
-      };
+      e.preventDefault();
+      return false;
     });
 
     // Handle click events on individual dropdown options
-    // $('.dk_options a').live(($.browser.msie ? 'mousedown' : 'click'), function (e) {
-    //   var
-    //     $option = $(this),
-    //     $dk     = $option.parents('.dk_container').first(),
-    //     data    = $dk.data('dropkick')
-    //   ;
+    $(document).on('click', '.dk_options a', function (e) {
+      var
+        $option = $(this),
+        $dk     = $option.parents('.dk_container').first(),
+        data    = $dk.data('dropkick')
+      ;
     
-    //   _closeDropdown($dk);
-    //   _updateFields($option, $dk);
-    //   _setCurrent($option.parent(), $dk);
+      _closeDropdown($dk);
+      _updateFields($option, $dk);
+      _setCurrent($option.parent(), $dk);
     
-    //   e.preventDefault();
-    //   return false;
-    // });
-
-    $('body').on('click', function (e) {
-      var target = e.target;
-      var $target = $(target);
-      if ($target.closest('.dk_options').length && target.tagName === 'A') {
-        var
-          $option = $(this),
-          $dk     = $option.closest('.dk_container'),
-          data    = $dk.data('dropkick')
-        ;
-      
-        _closeDropdown($dk);
-        _updateFields($option, $dk);
-        _setCurrent($option.parent(), $dk);
-      
-        e.preventDefault();
-        return false;
-      };
+      e.preventDefault();
+      return false;
     });
 
     // Setup keyboard nav

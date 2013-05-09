@@ -1,17 +1,17 @@
 'use strict';
 
 var js_files = [
-  'public/assets/jquery/jquery-1.9.1.js',
-  'public/assets/underscore/underscore.js',
-  'public/assets/backbone/backbone.js',
-  'public/assets/marionette/backbone.marionette.min.js',
-  'public/assets/zclip/zclip.min.js',
-  'public/assets/bootstrap/js/bootstrap.js',
+  'public/assets/jquery/jquery.min.js',
+  'public/assets/underscore/underscore-min.js',
+  'public/assets/backbone/backbone-min.js',
+  'public/assets/backbone.marionette/lib/backbone.marionette.min.js',
+  'public/assets/jquery-zclip/jquery.zclip.js',
+  'public/assets/bootstrap/js/bootstrap.min.js',
   'public/assets/flat-ui/js/jquery.placeholder.js',
 
-  'public/assets/greensock-v12-js/src/uncompressed/easing/EasePack.js',
-  'public/assets/greensock-v12-js/src/uncompressed/plugins/CSSPlugin.js',
-  'public/assets/greensock-v12-js/src/uncompressed/TweenLite.js',
+  'public/assets/GreenSock-JS/src/minified/easing/EasePack.min.js',
+  'public/assets/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js',
+  'public/assets/GreenSock-JS/src/minified/TweenLite.min.js',
 
   'public/assets/app/js/application.js',
   'public/assets/app/js/models/code.js',

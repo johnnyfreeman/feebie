@@ -1,0 +1,8 @@
+{
+  "name": "GreenSock-JS",
+  "version": "1.9.6",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/greensock/GreenSock-JS.git"
+  }
+}

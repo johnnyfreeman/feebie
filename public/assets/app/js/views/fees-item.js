@@ -24,7 +24,7 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
 
     if ($copyBtn.length) { // && !this.zclipped
       $copyBtn.zclip({
-        path: 'assets/zclip/ZeroClipboard.swf',
+        path: 'assets/jquery-zclip/ZeroClipboard.swf',
         copy: function(){
           return $(this).prev('.amount').text();
         },
