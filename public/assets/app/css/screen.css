@@ -140,120 +140,11 @@
 #code .options .fac-true .nonfac, #code .options .fac-false .fac {
   display: none;
 }
-/* line 154, ../scss/screen.scss */
-#code .options .popover {
-  color: #333;
-  background-color: transparent;
-  border: 0px solid #16a085;
-  padding: 0;
-}
-/* line 166, ../scss/screen.scss */
-#code .options .popover .popover-content {
-  background-color: #ecf0f1;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-}
-/* line 171, ../scss/screen.scss */
-#code .options .popover input {
-  background-color: white;
-  border-color: #bdc3c7;
-  margin-bottom: 0;
-  color: #2c3e50;
-  width: 100px;
-  padding: 4px 5px;
-}
-/* line 183, ../scss/screen.scss */
-#code .options .popover input::-webkit-input-placeholder, #code .options .popover input:-moz-placeholder, #code .options .popover input::-moz-placeholder, #code .options .popover input:-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  color: #bdc3c7;
-}
-/* line 188, ../scss/screen.scss */
-#code .options .popover button {
-  margin-left: 3px;
-}
-/* line 192, ../scss/screen.scss */
-#code .options .popover ul {
-  margin: -10px -15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #ecf0f1;
-  min-width: 80px;
-}
-/* line 199, ../scss/screen.scss */
-#code .options .popover ul li {
-  list-style: none;
-}
-/* line 205, ../scss/screen.scss */
-#code .options .popover ul li:first-child span, #code .options .popover ul li:first-child a {
-  -webkit-border-radius: 5px 5px 0 0;
-  -moz-border-radius: 5px 5px 0 0;
-  -ms-border-radius: 5px 5px 0 0;
-  -o-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-}
-/* line 212, ../scss/screen.scss */
-#code .options .popover ul li:last-child span, #code .options .popover ul li:last-child a {
-  -webkit-border-radius: 0 0 5px 5px;
-  -moz-border-radius: 0 0 5px 5px;
-  -ms-border-radius: 0 0 5px 5px;
-  -o-border-radius: 0 0 5px 5px;
-  border-radius: 0 0 5px 5px;
-}
-/* line 217, ../scss/screen.scss */
-#code .options .popover ul li span, #code .options .popover ul li a {
-  display: block;
-  padding: 8px 13px;
-}
-/* line 222, ../scss/screen.scss */
-#code .options .popover ul li a {
-  background-color: transparent;
-  color: #34495e;
-  text-decoration: none;
-}
-/* line 227, ../scss/screen.scss */
-#code .options .popover ul li a:hover {
-  background-color: #bdc3c7;
-}
-/* line 230, ../scss/screen.scss */
-#code .options .popover ul li span {
-  background-color: #ecf0f1;
-  color: #bdc3c7;
-}
-/* line 237, ../scss/screen.scss */
-#code .options .popover .arrow {
-  top: -12px;
-  border-width: 9px;
-}
-/* line 241, ../scss/screen.scss */
-#code .options .popover .arrow:after {
-  border-bottom-color: #ecf0f1;
-  border-width: 8px;
-}
-/* line 248, ../scss/screen.scss */
-#code .options .popover.bottom .arrow {
-  top: -9px;
-  left: 50%;
-  margin-left: -9px;
-  border-top-width: 0;
-}
-/* line 254, ../scss/screen.scss */
-#code .options .popover.bottom .arrow:after {
-  top: 1px;
-  margin-left: -8px;
-  border-top-width: 0;
-}
-/* line 268, ../scss/screen.scss */
+/* line 159, ../scss/screen.scss */
 #code .fees {
   margin: 15px 0;
 }
-/* line 271, ../scss/screen.scss */
+/* line 162, ../scss/screen.scss */
 #code .fees .fee {
   background-color: #ecf0f1;
   -webkit-border-radius: 8px;
@@ -268,11 +159,11 @@
   margin-bottom: 15px;
   text-align: center;
 }
-/* line 281, ../scss/screen.scss */
+/* line 172, ../scss/screen.scss */
 #code .fees .fee:first-child {
   margin-left: 0;
 }
-/* line 285, ../scss/screen.scss */
+/* line 176, ../scss/screen.scss */
 #code .fees .fee .description {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -285,64 +176,64 @@
   font-size: 13px;
   color: #95a5a6;
 }
-/* line 294, ../scss/screen.scss */
+/* line 185, ../scss/screen.scss */
 #code .fees .fee .amount {
   font-size: 36px;
   padding: 0 0 20px;
   font-weight: normal;
 }
-/* line 299, ../scss/screen.scss */
+/* line 190, ../scss/screen.scss */
 #code .fees .fee .amount .dollar {
   font-size: 16px;
   color: #27ae60;
   vertical-align: 12px;
 }
-/* line 306, ../scss/screen.scss */
+/* line 197, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container {
   position: relative;
   display: block;
   height: 50px;
   width: 100%;
 }
-/* line 314, ../scss/screen.scss */
+/* line 205, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn, #code .fees .fee .btn-copy-container .btn-content {
   -moz-transition: none;
   -webkit-transition: none;
   -o-transition: color 0 ease-in;
   transition: none;
 }
-/* line 321, ../scss/screen.scss */
+/* line 212, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn {
   position: absolute;
   left: 0;
 }
-/* line 326, ../scss/screen.scss */
+/* line 217, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-copied {
   top: 0;
 }
-/* line 327, ../scss/screen.scss */
+/* line 218, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-copy {
   top: -50px;
 }
-/* line 329, ../scss/screen.scss */
+/* line 220, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content {
   position: absolute;
   left: 30px;
 }
-/* line 334, ../scss/screen.scss */
+/* line 225, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content-copied {
   top: 0;
 }
-/* line 335, ../scss/screen.scss */
+/* line 226, ../scss/screen.scss */
 #code .fees .fee .btn-copy-container .btn-content-copy {
   top: -50px;
 }
-/* line 338, ../scss/screen.scss */
+/* line 229, ../scss/screen.scss */
 #code .fees .fee .copy-to-clipboard {
   position: relative;
   overflow: hidden;
 }
-/* line 342, ../scss/screen.scss */
+/* line 233, ../scss/screen.scss */
 #code .fees .fee .copy-to-clipboard .copied {
   position: absolute;
   background-color: #2ecc71;
@@ -356,42 +247,140 @@
 }
 
 /**
+ * Popovers
+ */
+/* line 252, ../scss/screen.scss */
+.popover {
+  color: #333;
+  background-color: transparent;
+  border: 0px solid #16a085;
+  padding: 0;
+}
+/* line 258, ../scss/screen.scss */
+.popover .popover-title {
+  display: none;
+}
+/* line 262, ../scss/screen.scss */
+.popover .popover-content {
+  background-color: #ecf0f1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 267, ../scss/screen.scss */
+.popover input {
+  background-color: white;
+  border-color: #bdc3c7;
+  margin-bottom: 0;
+  color: #2c3e50;
+  width: 146px;
+  padding: 4px 5px;
+}
+/* line 279, ../scss/screen.scss */
+.popover input::-webkit-input-placeholder, .popover input:-moz-placeholder, .popover input::-moz-placeholder, .popover input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #bdc3c7;
+}
+/* line 284, ../scss/screen.scss */
+.popover button {
+  margin-left: 3px;
+}
+/* line 288, ../scss/screen.scss */
+.popover ul {
+  margin: -10px -15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ecf0f1;
+  min-width: 80px;
+}
+/* line 295, ../scss/screen.scss */
+.popover ul li {
+  list-style: none;
+}
+/* line 301, ../scss/screen.scss */
+.popover ul li:first-child span, .popover ul li:first-child a {
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+/* line 308, ../scss/screen.scss */
+.popover ul li:last-child span, .popover ul li:last-child a {
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+/* line 313, ../scss/screen.scss */
+.popover ul li span, .popover ul li a {
+  display: block;
+  padding: 8px 13px;
+}
+/* line 318, ../scss/screen.scss */
+.popover ul li a {
+  background-color: transparent;
+  color: #34495e;
+  text-decoration: none;
+}
+/* line 323, ../scss/screen.scss */
+.popover ul li a:hover {
+  background-color: #bdc3c7;
+}
+/* line 326, ../scss/screen.scss */
+.popover ul li span {
+  background-color: #ecf0f1;
+  color: #bdc3c7;
+}
+/* line 335, ../scss/screen.scss */
+.popover.bottom .arrow {
+  border-bottom-color: #ecf0f1;
+}
+
+/**
  * Misc
  */
-/* line 361, ../scss/screen.scss */
+/* line 344, ../scss/screen.scss */
 .demo-headline {
   padding: 60px 0 0px;
   text-align: center;
 }
-/* line 364, ../scss/screen.scss */
+/* line 347, ../scss/screen.scss */
 .demo-headline small {
   color: #bdc3c7;
 }
 
-/* line 368, ../scss/screen.scss */
+/* line 351, ../scss/screen.scss */
 footer {
   background-color: transparent;
   color: #bdc3c7;
   text-align: center;
 }
-/* line 372, ../scss/screen.scss */
+/* line 355, ../scss/screen.scss */
 footer a {
   color: #1abc9c;
   font-weight: normal;
 }
-/* line 376, ../scss/screen.scss */
+/* line 359, ../scss/screen.scss */
 footer .pipe {
   color: #ecf0f1;
   display: inline-block;
   margin: 0 5px;
 }
 
-/* line 382, ../scss/screen.scss */
+/* line 365, ../scss/screen.scss */
 .muted {
   color: #95a5a6;
 }
 
-/* line 385, ../scss/screen.scss */
+/* line 368, ../scss/screen.scss */
 .alert-error {
   background-color: #e74c3c;
   border-color: #e74c3c;
@@ -399,43 +388,43 @@ footer .pipe {
   text-shadow: 0 1px 0 #c0392b;
 }
 
-/* line 391, ../scss/screen.scss */
+/* line 374, ../scss/screen.scss */
 .alert {
   padding-bottom: 21px;
   padding-top: 21px;
 }
 
-/* line 395, ../scss/screen.scss */
+/* line 378, ../scss/screen.scss */
 footer {
   margin-bottom: 50px;
 }
 
-/* line 400, ../scss/screen.scss */
+/* line 383, ../scss/screen.scss */
 .btn {
   border-bottom: 2px solid #2c3e50;
 }
-/* line 403, ../scss/screen.scss */
+/* line 386, ../scss/screen.scss */
 .btn.btn-primary {
   border-bottom-color: #16a085;
 }
-/* line 407, ../scss/screen.scss */
+/* line 390, ../scss/screen.scss */
 .btn.btn-info {
   border-bottom-color: #2980b9;
 }
-/* line 411, ../scss/screen.scss */
+/* line 394, ../scss/screen.scss */
 .btn.btn-success {
   border-bottom-color: #27ae60;
 }
-/* line 415, ../scss/screen.scss */
+/* line 398, ../scss/screen.scss */
 .btn.btn-danger {
   border-bottom-color: #c0392b;
 }
-/* line 419, ../scss/screen.scss */
+/* line 402, ../scss/screen.scss */
 .btn.btn-warning {
   border-bottom-color: #f39c12;
 }
 
-/* line 424, ../scss/screen.scss */
+/* line 407, ../scss/screen.scss */
 .close-fee {
   cursor: pointer;
 }

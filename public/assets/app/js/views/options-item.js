@@ -37,7 +37,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
       if ($target.hasClass('popover-trigger')) {
         that.ui.popoverTriggers.not(target).popover('hide');
         $target.popover('toggle');
-        $target.siblings('.popover').find('input').trigger('focus');
+        $('.popover').find('input').trigger('focus');
       }
 
       // update coinsurance button

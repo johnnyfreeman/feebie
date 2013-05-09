@@ -6,7 +6,7 @@ var js_files = [
   'public/assets/backbone/backbone-min.js',
   'public/assets/backbone.marionette/lib/backbone.marionette.min.js',
   'public/assets/jquery-zclip/jquery.zclip.js',
-  'public/assets/bootstrap/js/bootstrap.min.js',
+  'public/assets/bootstrap/docs/assets/js/bootstrap.js',
   'public/assets/flat-ui/js/jquery.placeholder.js',
 
   'public/assets/GreenSock-JS/src/minified/easing/EasePack.min.js',

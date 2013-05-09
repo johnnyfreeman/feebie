@@ -150,115 +150,6 @@ $options-arrow-size: 8px;
     }
 
     .fac-true .nonfac, .fac-false .fac { display: none; }
-
-    .popover {
-      color: #333;
-      background-color: transparent;
-      border: 0px solid $green-sea;
-      padding: 0;
-
-      // .popover-title {
-      //   background-color: $midnight-blue;
-      //   color: white;
-      //   border-bottom: 1px solid rgba(#fff, .1);
-      // }
-
-      .popover-content {
-        background-color: $clouds;
-        @include border-radius(5px);
-      }
-
-      input {
-        background-color: white;
-        border-color: $silver;
-        // margin: -10px -15px;
-        margin-bottom: 0;
-        color: $midnight-blue;
-        width: 100px;
-        padding: 4px 5px;
-
-        &::-webkit-input-placeholder,  /* WebKit browsers */
-        &:-moz-placeholder,  /* Mozilla Firefox 4 to 18 */
-        &::-moz-placeholder,  /* Mozilla Firefox 19+ */
-        &:-ms-input-placeholder { /* Internet Explorer 10+ */
-          color: $silver;
-        }
-      }
-
-      button {
-        margin-left: 3px;
-      }
-
-      ul {
-        margin: -10px -15px;
-        @include border-radius(5px);
-        overflow: hidden;
-        background-color: $clouds;
-        min-width: 80px;
-
-        li {
-          list-style: none;
-          // display: inline;
-
-          // rounded top corners
-          &:first-child {
-            span, a {
-              @include border-radius(5px 5px 0 0);
-            }
-          }
-
-          // rounded bottom corners
-          &:last-child {
-            span, a {
-              @include border-radius(0 0 5px 5px);
-            }
-          }
-
-          span, a {
-            display: block;
-            padding: 8px 13px;
-          }
-
-          a {
-            background-color: transparent;
-            color: $wet-asphalt;
-            text-decoration: none;
-
-            &:hover { background-color: $silver; }
-          }
-
-          span {
-            background-color: $clouds;
-            color: $silver;
-          }
-        }
-      }
-
-      .arrow {
-        top: -12px;
-        border-width: $options-arrow-size + 1;
-
-        &:after {
-          border-bottom-color: $clouds;
-          border-width: $options-arrow-size;
-        }
-      }
-
-      &.bottom {
-        .arrow {
-          top: -$options-arrow-size - 1;
-          left: 50%;
-          margin-left: -$options-arrow-size - 1;
-          border-top-width: 0;
-
-          &:after {
-            top: 1px;
-            margin-left: -$options-arrow-size;
-            border-top-width: 0;
-          }
-        }
-      }
-    }
   }
 
 
@@ -351,6 +242,98 @@ $options-arrow-size: 8px;
           transition: none;
         }
       }
+    }
+  }
+}
+
+/**
+ * Popovers
+ */
+.popover {
+  color: #333;
+  background-color: transparent;
+  border: 0px solid $green-sea;
+  padding: 0;
+
+  .popover-title {
+    display: none;
+  }
+
+  .popover-content {
+    background-color: $clouds;
+    @include border-radius(5px);
+  }
+
+  input {
+    background-color: white;
+    border-color: $silver;
+    // margin: -10px -15px;
+    margin-bottom: 0;
+    color: $midnight-blue;
+    width: 146px;
+    padding: 4px 5px;
+
+    &::-webkit-input-placeholder,  /* WebKit browsers */
+    &:-moz-placeholder,  /* Mozilla Firefox 4 to 18 */
+    &::-moz-placeholder,  /* Mozilla Firefox 19+ */
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $silver;
+    }
+  }
+
+  button {
+    margin-left: 3px;
+  }
+
+  ul {
+    margin: -10px -15px;
+    @include border-radius(5px);
+    overflow: hidden;
+    background-color: $clouds;
+    min-width: 80px;
+
+    li {
+      list-style: none;
+      // display: inline;
+
+      // rounded top corners
+      &:first-child {
+        span, a {
+          @include border-radius(5px 5px 0 0);
+        }
+      }
+
+      // rounded bottom corners
+      &:last-child {
+        span, a {
+          @include border-radius(0 0 5px 5px);
+        }
+      }
+
+      span, a {
+        display: block;
+        padding: 8px 13px;
+      }
+
+      a {
+        background-color: transparent;
+        color: $wet-asphalt;
+        text-decoration: none;
+
+        &:hover { background-color: $silver; }
+      }
+
+      span {
+        background-color: $clouds;
+        color: $silver;
+      }
+    }
+  }
+
+  // arrow
+  &.bottom {
+    .arrow {
+      border-bottom-color: $clouds;
     }
   }
 }
