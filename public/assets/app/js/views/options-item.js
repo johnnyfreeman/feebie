@@ -40,7 +40,7 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
         $target.siblings('.popover').find('input').trigger('focus');
       };
 
-      // update coinsurance
+      // update coinsurance button
       if ($target.closest('.btn').length > 0) {
         // update model
         that.model.collection.setCoInsurance($target.closest('.btn').siblings('input').val());
