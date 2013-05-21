@@ -4,26 +4,26 @@
 /**
  * Color Swatches
  */
-$turquoise: #1ABC9C;
-$green-sea: #16A085;
-$emerland: #2ECC71;
-$nephritis: #27AE60;
-$peter-river: #3498DB;
-$belize-hole: #2980B9;
-$amethyst: #9B59B6;
-$wisteria: #8E44AD;
-$wet-asphalt: #34495E;
-$midnight-blue: #2C3E50;
-$sun-flower: #F1C40F;
-$orange: #F39C12;
-$carrot: #E67E22;
-$pumpkin: #D35400;
-$alizarin: #E74C3C;
-$pomegranate: #C0392B;
-$clouds: #ECF0F1;
-$silver: #BDC3C7;
-$concrete: #95A5A6;
-$asbestos: #7F8C8D;
+$turquoise: #1ABC9C;    // turquoise
+$green-sea: #16A085;    // dark turquoise
+$emerland: #2ECC71;     // green
+$nephritis: #27AE60;    // dark green
+$peter-river: #3498DB;  // blue
+$belize-hole: #2980B9;  // dark blue
+$amethyst: #9B59B6;     // purple
+$wisteria: #8E44AD;     // dark purple
+$wet-asphalt: #34495E;  // dark blue
+$midnight-blue: #2C3E50;// extra dark blue
+$sun-flower: #F1C40F;   // yellow
+$orange: #F39C12;       // dark yellow
+$carrot: #E67E22;       // orange
+$pumpkin: #D35400;      // dark orange
+$alizarin: #E74C3C;     // red
+$pomegranate: #C0392B;  // dark red
+$clouds: #ECF0F1;       // light gray
+$silver: #BDC3C7;       // silver
+$concrete: #95A5A6;     // gray
+$asbestos: #7F8C8D;     // dark gray
 
 /**
  * Arrows
@@ -164,7 +164,7 @@ $options-arrow-size: 8px;
       @include border-radius(8px);
       display: inline-block;
       padding: 10px 15px;
-      width: 271px;
+      width: 348px;
       margin-left: 15px;
       margin-bottom: 15px;
       text-align: center;
@@ -205,7 +205,7 @@ $options-arrow-size: 8px;
         .btn, .btn-content {
           -moz-transition: none;
           -webkit-transition: none;
-          -o-transition: color 0 ease-in;
+          -o-transition: none;
           transition: none;
         }
 
@@ -235,7 +235,7 @@ $options-arrow-size: 8px;
           background-color: $emerland;
           color: white;
           top: 0;
-          left: -273px;
+          left: -348px;
           -moz-transition: none;
           -webkit-transition: none;
           -o-transition: color 0 ease-in;
@@ -339,6 +339,78 @@ $options-arrow-size: 8px;
     }
   }
 }
+
+
+/**
+ * Notifications
+ */
+#notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+
+  .notification {
+    background-color: $clouds;
+    color: $wet-asphalt;
+    display: inline-block;
+    padding: 10px;
+    @include border-radius(0 0 5px 5px);
+
+    .notification-dismiss {
+      color: $silver;
+      font-weight: bold;
+      margin-left: 3px;
+    }
+
+    &.notification-info {
+      background-color: $peter-river;
+      color: white;
+
+      .notification-dismiss {
+        color: $belize-hole;
+      }
+    }
+
+    &.notification-error {
+      background-color: $alizarin;
+      color: white;
+
+      .notification-dismiss {
+        color: $pomegranate;
+      }
+    }
+
+    &.notification-warning {
+      background-color: $sun-flower;
+      color: white;
+
+      .notification-dismiss {
+        color: $orange;
+      }
+    }
+
+    &.notification-success {
+      background-color: $emerland;
+      color: white;
+
+      .notification-dismiss {
+        color: $nephritis;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    i {
+      margin-right: 3px;
+    }
+  }
+}
+
 
 /**
  * Misc

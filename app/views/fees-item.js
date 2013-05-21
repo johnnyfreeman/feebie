@@ -12,6 +12,12 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
 
   initialize: function() {
     this.listenTo(this.model, 'change', _.bind(this.render, this));
+
+    var model = this.model;
+    this.listenTo(this.model, 'change:coInsurance', _.bind(function() {
+      var message = 'The co-insurance amount has been recalculated at <em>$' + model.get('coInsurance') + '</em>.';
+      FF.notificationsRegion.show(new FF.Views.NotificationInfoItem({message: message}));
+    }, this));
   },
 
   onRender: function(e) {
@@ -34,10 +40,10 @@ FF.Views.FeesItem = Marionette.ItemView.extend({
             left: 0,
             onComplete:function() {
               TweenLite.to(copied, 0.2, {
-                left:273,
+                left:348,
                 delay: 2,
                 onComplete: function() {
-                  $(copied).css('left', -273);
+                  $(copied).css('left', -348);
                 }
               });
             }

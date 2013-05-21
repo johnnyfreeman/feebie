@@ -5,9 +5,11 @@
     <title>Fee Finder &mdash; A Medicare fee schedule lookup service.</title>
 
     <!-- Loading Bootstrap -->
-    <link href="assets/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="assets/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet"> -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <!-- font-awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
     <link href="assets/flat-ui/css/flat-ui.css" rel="stylesheet">
@@ -50,8 +52,36 @@
       <!-- footer -->
       <footer class="mtl">A <a href="http://hostedsky.com/">HostedSky</a> product. <!-- <span class="pipe">|</span> <a href="buy">Buy a licence</a> <span class="pipe">|</span> <a href="help">Help</a>  --><span class="pipe">|</span> Version 1.0</footer>
 
+      <ul id="notifications">
+<!--         <li class="notification notification-info">
+          <i class="icon-info-sign"></i>
+          Co-Insurance has been changed to <em>20%</em>.
+          <a class="notification-dismiss" href="#">&times;</a>
+        </li>
+        <li class="notification notification-error">
+          <i class="icon-exclamation-sign"></i>
+          Something has gone <em>wrong</em>.
+          <a class="notification-dismiss" href="#">&times;</a>
+        </li>
+        <li class="notification notification-warning">
+          <i class="icon-warning-sign"></i>
+          Are you <em>sure</em>?
+          <a class="notification-dismiss" href="#">&times;</a>
+        </li>
+        <li class="notification notification-success">
+          <i class="icon-check-sign"></i>
+          Your changes have been <em>saved</em>.
+          <a class="notification-dismiss" href="#">&times;</a>
+        </li> -->
+      </ul>
+
     </div> <!-- /container -->
 
+    <script id="tplNotificationItem" type="text/template">
+      <i class="<%= iconClass %>"></i>
+      <%= message %>
+      <a class="notification-dismiss" href="#">&times;</a>
+    </script>
 
     <script id="tplCode" type="text/template">
       <div class="header">
@@ -129,6 +159,7 @@
         FF.controller = new FF.Controller();
         FF.router = new FF.Router({controller: FF.controller});
         FF.mainRegion = new FF.Regions.Main();
+        FF.notificationsRegion = new FF.Regions.Notifications();
       });
 
       FF.on('initialize:after', function() {

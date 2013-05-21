@@ -19,10 +19,12 @@ var js_files = [
   'app/collections/code.js',
   'app/collections/fees.js',
   'app/regions/main.js',
+  'app/regions/notifications.js',
   'app/views/code-item.js',
   'app/views/options-item.js',
   'app/views/fees-item.js',
   'app/views/notification-item.js',
+  'app/views/notification-info-item.js',
   'app/views/search-form-item.js',
   'app/controller.js',
   'app/router.js'
@@ -86,7 +88,7 @@ module.exports = function(grunt) {
           'public/*.html',
           'public/assets/**/*.{css,png,jpg,gif,jpeg}',
           'public/assets/app/js/<%= pkg.name %>.min.js',
-          'app/**/*.js'
+          'app/server.js'
         ],
         tasks: 'livereload'
       },

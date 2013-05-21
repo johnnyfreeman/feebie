@@ -154,7 +154,7 @@
   border-radius: 8px;
   display: inline-block;
   padding: 10px 15px;
-  width: 271px;
+  width: 348px;
   margin-left: 15px;
   margin-bottom: 15px;
   text-align: center;
@@ -199,7 +199,7 @@
 #code .fees .fee .btn-copy-container .btn, #code .fees .fee .btn-copy-container .btn-content {
   -moz-transition: none;
   -webkit-transition: none;
-  -o-transition: color 0 ease-in;
+  -o-transition: none;
   transition: none;
 }
 /* line 212, ../scss/screen.scss */
@@ -239,7 +239,7 @@
   background-color: #2ecc71;
   color: white;
   top: 0;
-  left: -273px;
+  left: -348px;
   -moz-transition: none;
   -webkit-transition: none;
   -o-transition: color 0 ease-in;
@@ -349,42 +349,117 @@
 }
 
 /**
+ * Notifications
+ */
+/* line 347, ../scss/screen.scss */
+#notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+/* line 355, ../scss/screen.scss */
+#notifications .notification {
+  background-color: #ecf0f1;
+  color: #34495e;
+  display: inline-block;
+  padding: 10px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  -ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+/* line 362, ../scss/screen.scss */
+#notifications .notification .notification-dismiss {
+  color: #bdc3c7;
+  font-weight: bold;
+  margin-left: 3px;
+}
+/* line 368, ../scss/screen.scss */
+#notifications .notification.notification-info {
+  background-color: #3498db;
+  color: white;
+}
+/* line 372, ../scss/screen.scss */
+#notifications .notification.notification-info .notification-dismiss {
+  color: #2980b9;
+}
+/* line 377, ../scss/screen.scss */
+#notifications .notification.notification-error {
+  background-color: #e74c3c;
+  color: white;
+}
+/* line 381, ../scss/screen.scss */
+#notifications .notification.notification-error .notification-dismiss {
+  color: #c0392b;
+}
+/* line 386, ../scss/screen.scss */
+#notifications .notification.notification-warning {
+  background-color: #f1c40f;
+  color: white;
+}
+/* line 390, ../scss/screen.scss */
+#notifications .notification.notification-warning .notification-dismiss {
+  color: #f39c12;
+}
+/* line 395, ../scss/screen.scss */
+#notifications .notification.notification-success {
+  background-color: #2ecc71;
+  color: white;
+}
+/* line 399, ../scss/screen.scss */
+#notifications .notification.notification-success .notification-dismiss {
+  color: #27ae60;
+}
+/* line 404, ../scss/screen.scss */
+#notifications .notification a {
+  text-decoration: none;
+}
+/* line 408, ../scss/screen.scss */
+#notifications .notification i {
+  margin-right: 3px;
+}
+
+/**
  * Misc
  */
-/* line 346, ../scss/screen.scss */
+/* line 418, ../scss/screen.scss */
 .demo-headline {
   padding: 60px 0 0px;
   text-align: center;
 }
-/* line 349, ../scss/screen.scss */
+/* line 421, ../scss/screen.scss */
 .demo-headline small {
   color: #bdc3c7;
 }
 
-/* line 353, ../scss/screen.scss */
+/* line 425, ../scss/screen.scss */
 footer {
   background-color: transparent;
   color: #bdc3c7;
   text-align: center;
 }
-/* line 357, ../scss/screen.scss */
+/* line 429, ../scss/screen.scss */
 footer a {
   color: #1abc9c;
   font-weight: normal;
 }
-/* line 361, ../scss/screen.scss */
+/* line 433, ../scss/screen.scss */
 footer .pipe {
   color: #ecf0f1;
   display: inline-block;
   margin: 0 5px;
 }
 
-/* line 367, ../scss/screen.scss */
+/* line 439, ../scss/screen.scss */
 .muted {
   color: #95a5a6;
 }
 
-/* line 370, ../scss/screen.scss */
+/* line 442, ../scss/screen.scss */
 .alert-error {
   background-color: #e74c3c;
   border-color: #e74c3c;
@@ -392,43 +467,43 @@ footer .pipe {
   text-shadow: 0 1px 0 #c0392b;
 }
 
-/* line 376, ../scss/screen.scss */
+/* line 448, ../scss/screen.scss */
 .alert {
   padding-bottom: 21px;
   padding-top: 21px;
 }
 
-/* line 380, ../scss/screen.scss */
+/* line 452, ../scss/screen.scss */
 footer {
   margin-bottom: 50px;
 }
 
-/* line 385, ../scss/screen.scss */
+/* line 457, ../scss/screen.scss */
 .btn {
   border-bottom: 2px solid #2c3e50;
 }
-/* line 388, ../scss/screen.scss */
+/* line 460, ../scss/screen.scss */
 .btn.btn-primary {
   border-bottom-color: #16a085;
 }
-/* line 392, ../scss/screen.scss */
+/* line 464, ../scss/screen.scss */
 .btn.btn-info {
   border-bottom-color: #2980b9;
 }
-/* line 396, ../scss/screen.scss */
+/* line 468, ../scss/screen.scss */
 .btn.btn-success {
   border-bottom-color: #27ae60;
 }
-/* line 400, ../scss/screen.scss */
+/* line 472, ../scss/screen.scss */
 .btn.btn-danger {
   border-bottom-color: #c0392b;
 }
-/* line 404, ../scss/screen.scss */
+/* line 476, ../scss/screen.scss */
 .btn.btn-warning {
   border-bottom-color: #f39c12;
 }
 
-/* line 409, ../scss/screen.scss */
+/* line 481, ../scss/screen.scss */
 .close-fee {
   cursor: pointer;
 }

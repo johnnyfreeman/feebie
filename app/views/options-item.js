@@ -91,8 +91,6 @@ FF.Views.OptionsItem = Marionette.ItemView.extend({
   },
 
   onRender: function() {
-    var that = this;
-
     this.buildPopover(this.ui.facOption.find('a'), 'fac');
     this.buildCoInsurancePopover();
     this.buildPopover(this.ui.qtyOption.find('a'), 'quantity');
