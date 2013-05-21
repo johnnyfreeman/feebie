@@ -13,19 +13,19 @@ var js_files = [
   'public/assets/GreenSock-JS/src/minified/plugins/CSSPlugin.min.js',
   'public/assets/GreenSock-JS/src/minified/TweenLite.min.js',
 
-  'public/assets/app/js/application.js',
-  'public/assets/app/js/models/code.js',
-  'public/assets/app/js/models/fees.js',
-  'public/assets/app/js/collections/code.js',
-  'public/assets/app/js/collections/fees.js',
-  'public/assets/app/js/regions/main.js',
-  'public/assets/app/js/views/code-item.js',
-  'public/assets/app/js/views/options-item.js',
-  'public/assets/app/js/views/fees-item.js',
-  'public/assets/app/js/views/notification-item.js',
-  'public/assets/app/js/views/search-form-item.js',
-  'public/assets/app/js/controller.js',
-  'public/assets/app/js/router.js'
+  'app/application.js',
+  'app/models/code.js',
+  'app/models/fees.js',
+  'app/collections/code.js',
+  'app/collections/fees.js',
+  'app/regions/main.js',
+  'app/views/code-item.js',
+  'app/views/options-item.js',
+  'app/views/fees-item.js',
+  'app/views/notification-item.js',
+  'app/views/search-form-item.js',
+  'app/controller.js',
+  'app/router.js'
 ];
 
 module.exports = function(grunt) {
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 
     develop: {
       server: {
-        file: 'app/app.js'
+        file: 'app/server.js'
       }
     },
 
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
           'public/*.html',
           'public/assets/**/*.{css,png,jpg,gif,jpeg}',
           'public/assets/app/js/<%= pkg.name %>.min.js',
-          'app/app.js' // reload the browser when the server is restarted
+          'app/**/*.js'
         ],
         tasks: 'livereload'
       },

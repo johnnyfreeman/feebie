@@ -1,0 +1,8 @@
+{
+  "name": "bean",
+  "version": "1.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fat/bean.git"
+  }
+}

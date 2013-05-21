@@ -15,6 +15,7 @@
     "GreenSock-JS": "greensock/GreenSock-JS#~1.9.6",
     "jquery": "~2.0.0",
     "flat-ui": "latest",
-    "font-awesome": "~3.0.2"
+    "font-awesome": "~3.0.2",
+    "bean": "~1.0.3"
   }
 }

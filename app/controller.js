@@ -3,7 +3,7 @@
 FF.Controller = Marionette.Controller.extend({
 
   // initialize: function() {
-    
+
   // },
 
   displayHelp: function() {
@@ -21,8 +21,8 @@ FF.Controller = Marionette.Controller.extend({
       FF.mainRegion.show(new FF.Views.Code({model: codeModel}));
     });
     response.fail(_.bind(this.displayAlert, this, {
-    	title: 'Holy Guacamole!',
-    	description: 'That code cannot be found. You will be redirected back to the search page in 5 seconds.'
+      title: 'Holy Guacamole!',
+      description: 'That code cannot be found. You will be redirected back to the search page in 5 seconds.'
     }));
   },
 
