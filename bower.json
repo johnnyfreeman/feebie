@@ -1,21 +1,21 @@
 {
-  "name": "fee-finder-org",
-  "version": "1.0.0",
+  "name": "feefinder",
+  "version": "0.2.1",
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
   ],
   "dependencies": {
-    "bootstrap": "~2.3.1",
-    "underscore": "~1.4.4",
-    "backbone": "~1.0.0",
-    "backbone.marionette": "~1.0.2",
-    "jquery-zclip": "~1.1.3",
-    "GreenSock-JS": "greensock/GreenSock-JS#~1.9.6",
-    "jquery": "~2.0.0",
-    "flat-ui": "latest",
-    "font-awesome": "~3.1.1",
-    "bean": "~1.0.3"
+    "bootstrap": "*",
+    "underscore": "*",
+    "backbone": "*",
+    "backbone.marionette": "*",
+    "jquery-zclip": "*",
+    "jquery": "*",
+    "flat-ui": "*",
+    "font-awesome": "*",
+    "bean": "*",
+    "greensock": "*"
   }
 }

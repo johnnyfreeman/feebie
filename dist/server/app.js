@@ -1,0 +1,1 @@
+(function(){var e,t,r,i,s;t=require("express"),e=t(),s=require("http").createServer(e),r=require("fs"),s.listen(80),e.use("/assets",t["static"](__dirname+"/../../public/assets")),i=function(e,t){return r.readFile("public/index.html",function(e,r){if(e)throw e;return t.send(r.toString("utf8"))})},e.get("/",i),e.get("/:code",i)}).call(this);

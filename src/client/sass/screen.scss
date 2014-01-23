@@ -1,0 +1,483 @@
+@import 'compass/css3/border-radius';
+
+
+/**
+ * Color Swatches
+ */
+$turquoise: #1ABC9C;    // turquoise
+$green-sea: #16A085;    // dark turquoise
+$emerland: #2ECC71;     // green
+$nephritis: #27AE60;    // dark green
+$peter-river: #3498DB;  // blue
+$belize-hole: #2980B9;  // dark blue
+$amethyst: #9B59B6;     // purple
+$wisteria: #8E44AD;     // dark purple
+$wet-asphalt: #34495E;  // dark blue
+$midnight-blue: #2C3E50;// extra dark blue
+$sun-flower: #F1C40F;   // yellow
+$orange: #F39C12;       // dark yellow
+$carrot: #E67E22;       // orange
+$pumpkin: #D35400;      // dark orange
+$alizarin: #E74C3C;     // red
+$pomegranate: #C0392B;  // dark red
+$clouds: #ECF0F1;       // light gray
+$silver: #BDC3C7;       // silver
+$concrete: #95A5A6;     // gray
+$asbestos: #7F8C8D;     // dark gray
+
+/**
+ * Arrows
+ */
+$options-arrow-size: 8px;
+
+#main {
+  margin: 30px 0;
+  overflow: hidden;
+  height: 0px;
+}
+
+/**
+ * Search box
+ */
+#search {
+  position: relative;
+
+  .icon-search {
+    color: $wet-asphalt;
+    font-size: 28px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  input {
+    font-size: 20px;
+    height: 40px;
+    margin: 0;
+
+    &::-webkit-input-placeholder {
+      color: $silver;
+    }
+  }
+}
+
+
+
+/**
+ * Fee Finder
+ */
+#code {
+  color: $wet-asphalt;
+  text-align: left;
+  position: relative;
+
+
+  /**
+   * Header
+   */
+  .header {
+    margin-bottom: 15px;
+    @include border-radius(8px);
+
+    h1 {
+      margin-left: 12px;
+      color: $wet-asphalt;
+      margin-top: 0;
+
+      small {
+        color: $concrete;
+      }
+    }
+
+    .icon-remove-circle,
+    .icon-remove-sign {
+      margin-top: 2px;
+      margin-right: 17px;
+      font-size: 36px;
+    }
+    .icon-remove-sign { color: $alizarin; }
+    .icon-remove-circle { color: $clouds;}
+  }
+
+
+  /**
+   * Configuration
+   */
+  $config-spacing: 30px;
+  $config-bg: $wet-asphalt;
+
+  .options {
+    @include border-radius(8px);
+    background-color: $config-bg;
+    color: white;
+    list-style: none;
+    margin: 0px;
+    padding: 20px 15px;
+    position: relative;
+
+    // options arrow
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 0 $options-arrow-size $options-arrow-size $options-arrow-size;
+      border-color: transparent transparent $config-bg transparent;
+      height: 0px;
+      position: absolute;
+      left: 53px;
+      top: -$options-arrow-size;
+      width: 0px;
+      -webkit-transform: rotate(360deg);
+    }
+
+    .option {
+      display: inline;
+      padding-left: $config-spacing;
+      padding-right: $config-spacing;
+      border-left: 1px dotted $asbestos;
+
+      &:first-child {
+        padding-left: 0;
+        border-left: none;
+      }
+    }
+
+    a {
+      color: $turquoise;
+    }
+
+    .faded {
+      color: $asbestos;
+    }
+
+    .fac-true .nonfac, .fac-false .fac { display: none; }
+  }
+
+
+  /**
+   * Fees
+   */
+  .fees {
+    margin: 15px 0;
+
+    .fee {
+      background-color: $clouds;
+      @include border-radius(8px);
+      display: inline-block;
+      padding: 10px 15px;
+      width: 348px;
+      margin-left: 15px;
+      margin-bottom: 15px;
+      text-align: center;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      .description {
+        @include border-radius(0);
+        background-color: transparent;
+        padding: 5px 15px;
+        text-transform: uppercase;
+        font-size: 13px;
+        color: $concrete;
+      }
+
+      .amount {
+        font-size: 36px;
+        padding: 0 0 20px;
+        font-weight: normal;
+
+        .dollar {
+          font-size: 16px;
+          color: $nephritis;
+          vertical-align: 12px;
+        }
+      }
+
+      .btn-copy-container {
+        position: relative;
+        display: block;
+        // overflow: hidden;
+        height: 50px;
+        width: 100%;
+
+        // disable css animation here
+        .btn, .btn-content {
+          -moz-transition: none;
+          -webkit-transition: none;
+          -o-transition: none;
+          transition: none;
+        }
+
+        .btn {
+          position: absolute;
+          left: 0;
+        }
+
+        .btn-copied { top: 0; }
+        .btn-copy { top: -50px; }
+
+        .btn-content {
+          position: absolute;
+          left: 30px;
+        }
+
+        .btn-content-copied { top: 0; }
+        .btn-content-copy { top: -50px; }
+      }
+
+      .copy-to-clipboard {
+        position: relative;
+        overflow: hidden;
+
+        .copied {
+          position: absolute;
+          background-color: $emerland;
+          color: white;
+          top: 0;
+          left: -348px;
+          -moz-transition: none;
+          -webkit-transition: none;
+          -o-transition: color 0 ease-in;
+          transition: none;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Popovers
+ */
+.popover {
+  color: #333;
+  background-color: transparent;
+  border: 0px solid $green-sea;
+  padding: 0;
+
+  p { margin: 0; }
+
+  .popover-title {
+    display: none;
+  }
+
+  .popover-content {
+    background-color: $clouds;
+    @include border-radius(5px);
+  }
+
+  input {
+    background-color: white;
+    border-color: $silver;
+    // margin: -10px -15px;
+    margin-bottom: 0;
+    color: $midnight-blue;
+    width: 146px;
+    padding: 4px 5px;
+
+    &::-webkit-input-placeholder,  /* WebKit browsers */
+    &:-moz-placeholder,  /* Mozilla Firefox 4 to 18 */
+    &::-moz-placeholder,  /* Mozilla Firefox 19+ */
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $silver;
+    }
+  }
+
+  button {
+    margin-left: 3px;
+  }
+
+  ul {
+    margin: -10px -15px;
+    @include border-radius(5px);
+    overflow: hidden;
+    background-color: $clouds;
+    min-width: 80px;
+
+    li {
+      list-style: none;
+      // display: inline;
+
+      // rounded top corners
+      &:first-child {
+        span, a {
+          @include border-radius(5px 5px 0 0);
+        }
+      }
+
+      // rounded bottom corners
+      &:last-child {
+        span, a {
+          @include border-radius(0 0 5px 5px);
+        }
+      }
+
+      span, a {
+        display: block;
+        padding: 8px 13px;
+      }
+
+      a {
+        background-color: transparent;
+        color: $wet-asphalt;
+        text-decoration: none;
+
+        &:hover { background-color: $silver; }
+      }
+
+      span {
+        background-color: $clouds;
+        color: $silver;
+      }
+    }
+  }
+
+  // arrow
+  &.bottom {
+    .arrow:after {
+      border-bottom-color: $clouds;
+    }
+  }
+}
+
+
+/**
+ * Notifications
+ */
+#notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+
+  .notification {
+    background-color: $clouds;
+    color: $wet-asphalt;
+    display: inline-block;
+    padding: 10px;
+    @include border-radius(0 0 5px 5px);
+
+    .notification-dismiss {
+      color: $silver;
+      font-weight: bold;
+      margin-left: 3px;
+    }
+
+    &.notification-info {
+      background-color: $peter-river;
+      color: white;
+
+      .notification-dismiss {
+        color: $belize-hole;
+      }
+    }
+
+    &.notification-error {
+      background-color: $alizarin;
+      color: white;
+
+      .notification-dismiss {
+        color: $pomegranate;
+      }
+    }
+
+    &.notification-warning {
+      background-color: $sun-flower;
+      color: white;
+
+      .notification-dismiss {
+        color: $orange;
+      }
+    }
+
+    &.notification-success {
+      background-color: $emerland;
+      color: white;
+
+      .notification-dismiss {
+        color: $nephritis;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    i {
+      margin-right: 3px;
+    }
+  }
+}
+
+
+/**
+ * Misc
+ */
+.demo-headline {
+  padding: 60px 0 0px;
+  text-align: center;
+  small {
+    color: $silver;
+  }
+}
+footer {
+  background-color: transparent;
+  color: $silver;
+  text-align: center;
+  a {
+    color: $turquoise;
+    font-weight: normal;
+  }
+  .pipe {
+    color: $clouds;
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
+.muted {
+  color: $concrete;
+}
+.alert-error {
+  background-color: $alizarin;
+  border-color: $alizarin;
+  color: white;
+  text-shadow: 0 1px 0 $pomegranate;
+}
+.alert {
+  padding-bottom: 21px; // 14px
+  padding-top: 21px; // 14px
+}
+footer {
+  margin-bottom: 50px;
+}
+
+// add bottom border to buttons
+.btn {
+  border-bottom: 2px solid $midnight-blue;
+
+  &.btn-primary {
+    border-bottom-color: $green-sea;
+  }
+
+  &.btn-info {
+    border-bottom-color: $belize-hole;
+  }
+
+  &.btn-success {
+    border-bottom-color: $nephritis;
+  }
+
+  &.btn-danger {
+    border-bottom-color: $pomegranate;
+  }
+
+  &.btn-warning {
+    border-bottom-color: $orange;
+  }
+}
+
+.close-fee {
+  cursor: pointer;
+}

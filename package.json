@@ -1,20 +1,21 @@
 {
-  "name": "fee-finder-org",
-  "version": "1.0.0",
+  "name": "feefinder",
+  "version": "0.2.1",
   "dependencies": {
     "express": "3.1.0",
     "mongoose": "3.5.7"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-regarde": "~0.1.1",
-    "grunt-develop": "0.0.2",
-    "grunt-contrib-compass": "~0.2.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-livereload": "~0.1.2"
-  },
-  "engines": {
-    "node": "0.10.0",
-    "npm": "1.2.12"
+    "gulp-util": "~2.2.12",
+    "gulp": "~3.4.0",
+    "coffee-script": "~1.6.3",
+    "gulp-coffee": "~1.2.5",
+    "gulp-concat": "~2.1.7",
+    "gulp-clean": "~0.2.4",
+    "event-stream": "~3.1.0",
+    "gulp-uglify": "~0.1.0",
+    "gulp-notify": "~0.3.4-2",
+    "gulp-coffeelint": "~0.1.2",
+    "gulp-bower": "0.0.2"
   }
 }
