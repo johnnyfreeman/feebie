@@ -1,11 +1,11 @@
-FF.Views.NotificationItem = Marionette.ItemView.extend(
+window.FF.Views.Notification = Marionette.ItemView.extend(
   className: 'notification'
   tagName: 'li'
   template: (options) ->
-    _.template $('#tplNotificationItem').html(), options
+    _.template $('#tplNotification').html(), options
 
   
-  # template: '#tplNotificationItem',
+  # template: '#tplNotification',
   events:
     'click .notification-dismiss': 'dismissOnClick'
 

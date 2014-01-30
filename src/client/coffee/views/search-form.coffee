@@ -1,4 +1,4 @@
-FF.Views.SearchFormItem = Marionette.ItemView.extend(
+window.FF.Views.SearchForm = Marionette.ItemView.extend(
   template: '#tplSearchForm'
   id: 'search'
   events:
@@ -16,7 +16,7 @@ FF.Views.SearchFormItem = Marionette.ItemView.extend(
 
   navigateToCode: (e) ->
     e.preventDefault()
-    FF.router.navigate @ui.textbox.val(),
+    window.FF.router.navigate @ui.textbox.val(),
       trigger: true
 
     return

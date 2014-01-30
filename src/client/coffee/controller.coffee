@@ -1,4 +1,4 @@
-FF.Controller = Marionette.Controller.extend(
+window.FF.Controller = Marionette.Controller.extend(
   
   # initialize: function() {
   
@@ -8,14 +8,14 @@ FF.Controller = Marionette.Controller.extend(
     return
 
   displaySearch: (options) ->
-    FF.mainRegion.show new FF.Views.SearchFormItem(options)
+    window.FF.mainRegion.show new window.FF.Views.SearchForm(options)
     return
 
   lookUpCode: (code) ->
-    codeModel = new FF.Models.Code(code: code.toUpperCase())
+    codeModel = new window.FF.Models.Code(code: code.toUpperCase())
     response = codeModel.fetch()
     response.done ->
-      FF.mainRegion.show new FF.Views.Code(model: codeModel)
+      window.FF.mainRegion.show new window.FF.Views.Code(model: codeModel)
       return
 
     response.fail _.bind(@displayAlert, this,
@@ -26,8 +26,8 @@ FF.Controller = Marionette.Controller.extend(
 
   displayAlert: (options) ->
     options = options or {}
-    notificationView = new FF.Views.NotificationItem(options)
+    notificationView = new window.FF.Views.Notification(options)
     options['timeoutId'] = setTimeout(_.bind(notificationView.navigateToSearch, notificationView), 5000)
-    FF.mainRegion.show notificationView
+    window.FF.mainRegion.show notificationView
     return
 )

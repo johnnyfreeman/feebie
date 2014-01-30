@@ -1,7 +1,7 @@
 ###
 Fee Finder Application
 ###
-FF = new Marionette.Application(
+window.FF = new Marionette.Application(
   
   # architecture namespaces
   Collections: {}
@@ -31,7 +31,7 @@ FF = new Marionette.Application(
   # String Helpers
   String:
     toMoney: (string) ->
-      FF.Number.toMoney parseFloat(string)
+      window.FF.Number.toMoney parseFloat(string)
 
     fromMoney: (string) ->
       string.replace ',', ''

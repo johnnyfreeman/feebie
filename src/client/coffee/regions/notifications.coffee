@@ -1,4 +1,4 @@
-FF.Regions.Notifications = Marionette.Region.extend(el: '#notifications')
+window.FF.Regions.Notifications = Marionette.Region.extend(el: '#notifications')
 
 # open: function(view) {
 #   this.$el.html(view.el);

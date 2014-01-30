@@ -1,34 +1,29 @@
 ###
-HTTP Server for the Fee Finder API
-------------------------------------------------------
-To start/stop this server, go to the
-/var/www/fee-finder/server directory on the
-VO-WEB-DEV server and run this command:
-
-forever start api.js
-forever stop api.js
-
-@author  Johnny Freeman
+Fee Finder API
 ###
 
-express = require('express')
-app = express()
-server = require('http').createServer(app)
-server.listen 81
-
-###
-MongoDB Connection
-###
-
+# load modules
+express = require 'express'
 mongoose = require('mongoose')
-mongoose.connect '192.168.37.31', 'fee_finder_2014'
-db = mongoose.connection
-db.on 'error', console.error.bind(console, 'Failed connecting to MongoDB:')
-db.once 'open', console.log.bind(console, 'Successfully connected to MongoDB.')
+
+# create app
+module.exports = app = express()
+
+app.use (req, res, next) ->
+  res.header 'Access-Control-Allow-Origin', '*'
+  res.header 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'
+  res.header 'Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With'
+
+  # intercept OPTIONS method
+  if 'OPTIONS' == req.method
+    res.send 200
+  else
+    next()
 
 ###
 Mongoose Models
 ###
+ObjectId = mongoose.Schema.ObjectId
 
 Code = mongoose.model('codes', mongoose.Schema(
   code: String
@@ -40,7 +35,9 @@ Fee = mongoose.model('fees', mongoose.Schema(
   modifier2: String
   fac: Boolean
   quantity: Number
-  codeId: mongoose.Schema.ObjectId # mongo ObjectId
+  codeId:
+    type: ObjectId
+    ref: 'Code'
   year: Number
   categoryId: String
   amount: Number
@@ -55,10 +52,19 @@ ROUTES
 app.get '/', (req, res) ->
   res.send 'The Fee Finder API server is up and running. :)'
 
-# Get a single fee
+# Get a single code
 app.get '/code/:code', (req, res) ->
-  Code.findOne {code: req.params.code}, (err, fee) ->
-    unless err
-      res.send fee
-    else
-      res.send err
+  
+  Code.findOne {code: req.params.code}, (err, code) ->
+    res.send err if err
+
+    Fee.find {codeId: code._id}, (err, fees) ->
+      res.send err if err
+      
+      code = code.toObject()
+
+      # save fee object
+      code['fees'] = fees
+
+      # output
+      res.send code

@@ -2,26 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Fee Finder &mdash; A Medicare fee schedule lookup service.</title>
-
-    <!-- Loading Bootstrap -->
-    <!-- <link href="assets/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet"> -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <!-- font-awesome -->
-    <!-- <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+    <title>Feebie &mdash; A Medicare fee schedule lookup engine.</title>
 
     <!-- Loading Flat UI -->
-    <link href="assets/flat-ui/css/flat-ui.css" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/flat-ui/images/favicon.ico">
+    <link rel="shortcut fa fa" href="assets/flat-ui/images/favfa fa.ico">
 
     <!-- app -->
-    <link href="assets/app/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <link href="assets/app/css/print.css" media="print" rel="stylesheet" type="text/css" />
-
-    <!--[if IE]>
-        <link href="assets/app/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-    <![endif]-->
+    <link href="css/vendor.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="css/app.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
@@ -34,13 +22,13 @@
       <!-- brand -->
       <div class="demo-headline">
         <h1 class="demo-logo">
-          Fee Finder
-          <small>A fee schedule lookup service.</small>
+        <!-- <img class="" src="../img/logo.png" alt=""> -->
+          Feebie <small>A fee schedule lookup engine. Not <a href="http://en.wikipedia.org/wiki/Phoebe_Buffay">Phoebe</a>.</small>
         </h1>
       </div> <!-- /end brand -->
 
       <div class="row mtl">
-        <div class="span12">
+        <div class="col-xs-12">
 
           <!-- main region -->
           <div id="main"></div>
@@ -50,26 +38,26 @@
       </div>
 
       <!-- footer -->
-      <footer class="mtl">Made with <i class="icon-heart"></i>, coffee, and <a href="http://en.wikipedia.org/wiki/JavaScript">javascript</a>.<!-- A <a href="http://hostedsky.com/">HostedSky</a> product. <span class="pipe">|</span> <a href="buy">Buy a licence</a> <span class="pipe">|</span> <a href="help">Help</a> --> <span class="pipe">|</span> Version 0.2.1</footer>
+      <footer class="mtl">Made with <i class="fa fa-heart"></i> and <a href="http://en.wikipedia.org/wiki/CoffeeScript">coffeescript</a>.<!-- A <a href="http://hostedsky.com/">HostedSky</a> product. <span class="pipe">|</span> <a href="buy">Buy a licence</a> <span class="pipe">|</span> <a href="help">Help</a> --> <span class="pipe">|</span> Version 0.2.1</footer>
 
       <ul id="notifications">
         <!-- <li class="notification notification-info">
-          <i class="icon-info-sign"></i>
+          <i class="fa fa-info-sign"></i>
           Co-Insurance has been changed to <em>20%</em>.
           <a class="notification-dismiss" href="#">&times;</a>
         </li>
         <li class="notification notification-error">
-          <i class="icon-exclamation-sign"></i>
+          <i class="fa fa-exclamation-sign"></i>
           Something has gone <em>wrong</em>.
           <a class="notification-dismiss" href="#">&times;</a>
         </li>
         <li class="notification notification-warning">
-          <i class="icon-warning-sign"></i>
+          <i class="fa fa-warning-sign"></i>
           Are you <em>sure</em>?
           <a class="notification-dismiss" href="#">&times;</a>
         </li>
         <li class="notification notification-success">
-          <i class="icon-check-sign"></i>
+          <i class="fa fa-check-sign"></i>
           Your changes have been <em>saved</em>.
           <a class="notification-dismiss" href="#">&times;</a>
         </li> -->
@@ -77,88 +65,71 @@
 
     </div> <!-- /container -->
 
-    <script id="tplNotificationItem" type="text/template">
-      <i class="<%= iconClass %>"></i>
+    <script id="tplNotification" type="text/template">
+      <i class="<%= fa faClass %>"></i>
       <%= message %>
       <a class="notification-dismiss" href="#">&times;</a>
     </script>
 
     <script id="tplCode" type="text/template">
       <div class="header">
-        <i class="close-fee icon-remove-sign pull-right"></i>
+        <i class="close-fee fa fa-remove-sign pull-right"></i>
         <h1><%= code %> <small><%= description %></small></h1>
       </div>
     </script>
 
-    <script id="tplOptionsItem" type="text/template">
-        <div class="option fac-option">
-          <span class="">Location: <a class="popover-trigger" href="#"><%= fac %></a></span>
-        </div>
-        <div class="option coinsurance-option">
-          <span class="">Co-Ins: <a class="popover-trigger" href="#"><%= coInsuranceMultiplier %>%</a></span>
-        </div>
-        <div class="option quantity-option">
-          <span class="">Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
-        </div>
-        <div class="option modifier1-option">
-          <span class="">Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
-        </div>
-        <div class="option modifier2-option">
-          <span class="">Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
-        </div>
+    <script id="tplOptions" type="text/template">
+      <div class="option fac-option">
+        <span class="">Location: <a class="popover-trigger" href="#"><%= fac %></a></span>
+      </div>
+      <div class="option coinsurance-option">
+        <span class="">Co-Ins: <a class="popover-trigger" href="#"><%= coInsuranceMultiplier %>%</a></span>
+      </div>
+      <div class="option quantity-option">
+        <span class="">Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
+      </div>
+      <div class="option modifier1-option">
+        <span class="">Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
+      </div>
+      <div class="option modifier2-option">
+        <span class="">Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
+      </div>
     </script>
 
-    <script id="tplFeesItem" type="text/template">
-      <div class="fee">
-        <div class="description">Medicare Allowable</div>
-        <h2 class="amount"><span class="dollar">$</span><%= allowable %></h2>
-        <button class="btn btn-large btn-block btn-primary copy-to-clipboard">
-          <i class="icon-copy"></i>&nbsp;Copy to Clipboard
-          <span class="btn btn-large btn-block btn-primary copied"><i class="icon-ok"></i>&nbsp;Copied to Clipboard</span>
-        </button>
-      </div>
-      <div class="fee">
-        <div class="description"><%= coInsuranceMultiplier %>% Co-Insurance</div>
-        <h2 class="amount"><span class="dollar">$</span><%= coInsurance %></h2>
-        <button class="btn btn-large btn-block btn-primary copy-to-clipboard">
-          <i class="icon-copy"></i>&nbsp;Copy to Clipboard
-          <span class="btn btn-large btn-block btn-primary copied"><i class="icon-ok"></i>&nbsp;Copied to Clipboard</span>
-        </button>
-      </div>
-      <div class="fee">
-        <div class="description">Self Pay</div>
-        <h2 class="amount"><span class="dollar">$</span><%= selfPay %></h2>
-        <button class="btn btn-large btn-block btn-primary copy-to-clipboard">
-          <i class="icon-copy"></i>&nbsp;Copy to Clipboard
-          <span class="btn btn-large btn-block btn-primary copied"><i class="icon-ok"></i>&nbsp;Copied to Clipboard</span>
-        </button>
-      </div>
+    <script id="tplFee" type="text/template">
+      <div class="description"><%= category %></div>
+      <h2 class="amount"><span class="dollar">$</span><%= amount %></h2>
+      <button class="btn btn-large btn-block btn-primary copy-to-clipboard">
+        <i class="fa fa-copy"></i>&nbsp;Copy to Clipboard
+        <span class="btn btn-large btn-block btn-primary copied"><i class="fa fa-ok"></i>&nbsp;Copied to Clipboard</span>
+      </button>
     </script>
 
 
     <script id="tplSearchForm" type="text/template">
       <form action="" method="get">
-        <input type="text" value="" placeholder="Type a cpt code and press enter..." class="span12" />
-        <i class="icon-search"></i>
+        <input type="text" value="" placeholder="Type a cpt code and press enter..." class="col-xs-12" />
+        <i class="fa fa-search"></i>
       </form>
     </script>
 
-    <script src="assets/app/js/fee-finder-org.min.js"></script>
+    <script src="js/vendors.js"></script>
+    <script src="js/app.js"></script>
     <script>
-      // FF global is created in application.js
+      // FF global is created in application.coffee
 
-      FF.addInitializer(function() {
-        FF.controller = new FF.Controller();
-        FF.router = new FF.Router({controller: FF.controller});
-        FF.mainRegion = new FF.Regions.Main();
-        FF.notificationsRegion = new FF.Regions.Notifications();
+      window.FF.addInitializer(function() {
+        window.FF.controller = new window.FF.Controller();
+        window.FF.router = new window.FF.Router({controller: window.FF.controller});
+        window.FF.mainRegion = new window.FF.Regions.Main();
+        window.FF.notificationsRegion = new window.FF.Regions.Notifications();
       });
 
-      FF.on('initialize:after', function() {
+      window.FF.on('initialize:after', function() {
         Backbone.history.start({pushState: true});
       });
 
-      FF.start();
+      window.FF.start();
     </script>
 
     <!-- Google Analytics -->

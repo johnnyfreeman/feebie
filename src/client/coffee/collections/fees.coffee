@@ -1,30 +1,22 @@
-FF.Collections.Fees = Backbone.Collection.extend(
-  model: FF.Models.Fees
-  config: {}
-  activeFees: null
-  initialize: ->
-    that = this
-    @config =
-      coInsuranceMultiplier: .2
-      selfPayMultiplier: 1.2
+window.FF.Collections.Fees = Backbone.Collection.extend(
+  
+  # model
+  model: window.FF.Models.Fee
 
-    
-    # on fees reset, recalculate the fees
-    @listenTo this, 'reset', ->
-      that.setActiveFees that.at(0), true
-      return
+  # filter by model value
+  filterBy: (name, value) ->
+    filtered = @filter (model) ->
+      model.get(name) == value
 
-    return
+    # return new filtered collection
+    new window.FF.Collections.Fees filtered
 
-  setActiveFees: (model, silence) ->
-    silence = false  if typeof silence is 'undefined'
-    @activeFees = model
-    @trigger 'change:activeFees'  unless silence
-    return
+  # filter by year
+  byYear: (year) ->
+    @filterBy 'year', year
 
-  setCoInsurance: (multiplier, silence) ->
-    silence = false  if typeof silence is 'undefined'
-    @config.coInsuranceMultiplier = multiplier / 100
-    @trigger 'change:config:coInsuranceMultiplier'  unless silence
-    return
+  # filter by year
+  byFac: (fac) ->
+    @filterBy 'fac', fac
+
 )

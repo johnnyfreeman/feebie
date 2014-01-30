@@ -1,42 +1,23 @@
 ###
-HTTP (Node.js) Server for the 2013 Fee Finder
-------------------------------------------------------
-To start/stop this server, go to the /var/www/fee-finder
-directory on the VO-WEB-DEV server and run this
-command:
-
-forever start dist/server/app.js
-forever stop dist/server/app.js
-
-@author  Johnny Freeman
+Fee Finder app
 ###
 
+# load modules
+express = require 'express'
+fs = require 'fs'
 
-express = require('express')
-app = express()
-server = require('http').createServer(app)
-# io = require('socket.io').listen(server)
-fs = require('fs')
-server.listen 80
+# create app
+module.exports = app = express()
 
+# status files
+app.use express.static(__dirname + '/../client')
 
-###
-STATIC FILES
-###
-app.use '/assets', express.static(__dirname + '/../../public/assets')
-
-
-###
-ROUTES
-----------------------------------------------------
-Here are all of the public facing routes.
-###
-
+# index controller
 indexController = (req, res) ->
-  fs.readFile 'public/index.html', (err, html) ->
+  fs.readFile 'dist/client/index.html', (err, html) ->
     throw err  if err
     res.send html.toString('utf8')
 
-# Main routes for our single page app
+# Main routes
 app.get '/', indexController
 app.get '/:code', indexController

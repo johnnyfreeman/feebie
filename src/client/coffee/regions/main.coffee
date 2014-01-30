@@ -1,4 +1,4 @@
-FF.Regions.Main = Marionette.Region.extend(
+window.FF.Regions.Main = Marionette.Region.extend(
   el: '#main'
   open: (view) ->
     @$el.html view.el
