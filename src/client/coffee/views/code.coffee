@@ -26,8 +26,14 @@ window.FF.Views.Code = Marionette.ItemView.extend(
       $('.popover-trigger').popover 'hide'  if $target.closest('.popover').length is 0 and $target.hasClass('popover-trigger') is false
       return
 
-    @optionsView = new window.FF.Views.Options
-    @feesView = new window.FF.Views.Fees collection: @model.fees
+    # build options list of available options based on
+    # the current this.model.fees collection
+    optionsModel = new window.FF.Models.Options
+    optionsModel.parseFees @model.get('fees')
+    @optionsView = new window.FF.Views.Options model: optionsModel
+
+    # build fees collection view
+    @feesView = new window.FF.Views.Fees collection: @model.get('fees')
     # @listenTo @model.feesCollection, 'change:activeFees', _.bind(@renderChildViews, this)
     return
 
@@ -41,7 +47,7 @@ window.FF.Views.Code = Marionette.ItemView.extend(
   # after rendering title, description, and config...
   onRender: (codeView) ->
     @$el.append @optionsView.render().el
-    # @$el.append @feesView.render().el
+    @$el.append @feesView.render().el
     # return
 
   # renderChildViews: ->

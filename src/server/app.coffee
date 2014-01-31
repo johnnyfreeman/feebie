@@ -14,7 +14,7 @@ app.use express.static(__dirname + '/../client')
 
 # index controller
 indexController = (req, res) ->
-  fs.readFile 'dist/client/index.html', (err, html) ->
+  fs.readFile 'public/client/index.html', (err, html) ->
     throw err  if err
     res.send html.toString('utf8')
 

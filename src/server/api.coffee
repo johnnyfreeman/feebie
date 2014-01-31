@@ -9,6 +9,7 @@ mongoose = require('mongoose')
 # create app
 module.exports = app = express()
 
+# allow CORS
 app.use (req, res, next) ->
   res.header 'Access-Control-Allow-Origin', '*'
   res.header 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'

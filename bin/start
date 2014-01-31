@@ -1,25 +1,27 @@
 #!/usr/bin/env coffee
 
-# get servers
-server = require '../dist/server'
-api = server.api
-app = server.app
+# load modules
+spawn = require('child_process').spawn
 
-# remove command from arguments
+# remove first two item from arguments array
 args = process.argv
 args.shift()
 args.shift()
 
-# add path to server
-args.push './dist/server/index.js'
+# add path to server to arguments
+args.push './public/server/index.js'
 
-server = require('child_process').spawn 'node', args
+# launch child process for node server
+server = spawn 'node', args
 
+# on stdout data
 server.stdout.on 'data', (data) ->
   console.log 'stdout: ' + data
 
+# on stderr data
 server.stderr.on 'data', (data) ->
   console.log 'stderr: ' + data
 
+# on process close
 server.on 'close', (code) ->
   console.log 'child process exited with code ' + code

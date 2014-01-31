@@ -16,23 +16,23 @@ CLEAN
 **************************
 ###
 
-# dist
-gulp.task 'clean:dist', ->
-  gulp.src('./dist/**/*.{js,css}')
+# public
+gulp.task 'clean:public', ->
+  gulp.src('./public')
     .pipe(clean())
 
 # bower
 gulp.task 'clean:bower', ->
-  gulp.src(['./bower_components/**/*'])
+  gulp.src(['./bower_components'])
     .pipe(clean())
 
 # npm
 gulp.task 'clean:npm', ->
-  gulp.src('./node_modules/**/*')
+  gulp.src('./node_modules')
     .pipe(clean())
 
 # all
-gulp.task 'clean', ['clean:dist', 'clean:bower', 'clean:npm']
+gulp.task 'clean', ['clean:public', 'clean:bower', 'clean:npm']
 
 
 ###
@@ -83,37 +83,44 @@ BUILD
 ###
 
 # build source files
-gulp.task 'build', ['clean:dist'], ->
+gulp.task 'build', ['clean:public'], ->
 
   ###
-  IMAMGES
+  HTML
   ###
 
-  appImages = gulp.src('./src/client/img/*')
-    .pipe(gulp.dest('./dist/client/img'))
+  appHtml = gulp.src('./src/client/index.html')
+  .pipe(gulp.dest('./public/client'))
+
+  ###
+  IMAGES
+  ###
+
+  appImages = gulp.src(['./src/client/img/**/*', './bower_components/flat-ui/images/**/*'])
+  .pipe(gulp.dest('./public/client/img'))
 
   ###
   FONTS
   ###
 
   vendorFonts = gulp.src('./bower_components/font-awesome/fonts/*')
-    .pipe(gulp.dest('./dist/client/fonts'))
+  .pipe(gulp.dest('./public/client/fonts'))
 
   ###
   CSS
   ###
 
   appCss = gulp.src('./src/client/styl/**/*.styl')
-    .pipe(stylus())
-    .pipe(gulp.dest('./dist/client/css'))
+  .pipe(stylus())
+  .pipe(gulp.dest('./public/client/css'))
 
   vendorCss = gulp.src([
-      './bower_components/bootstrap/dist/css/bootstrap.css',
-      './bower_components/font-awesome/css/font-awesome.css',
-      './bower_components/flat-ui/css/flat-ui.css'
-    ])
-    .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('./dist/client/css'))
+    './bower_components/bootstrap/dist/css/bootstrap.css',
+    './bower_components/font-awesome/css/font-awesome.css',
+    './bower_components/flat-ui/css/flat-ui.css'
+  ])
+  .pipe(concat('vendors.css'))
+  .pipe(gulp.dest('./public/client/css'))
 
   ###
   JAVASCRIPT
@@ -125,6 +132,7 @@ gulp.task 'build', ['clean:dist'], ->
     './src/client/coffee/models/code.coffee',
     './src/client/coffee/models/fee.coffee',
     './src/client/coffee/models/notification.coffee',
+    './src/client/coffee/models/options.coffee',
     './src/client/coffee/collections/fees.coffee',
     './src/client/coffee/collections/notifications.coffee',
     './src/client/coffee/regions/main.coffee',
@@ -142,7 +150,7 @@ gulp.task 'build', ['clean:dist'], ->
   .pipe(coffee({bare: true}).on('error', gutil.log))
   .pipe(concat('app.js'))
   # .pipe(uglify())
-  .pipe(gulp.dest('./dist/client/js/'))
+  .pipe(gulp.dest('./public/client/js/'))
 
   vendorsJs = gulp.src([
     './bower_components/jquery/jquery.min.js',
@@ -158,35 +166,44 @@ gulp.task 'build', ['clean:dist'], ->
   ])
   .pipe(concat('vendors.js'))
   .pipe(uglify())
-  .pipe(gulp.dest('./dist/client/js/'))
+  .pipe(gulp.dest('./public/client/js/'))
 
 
   # server
   serverJs = gulp.src('./src/server/**/*.coffee')
-    .pipe(coffee().on('error', gutil.log))
-    .pipe(uglify())
-    .pipe(gulp.dest('./dist/server/'))
+  .pipe(coffee({bare: true}).on('error', gutil.log))
+  # .pipe(uglify())
+  .pipe(gulp.dest('./public/server/'))
 
   ###
   NOTIFY
   ###
 
   # return concatenated server and client streams
-  eventStream.merge(appImages, vendorFonts, appCss, vendorCss, vendorsJs, appJs, serverJs)
-    .pipe(notify({title: 'Gulp', message: 'Build complete, sir.', onLast: true}))
+  eventStream.merge(
+    appHtml, 
+    appImages, 
+    vendorFonts, 
+    appCss, 
+    vendorCss, 
+    vendorsJs, 
+    appJs, 
+    serverJs
+  )
+  .pipe(notify({title: 'Gulp', message: 'Build complete, sir.', onLast: true}))
 
 
 
 # start watch server
 gulp.task 'watch', ->
   # source files
-  gulp.watch ['./src/**/*.coffee', './src/client/styl/**/*.styl'], ->
+  gulp.watch ['./src/**/*.coffee', './src/client/styl/**/*.styl', './src/client/index.html', './src/client/img/*'], ->
     gulp.run 'build'
   # bower
   gulp.watch './bower.json', ->
     gulp.run 'bower'
   # # http servers
-  # gulp.watch './dist/server/**/*', ->
+  # gulp.watch './public/server/**/*', ->
   #   gulp.run 'restart'
 
 # default task

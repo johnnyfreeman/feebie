@@ -1,1 +1,0 @@
-(function(){var e,t,i,r;t=require("express"),i=require("fs"),module.exports=e=t(),e.use(t["static"](__dirname+"/../client")),r=function(e,t){return i.readFile("dist/client/index.html",function(e,i){if(e)throw e;return t.send(i.toString("utf8"))})},e.get("/",r),e.get("/:code",r)}).call(this);

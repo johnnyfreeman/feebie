@@ -25,8 +25,6 @@ window.FF.Models.Code = Backbone.Model.extend(
       # nothing is actually being changed
       fees = new window.FF.Collections.Fees obj.fees
 
-      fees = fees.byYear '2014'
-
       # save
       model.set 'fees', fees, {silent: true}
 )

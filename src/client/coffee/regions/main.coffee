@@ -1,21 +1,25 @@
 window.FF.Regions.Main = Marionette.Region.extend(
   el: '#main'
-  open: (view) ->
-    @$el.html view.el
-    region = @$el[0]
-    $newChildren = @$el.children()
-    newHeight = 0
-    $newChildren.each ->
-      $this = $(this)
-      $this.css 'opacity', 0
-      newHeight = newHeight + $this.outerHeight()
-      TweenLite.to this, 1,
-        opacity: 1
+  # open: (view) ->
 
-      return
+  #   # region
+  #   $region = @$el
+  #   region = @el
 
-    TweenLite.to region, .5,
-      height: newHeight
+  #   # new content
+  #   $newContent = view.$el.css 'opacity', 0
+  #   newContent = view.el
 
-    return
+  #   # replace old content with new
+  #   # content and get heighth
+  #   $region.html newContent
+  #   newRegionHeight = $newContent.outerHeight()
+
+  #   # fade in
+  #   TweenLite.to newContent, 1,
+  #       opacity: 1
+
+  #   # animate region height
+  #   TweenLite.to region, .5,
+  #     height: newRegionHeight
 )

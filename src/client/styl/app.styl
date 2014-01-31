@@ -34,7 +34,6 @@ asbestos = #7F8C8D     // dark gray
 options-arrow-size 8px
 
 #main
-  margin 30px 0
   overflow hidden
   height 0px
 
@@ -43,24 +42,25 @@ options-arrow-size 8px
  */
 #search
   position relative
+  overflow hidden
 
   .fa-search
     color wet-asphalt
     font-size 28px
     position absolute
-    top 15px
+    top 242px
     right 20px
 
   input
     font-size 20px
     height 60px
-    margin 0
 
     &:-webkit-input-placeholder
       color silver
 
     &:focus, &:active
       outline none
+      border-color turquoise
 
 
 
@@ -68,7 +68,7 @@ options-arrow-size 8px
  * Fee Finder
  */
 #code
-  color wet-asphalt
+  color midnight-blue
   text-align left
   position relative
 
@@ -81,39 +81,39 @@ options-arrow-size 8px
     border-radius(8px)
 
     h1
-      margin-left 12px
       color wet-asphalt
+      font-size 60px
       margin-top 0
 
       small
         color concrete
 
-    .fa-remove-circle,
-    .fa-remove-sign
+    .fa-times-circle,
+    .fa-times-circle-o
       margin-top 2px
       margin-right 17px
       font-size 36px
     
-    .fa-remove-sign
-      color alizarin
+    .fa-times-circle-o
+      color pomegranate
 
-    .fa-remove-circle
+    .fa-times-circle
       color clouds
 
 
   /**
    * Configuration
    */
-  config-spacing 30px
-  config-bg wet-asphalt
+  config-spacing = 30px
+  config-bg = wet-asphalt
 
   .options
-    border-radius(8px)
+    border-radius 4px
     background-color config-bg
     color white
     list-style none
     margin 0px
-    padding 20px 15px
+    padding 15px
     position relative
 
     // options arrow
@@ -156,11 +156,11 @@ options-arrow-size 8px
     margin 15px 0
 
     .fee
-      background-color clouds
-      border-radius(8px)
+      background-color #f8f8f8
+      border-radius 4px
       display inline-block
       padding 10px 15px
-      width 348px
+      width 250px
       margin-left 15px
       margin-bottom 15px
       text-align center
@@ -171,14 +171,14 @@ options-arrow-size 8px
       .description
         border-radius(0)
         background-color transparent
-        padding 5px 15px
+        padding 0px 15px 20px
         text-transform uppercase
         font-size 13px
         color concrete
 
       .amount
         font-size 36px
-        padding 0 0 20px
+        padding 0
         font-weight normal
 
         .dollar
@@ -374,11 +374,27 @@ options-arrow-size 8px
 /**
  * Misc
  */
-.demo-headline
-  padding 60px 0 0px
-  text-align center
+
+
+#header
+  padding 40px 0 30px
+
+  img
+    max-width 13px
+    vertical-align 0
+    margin-right 2px
+
+  &.demo-headline
+    padding 40px 0 30px
+    text-align center
+    img
+      max-width 65px
+      margin-right 5px
+  
   small
     color silver
+    a
+      color silver
 
 footer
   background-color transparent
@@ -429,7 +445,3 @@ footer
 
 .close-fee
   cursor pointer
-
-.demo-logo
-  a
-    color silver
