@@ -18,7 +18,7 @@ appServer = http.createServer app
 
 # connect to db when api server starts
 apiServer.once 'listening', ->
-  db.connect '192.168.37.31', 'fee_finder_2014'
+  db.connect 'localhost', 'feebie'
 
 # db log messages
 db.connection.on 'error', console.error.bind(console, 'Failed connecting to MongoDB:')
