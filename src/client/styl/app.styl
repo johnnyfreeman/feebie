@@ -16,26 +16,30 @@ belize-hole = #2980B9  // dark blue
 amethyst = #9B59B6     // purple
 wisteria = #8E44AD     // dark purple
 wet-asphalt = #34495E  // dark blue
-midnight-blue = #2C3E50// extra dark blue
+midnight-blue = #444// extra dark blue
 sun-flower = #F1C40F   // yellow
 orange = #F39C12       // dark yellow
 carrot = #E67E22       // orange
 pumpkin = #D35400      // dark orange
 alizarin = #E74C3C     // red
 pomegranate = #C0392B  // dark red
-clouds = #ECF0F1       // light gray
-silver = #BDC3C7       // silver
-concrete = #95A5A6     // gray
-asbestos = #7F8C8D     // dark gray
+clouds = #eee       // light gray
+silver = #bbb       // silver
+concrete = #999     // gray
+asbestos = #777     // dark gray
 
-/**
- * Arrows
- */
-options-arrow-size 8px
+// options
+optionsArrowSize = 8px
 
-#main
-  overflow hidden
-  height 0px
+// general
+borderRadius = 4px
+
+body
+  background-color #F5F1E8
+
+// #main
+//   overflow hidden
+//   height 0px
 
 /**
  * Search box
@@ -45,13 +49,14 @@ options-arrow-size 8px
   overflow hidden
 
   .fa-search
-    color wet-asphalt
+    color #444
     font-size 28px
     position absolute
     top 242px
     right 20px
 
   input
+    border-color #e5dbc5
     font-size 20px
     height 60px
 
@@ -60,7 +65,7 @@ options-arrow-size 8px
 
     &:focus, &:active
       outline none
-      border-color turquoise
+      border-color #298ACC
 
 
 
@@ -72,17 +77,16 @@ options-arrow-size 8px
   text-align left
   position relative
 
-
   /**
    * Header
    */
   .header
     margin-bottom 15px
-    border-radius(8px)
+    border-radius borderRadius
 
     h1
-      color wet-asphalt
-      font-size 60px
+      color #444
+      font-size 40px
       margin-top 0
 
       small
@@ -105,10 +109,10 @@ options-arrow-size 8px
    * Configuration
    */
   config-spacing = 30px
-  config-bg = wet-asphalt
+  config-bg = #262729
 
   .options
-    border-radius 4px
+    border-radius borderRadius
     background-color config-bg
     color white
     list-style none
@@ -120,12 +124,12 @@ options-arrow-size 8px
     &:before
       content ""
       border-style solid
-      border-width 0 options-arrow-size options-arrow-size options-arrow-size
+      border-width 0 optionsArrowSize optionsArrowSize optionsArrowSize
       border-color transparent transparent config-bg transparent
       height 0px
       position absolute
       left 53px
-      top -options-arrow-size
+      top -(optionsArrowSize)
       width 0px
       -webkit-transform rotate(360deg)
 
@@ -140,7 +144,7 @@ options-arrow-size 8px
         border-left none
 
     a
-      color turquoise
+      color #298ACC
 
     .faded
       color asbestos
@@ -156,8 +160,8 @@ options-arrow-size 8px
     margin 15px 0
 
     .fee
-      background-color #f8f8f8
-      border-radius 4px
+      background-color white
+      border-radius borderRadius
       display inline-block
       padding 10px 15px
       width 250px
@@ -169,7 +173,7 @@ options-arrow-size 8px
         margin-left 0
 
       .description
-        border-radius(0)
+        border-radius 0
         background-color transparent
         padding 0px 15px 20px
         text-transform uppercase
@@ -250,7 +254,7 @@ options-arrow-size 8px
 
   .popover-content
     background-color clouds
-    border-radius(5px)
+    border-radius borderRadius
 
   input
     background-color white
@@ -272,7 +276,7 @@ options-arrow-size 8px
 
   ul
     margin -10px -15px
-    border-radius(5px)
+    border-radius borderRadius
     overflow hidden
     background-color clouds
     min-width 80px
@@ -284,12 +288,12 @@ options-arrow-size 8px
       // rounded top corners
       &:first-child
         span, a
-          border-radius(5px 5px 0 0)
+          border-radius borderRadius borderRadius 0 0
 
       // rounded bottom corners
       &:last-child
         span, a
-          border-radius(0 0 5px 5px)
+          border-radius 0 0 borderRadius borderRadius
 
       span, a
         display block
@@ -329,7 +333,7 @@ options-arrow-size 8px
     color wet-asphalt
     display inline-block
     padding 10px
-    border-radius(0 0 5px 5px)
+    border-radius 0 0 borderRadius borderRadius
 
     .notification-dismiss
       color silver
@@ -374,8 +378,6 @@ options-arrow-size 8px
 /**
  * Misc
  */
-
-
 #header
   padding 40px 0 30px
 
@@ -385,8 +387,10 @@ options-arrow-size 8px
     margin-right 2px
 
   &.demo-headline
+    color #444
     padding 40px 0 30px
     text-align center
+
     img
       max-width 65px
       margin-right 5px
@@ -395,6 +399,8 @@ options-arrow-size 8px
     color silver
     a
       color silver
+
+
 
 footer
   background-color transparent
