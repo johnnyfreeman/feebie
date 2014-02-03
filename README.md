@@ -27,5 +27,5 @@ Start server
 # node public/server
 ``` 
 
-* The app runs at http://localhost:80/
-* The API runs at http://localhost:81/
+* The app runs at [localhost:80](http://localhost:80/)
+* The API runs at [localhost:81](http://localhost:81/)
