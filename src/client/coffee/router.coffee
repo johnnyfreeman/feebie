@@ -1,4 +1,4 @@
-window.FF.Router = Marionette.AppRouter.extend(
+window.FF.Router = Marionette.AppRouter.extend
   appRoutes:
     '': 'displaySearch'
     help: 'displayHelp'
@@ -12,4 +12,3 @@ window.FF.Router = Marionette.AppRouter.extend(
       fragment
     ]
     Marionette.AppRouter::navigate.call this, fragment, options
-)

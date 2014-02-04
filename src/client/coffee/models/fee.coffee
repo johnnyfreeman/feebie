@@ -1,46 +1,36 @@
-window.FF.Models.Fee = Backbone.Model.extend(
-  defaults: {}
+window.FF.Models.Fee = Backbone.Model.extend
   
-  # allowable: '',
-  # coInsurance: '',
-  # selfPay: '',
-  # fac: false,
-  # modifier1: '',
-  # modifier2: '',
-  # quantity: 1
-  initialize: ->
+  # Fee defaults
+  defaults:
+    hidden: true
 
-  
-    
-  #   # allowable
-  #   allowable = @get('allowable')
-  #   @set 'allowable', window.FF.Number.toMoney(allowable)
-    
-  #   # coinsurance
-  #   @calculateCoInsurance()
-    
-  #   # self pay
-  #   selfPay = (if @get('selfPay') is 'undefined' then allowable * @collection.config.selfPayMultiplier else @get('selfPay'))
-  #   @set 'selfPay', window.FF.Number.toMoney(selfPay)
-    
-  #   # fac
-  #   fac = @get('fac')
-  #   @set 'fac', (if fac then 'Facility' else 'Non-Facility')
-    
-  #   # modifier1
-  #   @set 'modifier1', 'none'  unless @get('modifier1')
-    
-  #   # modifier2
-  #   @set 'modifier2', 'none'  unless @get('modifier2')
-  #   @listenTo @collection, 'change:config:coInsuranceMultiplier', _.bind(@calculateCoInsurance, this)
-  #   return
+  show: () ->
+    @set 'hidden', false
 
-  # calculateCoInsurance: ->
-  #   newMultiplier = @collection.config.coInsuranceMultiplier
-  #   newValue = window.FF.Number.fromMoney(@get('allowable')) * newMultiplier
-  #   @set
-  #     coInsuranceMultiplier: parseInt(newMultiplier * 100)
-  #     coInsurance: window.FF.Number.toMoney(newValue)
+  hide: () ->
+    @set 'hidden', true
 
-  #   return
-)
+  isHidden: () ->
+    @get 'hidden'
+
+  # reference to another Fee model
+  # that was used to create this one
+  source: null
+
+  cloneAsCoinsurance: () ->
+    coinsuranceFee = @clone()
+    coinsuranceFee.set 'categoryId', 'COINSURANCE'
+    coinsuranceFee.set 'amount', (@get('amount')*.2).toFixed(2)
+    coinsuranceFee.source = this
+    coinsuranceFee
+
+  cloneAsSelfPay: () ->
+    selfPayFee = @clone()
+    selfPayFee.set 'categoryId', 'SELFPAY'
+    selfPayFee.set 'amount', (@get('amount')*1.2).toFixed(2)
+    selfPayFee.source = this
+    selfPayFee
+
+  # get filter attributes
+  getFilterAttrs: () ->
+    @pick 'fac', 'quantity', 'modifier1', 'modifier2', 'year'

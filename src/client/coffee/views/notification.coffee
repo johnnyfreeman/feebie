@@ -1,4 +1,4 @@
-window.FF.Views.Notification = Marionette.ItemView.extend(
+window.FF.Views.Notification = Marionette.ItemView.extend
   className: 'notification'
   tagName: 'li'
   template: (options) ->
@@ -26,4 +26,3 @@ window.FF.Views.Notification = Marionette.ItemView.extend(
     e.preventDefault()
     @remove()
     return
-)

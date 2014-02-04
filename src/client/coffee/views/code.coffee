@@ -1,73 +1,70 @@
-window.FF.Views.Code = Marionette.ItemView.extend(
-  id: 'code'
-  template: '#tplCode'
-  events:
-    'click .close-fee': 'closeOnClick'
+window.FF.Views.Code = Marionette.ItemView.extend
 
+  # html template
+  template: '#tplCode'
+
+  # wrap template with div#code
+  id: 'code'
+
+  # events
+  events:
+    'click .close-fee': 'navigateToSearch'
+
+  # model events mapped to view methods
   modelEvents:
     change: 'render'
     destroy: 'remove'
 
-  $body: $('body')
+  # shortcut to body selector
+  $body: $ 'body'
+
   initialize: ->
-    @closeOnEscape = _.bind((e) ->
-      key = e.which or e.keyCode
-      if key is 27
-        e.preventDefault()
-        @navigateToSearch()
-      return
-    , this)
-    @$body.on 'keydown', @closeOnEscape
+      
+    # navigate back to search form on escape
+    @$body.on 'keydown', _.bind @navigateToSearch, this
     
     # hide all popovers when clicking outside
     # of a popover and not clicking on a trigger
-    @$body.on 'click', (e) ->
-      $target = $(e.target)
-      $('.popover-trigger').popover 'hide'  if $target.closest('.popover').length is 0 and $target.hasClass('popover-trigger') is false
-      return
+    # @$body.on 'click', @closeAllPopups
 
-    # build options list of available options based on
-    # the current this.model.fees collection
-    optionsModel = new window.FF.Models.Options
-    optionsModel.parseFees @model.get('fees')
-    @optionsView = new window.FF.Views.Options model: optionsModel
+    # filter
+    @filterView = new window.FF.Views.Filter model: @model.filter
 
     # build fees collection view
-    @feesView = new window.FF.Views.Fees collection: @model.get('fees')
-    # @listenTo @model.feesCollection, 'change:activeFees', _.bind(@renderChildViews, this)
-    return
-
-  closeOnEscape: null
-  closeOnClick: (e) ->
-    e.preventDefault()
-    @navigateToSearch()
-    return
-
+    @feesView = new window.FF.Views.Fees collection: @model.fees
   
-  # after rendering title, description, and config...
+  # after rendering
   onRender: (codeView) ->
-    @$el.append @optionsView.render().el
+    @$el.append @filterView.render().el
     @$el.append @feesView.render().el
-    # return
 
-  # renderChildViews: ->
-  #   newActiveFees = @model.feesCollection.activeFees
-  #   @optionsView.model = newActiveFees
-  #   @feesView.model = newActiveFees
-  #   @optionsView.stopListening()
-  #   @feesView.stopListening()
-  #   @optionsView.listenTo newActiveFees, 'change', _.bind(@optionsView.render, this)
-  #   @feesView.listenTo newActiveFees, 'change', _.bind(@feesView.render, this)
-  #   @feesView.listenTo newActiveFees, 'change:coInsurance', _.bind(@feesView.coInsuranceChangeNotification, @feesView)
-  #   @feesView.listenTo newActiveFees, 'change:fac', _.bind(@feesView.locationChangeNotification, @feesView)
-  #   @optionsView.render()
-  #   @feesView.render()
-  #   return
+  ###
+  Event handlers
+  ###
 
-  # navigateToSearch: ->
-  #   @$body.off 'keydown', @closeOnEscape
-  #   @model.destroy()
-  #   window.FF.controller.displaySearch focusOnShow: true
-  #   window.FF.router.navigate ''
-  #   return
-)
+  closeAllPopups: (e) ->
+    $target = $ e.target
+    $('.popover-trigger').popover 'hide'  if $target.closest('.popover').length is 0 and $target.hasClass('popover-trigger') is false
+
+  # navigate back to search form
+  navigateToSearch: (e) ->
+    # capture keystrokes except escape
+    if e.type == 'keydown'
+      key = e.which or e.keyCode
+      return if key isnt 27
+
+    # prevent default action
+    e.preventDefault()
+
+    # remove handlers from body
+    @$body.off 'keydown', @navigateToSearch
+    @$body.off 'click', @closeAllPopups
+
+    # destroy model (which in turns
+    # triggers this view's destruction)
+    @model.destroy()
+
+    # explicitly using controller so that
+    # we can pass focusOnShow option
+    window.FF.controller.displaySearch focusOnShow: true
+    window.FF.router.navigate ''

@@ -1,4 +1,4 @@
-window.FF.Controller = Marionette.Controller.extend(
+window.FF.Controller = Marionette.Controller.extend
   
   # initialize: function() {
   
@@ -30,4 +30,3 @@ window.FF.Controller = Marionette.Controller.extend(
     options['timeoutId'] = setTimeout(_.bind(notificationView.navigateToSearch, notificationView), 5000)
     window.FF.mainRegion.show notificationView
     return
-)

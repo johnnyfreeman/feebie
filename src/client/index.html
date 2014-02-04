@@ -51,26 +51,30 @@
     </script>
 
     <script id="tplOptions" type="text/template">
-      <div class="option fac-option">
-        <span class="">Location: <a class="popover-trigger" href="#"><%= fac %></a></span>
-      </div>
-      <div class="option coinsurance-option">
-        <span class="">Co-Ins: <a class="popover-trigger" href="#"><%= coInsuranceMultiplier %>%</a></span>
-      </div>
-      <div class="option quantity-option">
-        <span class="">Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
-      </div>
-      <div class="option modifier1-option">
-        <span class="">Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
-      </div>
-      <div class="option modifier2-option">
-        <span class="">Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
+      <div class="options col-xs-12">
+        <div class="option fac-option">
+          <span>Location: <a href="#"><%= fac %></a></span>
+        </div>
+        <div class="option coinsurance-option">
+          <span>Co-ins: <a class="popover-trigger" href="#"><%= coinsuranceMultiplier %>%</a></span>
+        </div>
+        <div class="option quantity-option">
+          <span>Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
+        </div>
+        <div class="option modifier1-option">
+          <span>Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
+        </div>
+        <div class="option modifier2-option">
+          <span>Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
+        </div>
       </div>
     </script>
 
     <script id="tplFee" type="text/template">
-      <h2 class="amount"><span class="dollar">$</span><%= amount %></h2>
-      <div class="description"><%= categoryId %></div>
+      <div class="fee">
+        <h2 class="amount"><span class="dollar">$</span><%= amount %></h2>
+        <div class="description"><%= categoryId %></div>
+      </div>
     </script>
 
     <!-- <button class="btn btn-large btn-block btn-primary copy-to-clipboard">

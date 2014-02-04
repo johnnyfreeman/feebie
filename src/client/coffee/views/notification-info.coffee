@@ -1,4 +1,4 @@
-window.FF.Views.NotificationInfo = window.FF.Views.Notification.extend(
+window.FF.Views.NotificationInfo = window.FF.Views.Notification.extend
   className: 'notification notification-info'
   events:
     'click .notification-dismiss': 'dismissOnClick'
@@ -6,4 +6,3 @@ window.FF.Views.NotificationInfo = window.FF.Views.Notification.extend(
   initialize: ->
     @options.iconClass = 'icon-info-sign'
     return
-)
