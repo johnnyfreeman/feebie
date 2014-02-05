@@ -22,5 +22,5 @@ window.FF.Models.Code = Backbone.Model.extend
 
   # constructor
   initialize: ->
-    @filter = new window.FF.Models.Filter code: this
-    @fees = new window.FF.Collections.Fees code: this
+    @filter = new window.FF.Models.Filter [], code: this
+    @fees = window.fees = new window.FF.Collections.Fees [], code: this

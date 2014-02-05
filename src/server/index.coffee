@@ -19,10 +19,9 @@ appServer = http.createServer app
 # connect to db when api server starts
 apiServer.once 'listening', ->
   db.connect 'localhost', 'feebie'
-
-# db log messages
-db.connection.on 'error', console.error.bind(console, 'Failed connecting to MongoDB:')
-db.connection.once 'open', console.log.bind(console, 'Connected to MongoDB.')
+  # db log messages
+  db.connection.on 'error', console.error.bind(console, 'Failed connecting to MongoDB:')
+  db.connection.once 'open', console.log.bind(console, 'Connected to MongoDB.')
 
 apiServer.listen 81
 appServer.listen 80

@@ -14,7 +14,7 @@ window.FF.Models.Filter = Backbone.Model.extend
   # FF.Models.Code
   code: null
 
-  initialize: (options) ->
+  initialize: (attributes, options) ->
     _this = this
 
     # save reference to fees collection

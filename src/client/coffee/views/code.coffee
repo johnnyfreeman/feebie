@@ -25,12 +25,10 @@ window.FF.Views.Code = Marionette.ItemView.extend
     
     # hide all popovers when clicking outside
     # of a popover and not clicking on a trigger
-    # @$body.on 'click', @closeAllPopups
+    @$body.on 'click', @closeAllPopups
 
-    # filter
+    # build child views
     @filterView = new window.FF.Views.Filter model: @model.filter
-
-    # build fees collection view
     @feesView = new window.FF.Views.Fees collection: @model.fees
   
   # after rendering

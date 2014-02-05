@@ -66,11 +66,11 @@ window.FF.Views.Filter = Marionette.ItemView.extend
     _this = this
 
     # toggle fac value of model when clicked
-    # @ui.fac.find('a').on 'click', (e) ->
-    #   e.preventDefault()
-    #   _this.model.toggleFac()
+    @ui.fac.find('a').on 'click', (e) ->
+      e.preventDefault()
+      _this.model.toggleFac()
 
-    @buildPopover @ui.fac.find('a'), 'fac'
+    # @buildPopover @ui.fac.find('a'), 'fac'
     @buildCoInsurancePopover()
     @buildPopover @ui.qty.find('a'), 'quantity'
     @buildPopover @ui.mod1.find('a'), 'modifier1'

@@ -5,7 +5,7 @@ window.FF.Collections.Fees = Backbone.Collection.extend
 
   # fees are always passed
   # to the initialize method
-  initialize: (options) ->
+  initialize: (models, options) ->
     _this = this
 
     # save reference to the code
@@ -17,17 +17,35 @@ window.FF.Collections.Fees = Backbone.Collection.extend
     @code.on 'sync', (code) ->
       _this.reset code.get 'fees'
 
-    # create coinsurance/selfpay fees
+    # find all initial source/clones
+    @on 'reset', (fees) ->
+      fees.each (fee) ->
+        # only non-medicare fees
+        return if fee.get('categoryId') is 'MEDICARE'
+        # find source fee
+        source = fees.findWhere _.extend(fee.getFilterAttrs(), {categoryId:'MEDICARE'})
+        # if source is an instance of
+        # Fee, add refs to each other
+        if source instanceof window.FF.Models.Fee
+          fee.source = source
+          source.clones.add fee
+
+    # clone medicare fees that didn't have
+    # any clones is previous reset callback
     @on 'reset', (fees) ->
       # new fees array
       newFees = []
       # loop through fees
       fees.each (fee) ->
-        # insert coinsurance for each
-        newFees.push fee.cloneAsCoinsurance()
-        # insert selfpay for each (if not already there)
-        newFees.push fee.cloneAsSelfPay()
-      # add new fees to the collection
+        # clone medicare fees
+        return if fee.get('categoryId') isnt 'MEDICARE'
+        # if there isn't a coinsurance clone, create one
+        if fee.clones.where(categoryId:'COINSURANCE').length is 0
+          newFees.push fee.cloneAsCoinsurance()
+        # if there isn't a selfpay clone, create one
+        if fee.clones.where(categoryId:'SELFPAY').length is 0
+          newFees.push fee.cloneAsSelfPay()
+    # add new fees to the collection
       fees.add newFees
 
       # get filter attrs from first fee in the collection
