@@ -57,15 +57,18 @@ app.get '/', (req, res) ->
 app.get '/code/:code', (req, res) ->
   
   Code.findOne {code: req.params.code}, (err, code) ->
-    res.send err if err
+    if err
+      res.send err
+    else if code is null
+      res.send 404
+    else
+      Fee.find {codeId: code._id}, (err, fees) ->
+        res.send err if err
+        
+        code = code.toObject()
 
-    Fee.find {codeId: code._id}, (err, fees) ->
-      res.send err if err
-      
-      code = code.toObject()
+        # save fee object
+        code['fees'] = fees
 
-      # save fee object
-      code['fees'] = fees
-
-      # output
-      res.send code
+        # output
+        res.send code
