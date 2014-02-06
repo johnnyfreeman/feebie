@@ -41,7 +41,9 @@ window.FF.Models.Filter = Backbone.Model.extend
     if 'modifier2' of model.changed
       message = 'Mod2 has been changed to <em>' + model.changed.modifier2 + '</em>.'
     
-    window.FF.notificationsRegion.show new window.FF.Views.NotificationInfo(message: message)
+    # window.FF.notificationsRegion.show new window.FF.Views.NotificationInfo(message: message)
+
+    window.FF.notifications.create message: message
 
   toggleFac: () ->
     @set 'fac', not @get('fac')
