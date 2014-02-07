@@ -21,7 +21,8 @@ window.FF.Views.Code = Marionette.ItemView.extend
   initialize: ->
       
     # navigate back to search form on escape
-    @$body.on 'keydown', _.bind @navigateToSearch, this
+    @navigateToSearch = _.bind @navigateToSearch, this
+    @$body.on 'keydown', @navigateToSearch
     
     # hide all popovers when clicking outside
     # of a popover and not clicking on a trigger
