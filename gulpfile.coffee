@@ -115,8 +115,8 @@ gulp.task 'build', ['clean:public'], ->
   .pipe(gulp.dest('./public/client/css'))
 
   vendorCss = gulp.src([
-    './bower_components/bootstrap/dist/css/bootstrap.css',
-    './bower_components/font-awesome/css/font-awesome.css',
+    './bower_components/bootstrap/dist/css/bootstrap.min.css',
+    './bower_components/font-awesome/css/font-awesome.min.css',
     './bower_components/flat-ui/css/flat-ui.css'
   ])
   .pipe(concat('vendors.css'))
