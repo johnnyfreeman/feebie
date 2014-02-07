@@ -51,7 +51,7 @@ window.FF.Collections.Fees = Backbone.Collection.extend
       # get filter attrs from first fee in the collection
       # then we'll save that as the current filter
     @on 'reset', (fees) ->
-      _this.code.filter.set fees.at(0).getFilterAttrs()
+      _this.code.filter.set fees.at(0).getFilterAttrs(), {silent: true}
 
     # show/hide fees when fees are reset based
     # on current filter and also each time the filter changes

@@ -4,12 +4,7 @@ window.FF.Models.Filter = Backbone.Model.extend
 
   # default options
   defaults:
-    fac: false
     coinsuranceMultiplier: .2
-    quantity: 1
-    modifier1: ''
-    modifier2: ''
-    year: 2014
 
   # FF.Models.Code
   code: null
