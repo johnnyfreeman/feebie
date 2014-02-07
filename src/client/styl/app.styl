@@ -65,7 +65,7 @@ body
 
     &:focus, &:active
       outline none
-      border-color #298ACC
+      border-color peter-river
 
 
 
@@ -143,8 +143,13 @@ body
         padding-left 0
         border-left none
 
+      input
+        &:focus
+          border-color peter-river
+        
+
     a
-      color #298ACC
+      color peter-river
 
     .faded
       color asbestos
@@ -190,53 +195,6 @@ body
           font-size 16px
           color nephritis
           vertical-align 12px
-
-      .btn-copy-container
-        position relative
-        display block
-        // overflow hidden
-        height 50px
-        width 100%
-
-        // disable css animation here
-        .btn, .btn-content
-          -moz-transition none
-          -webkit-transition none
-          -o-transition none
-          transition none
-
-        .btn
-          position absolute
-          left 0
-
-        .btn-copied
-          top 0
-        .btn-copy
-          top -50px
-
-        .btn-content
-          position absolute
-          left 30px
-
-        .btn-content-copied
-          top 0
-        .btn-content-copy
-          top -50px
-
-      .copy-to-clipboard
-        position relative
-        overflow hidden
-
-        .copied
-          position absolute
-          background-color emerland
-          color white
-          top 0
-          left -348px
-          -moz-transition none
-          -webkit-transition none
-          -o-transition color 0 ease-in
-          transition none
 
 /**
  * Popovers
@@ -305,7 +263,8 @@ body
         text-decoration none
 
         &:hover
-          background-color silver
+          background-color peter-river
+          color white !important
 
       span
         background-color clouds
