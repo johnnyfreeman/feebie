@@ -73,6 +73,17 @@ window.FF.Views.Filter = Marionette.ItemView.extend
       e.preventDefault()
       _this.model.toggleFac()
 
+    facValues = []
+    
+    # loop through collection
+    @model.code.fees.each (model) ->
+      value = model.get('fac')
+      unless _.contains(facValues, value)
+        facValues.push value
+    
+    if facValues.length < 2
+      @ui.fac.find('a').replaceWith '<span class=\'faded\'>' + (if @model.get 'fac' then 'Out of Office' else 'In Office') + '</span>'
+
     # @buildPopover @ui.fac.find('a'), 'fac'
     @buildCoInsurancePopover()
     @buildPopover @ui.qty.find('a'), 'quantity'
@@ -83,7 +94,7 @@ window.FF.Views.Filter = Marionette.ItemView.extend
   
   # build popover of unique values in the collection
   buildPopover: (domField, modelField) ->
-    currentSelection = @model.get(modelField)
+    currentSelection = @model.get(modelField) or '(none)'
     html = '<ul>'
     uniqueValues = []
     
