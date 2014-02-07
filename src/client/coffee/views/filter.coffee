@@ -119,7 +119,7 @@ window.FF.Views.Filter = Marionette.ItemView.extend
       placement: 'bottom'
       trigger: 'manual'
       html: true
-      content: '<input placeholder=\'' + coinsuranceMultiplier + '\' type=\'text\'><button class=\'btn btn-success\'><i class=\'fa fa-ok\'></i></button>'
+      content: '<input placeholder=\'' + coinsuranceMultiplier + '\' type=\'text\'><button class=\'btn btn-success\'><i class=\'fa fa-check\'></i></button>'
       container: @ui.coInsuranceOption
 
   # return
