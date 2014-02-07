@@ -16,7 +16,7 @@
 
           <!-- main region -->
           <div style="margin-top: 20px; margin-bottom: 20px;">
-            <div id="main" class="row"></div>
+            <div id="main"></div>
           </div>
           <!-- /end main region -->
 
@@ -38,34 +38,38 @@
     </script>
 
     <script id="tplCode" type="text/template">
-      <header id="header">
-        <h4>
-          <img src="img/illustrations/book.png" alt=""> Feebie <small>A fee schedule lookup engine.</small>
-        </h4>
-      </header>
+      <div class="row">
+        <header id="header" class="col-xs-12">
+          <h4>
+            <img src="img/illustrations/book.png" alt=""> Feebie <small>A fee schedule lookup engine.</small>
+          </h4>
+        </header>
 
-      <div class="header">
-        <i class="close-fee fa fa-times-circle-o pull-right"></i>
-        <h1><%= code %> <small><%= description %></small></h1>
+        <div class="header col-xs-12">
+          <i class="close-fee fa fa-times-circle-o pull-right"></i>
+          <h1><%= code %> <small><%= description %></small></h1>
+        </div>
       </div>
     </script>
 
     <script id="tplOptions" type="text/template">
-      <div class="options col-xs-12">
-        <div class="option fac-option">
-          <span>Location: <a href="#"><%= fac %></a></span>
-        </div>
-        <div class="option coinsurance-option">
-          <span>Co-ins: <a class="popover-trigger" href="#"><%= coinsuranceMultiplier %>%</a></span>
-        </div>
-        <div class="option quantity-option">
-          <span>Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
-        </div>
-        <div class="option modifier1-option">
-          <span>Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
-        </div>
-        <div class="option modifier2-option">
-          <span>Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
+      <div class="col-xs-12">
+        <div class="options">
+          <div class="option fac-option">
+            <span>Location: <a href="#"><%= fac %></a></span>
+          </div>
+          <div class="option coinsurance-option">
+            <span>Co-ins: <a class="popover-trigger" href="#"><%= coinsuranceMultiplier %>%</a></span>
+          </div>
+          <div class="option quantity-option">
+            <span>Qty: <a class="popover-trigger" href="#"><%= quantity %></a></span>
+          </div>
+          <div class="option modifier1-option">
+            <span>Mod1: <a class="popover-trigger" href="#"><%= modifier1 %></a></span>
+          </div>
+          <div class="option modifier2-option">
+            <span>Mod2: <a class="popover-trigger" href="#"><%= modifier2 %></a></span>
+          </div>
         </div>
       </div>
     </script>
