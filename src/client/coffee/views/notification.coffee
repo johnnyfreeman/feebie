@@ -10,8 +10,14 @@ window.FF.Views.Notification = Marionette.ItemView.extend
   # events
   events:
     'click .notification-dismiss': 'dismissOnClick'
+    'mouseover': 'clearTimout'
+
+  modelEvents:
+    'destroy': 'clearTimout'
+
+  clearTimout: ->
+    clearTimeout @model.timeoutId
 
   dismissOnClick: (e) ->
     e.preventDefault()
-    clearTimeout @model.timeoutId
     @model.destroy()
