@@ -323,20 +323,25 @@ body
 #notifications
   position fixed
   top 0
-  left 0
-  width 100%
-  margin 0
-  text-align center
+  right 0
+  margin 10px
+  padding-left 0
 
   .notification
-    background-color clouds
-    color wet-asphalt
-    display inline-block
+    background-color rgba(0,0,0,0.3)
+    color #fff
     padding 10px
-    border-radius 0 0 borderRadius borderRadius
+    border-radius borderRadius
+    margin 10px
+    list-style none
+    text-align left
+
+    &:hover
+      background-color rgba(0,0,0,0.7)
 
     .notification-dismiss
       color silver
+      float right
       font-weight bold
       margin-left 3px
 
