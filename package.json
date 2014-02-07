@@ -3,11 +3,11 @@
   "version": "0.2.1",
   "description": "A fee schedule lookup engine",
   "bugs": {
-    "url": "https://github.com/vovn/feefinder/issues"
+    "url": "https://github.com/vovn/feebie/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vovn/feefinder.git"
+    "url": "https://github.com/vovn/feebie.git"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/gulp --require coffee-script bower",
