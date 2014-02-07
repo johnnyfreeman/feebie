@@ -10,7 +10,7 @@ window.FF.Models.Notification = Backbone.Model.extend
   initialize: ->
     # destroy self after a few seconds
     to = @get 'timeout'
-    # @timeoutId = setTimeout(_.bind(@destroy, this), to) if $.isNumeric(to)
+    @timeoutId = setTimeout(_.bind(@destroy, this), to) if $.isNumeric(to)
 
   # overriding sync method so it does not
   # try to `save()` this model to the server
