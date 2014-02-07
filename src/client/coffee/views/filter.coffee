@@ -7,6 +7,8 @@ window.FF.Views.Filter = Marionette.ItemView.extend
     data = {}
     data.fac = (if model.fac then 'Out of Office' else 'In Office')
     data.coinsuranceMultiplier = parseInt(model.coinsuranceMultiplier * 100)
+    data.modifier1 = (if model.modifier1 == '' then '(none)' else model.modifier1)
+    data.modifier2 = (if model.modifier2 == '' then '(none)' else model.modifier2)
     _.template $('#tplOptions').html(), _.extend model, data
 
   # ui elements
@@ -51,6 +53,7 @@ window.FF.Views.Filter = Marionette.ItemView.extend
         value = $target.text()
         field = $target.data 'model-field'
         value = parseInt value if field is 'quantity'
+        value = '' if value is '(none)'
         _this.model.set field, value
 
     @$el.on 'keydown', (e) ->
@@ -88,11 +91,13 @@ window.FF.Views.Filter = Marionette.ItemView.extend
     @model.code.fees.each (model) ->
       value = model.get(modelField)
       unless _.contains(uniqueValues, value)
+        uniqueValues.push value
+        value = '(none)' if value is ''
         if value is currentSelection
           html += '<li><span>' + value + '</span></li>'
         else
           html += '<li><a class=\'changeModel\' data-model-field=\'' + modelField + '\' href=\'#\'>' + value + '</a></li>'
-        uniqueValues.push value
+        
 
     html += '</ul>'
     
