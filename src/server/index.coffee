@@ -7,7 +7,7 @@ api = require './api'
 app = require './app'
 http = require 'http'
 db = require 'mongoose'
-require('node-monkey').start()
+# require('node-monkey').start()
 
 # create servers
 apiServer = http.createServer api
