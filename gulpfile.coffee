@@ -134,6 +134,7 @@ gulp.task 'build', ['clean:public'], ->
     './src/client/coffee/models/notification.coffee',
     './src/client/coffee/models/filter.coffee',
     './src/client/coffee/collections/fees.coffee',
+    './src/client/coffee/collections/mrifees.coffee',
     './src/client/coffee/collections/notifications.coffee',
     './src/client/coffee/regions/main.coffee',
     './src/client/coffee/views/code.coffee',
