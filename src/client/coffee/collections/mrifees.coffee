@@ -9,4 +9,5 @@ window.FF.Collections.MriFees = window.FF.Collections.Fees.extend
     if f1.modifier1 != f2.modifier1
       return (if f1.modifier1.toUpperCase() == 'TC' then -1 else 1)
 
+    # continue sorting normally
     window.FF.Collections.Fees::comparator.call this, fee1, fee2
