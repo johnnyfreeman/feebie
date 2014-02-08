@@ -10,7 +10,7 @@
     "url": "https://github.com/vovn/feebie.git"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/gulp --require coffee-script bower",
+    "postinstall": "./node_modules/.bin/gulp bower --require coffee-script/register",
     "start": "./bin/start"
   },
   "dependencies": {
