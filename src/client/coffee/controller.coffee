@@ -15,8 +15,5 @@ window.FF.Controller = Marionette.Controller.extend
     # on failure
     response.fail ->
       # notification
-      window.FF.notifications.create
-        title: 'Oops!'
-        message: 'That code could not be found.'
-      # only call this if not already there (ex. localhost/22523)
+      Messenger().post 'That code could not be found.'
       controller.displaySearch focusOnShow: true

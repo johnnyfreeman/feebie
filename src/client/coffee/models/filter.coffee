@@ -9,6 +9,9 @@ window.FF.Models.Filter = Backbone.Model.extend
   # FF.Models.Code
   code: null
 
+  # messenger instance
+  messenger: null
+
   initialize: (attributes, options) ->
     _this = this
 
@@ -17,6 +20,8 @@ window.FF.Models.Filter = Backbone.Model.extend
 
     # notify user when options change
     @on 'change', _.bind(@_notifyOfChange, this)
+
+    @messenger = Messenger().newMessage {type: 'info'}
 
   # get search attributes
   getFilterAttrs: () ->
@@ -36,9 +41,8 @@ window.FF.Models.Filter = Backbone.Model.extend
     if 'modifier2' of model.changed
       message = 'Mod2 has been changed to <em>' + model.changed.modifier2 + '</em>.'
     
-    # window.FF.notificationsRegion.show new window.FF.Views.NotificationInfo(message: message)
+    @messenger.update message
 
-    window.FF.notifications.create message: message
 
   toggleFac: () ->
     @set 'fac', not @get('fac')

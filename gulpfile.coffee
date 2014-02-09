@@ -96,7 +96,7 @@ gulp.task 'build', ['clean:public'], ->
   IMAGES
   ###
 
-  appImages = gulp.src(['./src/client/img/**/*', './bower_components/flat-ui/images/**/*'])
+  appImages = gulp.src(['./bower_components/flat-ui/images/**/*', './src/client/img/**/*'])
   .pipe(gulp.dest('./public/client/img'))
 
   ###
@@ -117,7 +117,10 @@ gulp.task 'build', ['clean:public'], ->
   vendorCss = gulp.src([
     './bower_components/bootstrap/dist/css/bootstrap.min.css',
     './bower_components/font-awesome/css/font-awesome.min.css',
-    './bower_components/flat-ui/css/flat-ui.css'
+    './bower_components/flat-ui/css/flat-ui.css',
+    './bower_components/messenger/build/css/messenger.css',
+    './bower_components/messenger/build/css/messenger-theme-flat.css',
+    './bower_components/pace/themes/pace-theme-minimal.css'
   ])
   .pipe(concat('vendors.css'))
   .pipe(gulp.dest('./public/client/css'))
@@ -163,7 +166,10 @@ gulp.task 'build', ['clean:public'], ->
     './bower_components/flat-ui/js/jquery.placeholder.js',
     './bower_components/greensock/src/minified/easing/EasePack.min.js',
     './bower_components/greensock/src/minified/plugins/CSSPlugin.min.js',
-    './bower_components/greensock/src/minified/TweenLite.min.js'
+    './bower_components/greensock/src/minified/TweenLite.min.js',
+    './bower_components/messenger/build/js/messenger.min.js',
+    './bower_components/messenger/build/js/messenger-theme-flat.min.js',
+    './bower_components/pace/pace.min.js'
   ])
   .pipe(concat('vendors.js'))
   .pipe(uglify())
