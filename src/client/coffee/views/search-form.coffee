@@ -1,4 +1,4 @@
-window.FF.Views.SearchForm = Marionette.ItemView.extend
+window.FB.Views.SearchForm = Marionette.ItemView.extend
 
   # html template
   template: '#tplSearchForm'
@@ -25,5 +25,5 @@ window.FF.Views.SearchForm = Marionette.ItemView.extend
   # on form submit
   navigateToCode: (e) ->
     e.preventDefault()
-    window.FF.router.navigate @ui.textbox.val(),
+    window.FB.router.navigate @ui.textbox.val(),
       trigger: true

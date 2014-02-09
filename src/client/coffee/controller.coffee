@@ -1,17 +1,17 @@
-window.FF.Controller = Marionette.Controller.extend
+window.FB.Controller = Marionette.Controller.extend
 
   displaySearch: (options) ->
-    window.FF.mainRegion.show new window.FF.Views.SearchForm(options)
+    window.FB.mainRegion.show new window.FB.Views.SearchForm(options)
 
   lookUpCode: (code) ->
     controller = this
     # create code model
-    codeModel = new window.FF.Models.Code code: code.toUpperCase()
+    codeModel = new window.FB.Models.Code code: code.toUpperCase()
     # fetch from server
     response = codeModel.fetch()
     # on success
     response.done ->
-      window.FF.mainRegion.show new window.FF.Views.Code(model: codeModel)
+      window.FB.mainRegion.show new window.FB.Views.Code(model: codeModel)
     # on failure
     response.fail ->
       # notification

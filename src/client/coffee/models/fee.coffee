@@ -1,4 +1,4 @@
-window.FF.Models.Fee = Backbone.Model.extend
+window.FB.Models.Fee = Backbone.Model.extend
   
   # Fee defaults
   defaults:

@@ -1,4 +1,4 @@
-window.FF.Views.Filter = Marionette.ItemView.extend
+window.FB.Views.Filter = Marionette.ItemView.extend
   className: 'row'
 
   # transform certain model properties

@@ -1,4 +1,4 @@
-window.FF.Router = Marionette.AppRouter.extend
+window.FB.Router = Marionette.AppRouter.extend
   appRoutes:
     '': 'displaySearch'
     ':code': 'lookUpCode'

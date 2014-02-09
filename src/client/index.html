@@ -107,10 +107,10 @@
     <script src="js/vendors.js"></script>
     <script src="js/app.js"></script>
     <script>
-      window.FF.addInitializer(function() {
-        window.FF.controller = new window.FF.Controller();
-        window.FF.router = new window.FF.Router({controller: window.FF.controller});
-        window.FF.mainRegion = new window.FF.Regions.Main();
+      window.FB.addInitializer(function() {
+        window.FB.controller = new window.FB.Controller();
+        window.FB.router = new window.FB.Router({controller: window.FB.controller});
+        window.FB.mainRegion = new window.FB.Regions.Main();
 
         // config for Messenger
         window.Messenger.options = {
@@ -119,11 +119,11 @@
         }
       });
 
-      window.FF.on('initialize:after', function() {
+      window.FB.on('initialize:after', function() {
         Backbone.history.start({pushState: true});
       });
 
-      window.FF.start();
+      window.FB.start();
     </script>
 
     <!-- Google Analytics -->

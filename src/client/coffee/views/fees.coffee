@@ -1,7 +1,7 @@
-window.FF.Views.Fees = Marionette.CollectionView.extend
+window.FB.Views.Fees = Marionette.CollectionView.extend
 
   # item view
-  itemView: window.FF.Views.Fee
+  itemView: window.FB.Views.Fee
 
   # wrap template with div.fees.row
   className: 'fees row'

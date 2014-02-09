@@ -3,7 +3,7 @@ mricodes = ['74181', '74183', '70551', '70552', '70553', 'A9579', '73718', '7372
 '70336', '73218', '73220', '73221', '73222', '73223', 'A9577', '70544', '70545', '70546', '70547', '70548',
 '70549', '71555', '73725', '74185']
 
-window.FF.Models.Code = Backbone.Model.extend
+window.FB.Models.Code = Backbone.Model.extend
 
   # url to API endpoint
   urlRoot: 'http://localhost:81/code'
@@ -27,9 +27,9 @@ window.FF.Models.Code = Backbone.Model.extend
 
   # constructor
   initialize: ->
-    @filter = new window.FF.Models.Filter [], code: this
+    @filter = new window.FB.Models.Filter [], code: this
 
     if @get('code') in mricodes
-      @fees = new window.FF.Collections.MriFees [], code: this
+      @fees = new window.FB.Collections.MriFees [], code: this
     else
-      @fees = new window.FF.Collections.Fees [], code: this
+      @fees = new window.FB.Collections.Fees [], code: this
