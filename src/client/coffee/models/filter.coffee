@@ -21,8 +21,6 @@ window.FB.Models.Filter = Backbone.Model.extend
     # notify user when options change
     @on 'change', _.bind(@_notifyOfChange, this)
 
-    @messenger = Messenger().newMessage {type: 'info'}
-
   # get search attributes
   getFilterAttrs: () ->
     @pick 'fac', 'quantity', 'modifier1', 'modifier2', 'year'
@@ -40,9 +38,8 @@ window.FB.Models.Filter = Backbone.Model.extend
       message = 'Mod1 has been changed to <em>' + model.changed.modifier1 + '</em>.'
     if 'modifier2' of model.changed
       message = 'Mod2 has been changed to <em>' + model.changed.modifier2 + '</em>.'
-    
-    @messenger.update message
 
+    Messenger().post message
 
   toggleFac: () ->
     @set 'fac', not @get('fac')
