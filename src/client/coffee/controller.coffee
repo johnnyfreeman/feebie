@@ -15,5 +15,7 @@ window.FB.Controller = Marionette.Controller.extend
     # on failure
     response.fail ->
       # notification
-      Messenger().post 'That code could not be found.'
+      Messenger().post 
+        message: 'That code could not be found.'
+        type: "error"
       controller.displaySearch focusOnShow: true
