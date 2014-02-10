@@ -8,7 +8,7 @@ window.FB.Models.Code = Backbone.Model.extend
   # url to API endpoint
   urlRoot: 'http://localhost:81/code'
   url: ->
-    @urlRoot + '/' + encodeURI(@get('code'))
+    @urlRoot + '/' + encodeURI(@get('code').toUpperCase())
 
   # Model defaults
   defaults:

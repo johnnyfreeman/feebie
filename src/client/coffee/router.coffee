@@ -1,7 +1,7 @@
 window.FB.Router = Marionette.AppRouter.extend
   appRoutes:
     '': 'displaySearch'
-    ':code': 'lookUpCode'
+    ':code': 'displayCode'
 
   
   # update google analytics
