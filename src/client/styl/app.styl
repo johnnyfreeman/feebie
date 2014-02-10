@@ -268,7 +268,17 @@ body
         color silver
 
   // arrow
-  &:.bottom
+  popoverArrowSize = optionsArrowSize + 2px
+
+  .arrow {
+    border-width: popoverArrowSize;
+  }
+
+  &.bottom
+    .arrow {
+      margin-left: -(popoverArrowSize);
+      top: -(popoverArrowSize);
+    }
     .arrowafter
       border-bottom-color clouds
 
