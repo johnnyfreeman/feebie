@@ -1,6 +1,6 @@
 # this options model instance will
 # represent the current filtering options
-window.FF.Models.Filter = Backbone.Model.extend
+window.FB.Models.Filter = Backbone.Model.extend
 
   # default options
   defaults:
@@ -8,6 +8,9 @@ window.FF.Models.Filter = Backbone.Model.extend
 
   # FF.Models.Code
   code: null
+
+  # messenger instance
+  messenger: null
 
   initialize: (attributes, options) ->
     _this = this
@@ -35,10 +38,8 @@ window.FF.Models.Filter = Backbone.Model.extend
       message = 'Mod1 has been changed to <em>' + model.changed.modifier1 + '</em>.'
     if 'modifier2' of model.changed
       message = 'Mod2 has been changed to <em>' + model.changed.modifier2 + '</em>.'
-    
-    # window.FF.notificationsRegion.show new window.FF.Views.NotificationInfo(message: message)
 
-    window.FF.notifications.create message: message
+    Messenger().post message
 
   toggleFac: () ->
     @set 'fac', not @get('fac')

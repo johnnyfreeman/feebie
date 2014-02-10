@@ -1,22 +1,32 @@
-window.FF.Controller = Marionette.Controller.extend
+window.FB.Controller = Marionette.Controller.extend
 
   displaySearch: (options) ->
-    window.FF.mainRegion.show new window.FF.Views.SearchForm(options)
+    window.FB.mainRegion.show new window.FB.Views.SearchForm(options)
 
-  lookUpCode: (code) ->
+  displayCode: (code) ->
     controller = this
+
     # create code model
-    codeModel = new window.FF.Models.Code code: code.toUpperCase()
+    code = new window.FB.Models.Code code: code
+
     # fetch from server
-    response = codeModel.fetch()
+    response = code.fetch()
+
     # on success
+    # create the view and pass model to it
     response.done ->
-      window.FF.mainRegion.show new window.FF.Views.Code(model: codeModel)
+      window.FB.mainRegion.show new window.FB.Views.Code model: code
+
     # on failure
     response.fail ->
       # notification
-      window.FF.notifications.create
-        title: 'Oops!'
-        message: 'That code could not be found.'
-      # only call this if not already there (ex. localhost/22523)
-      controller.displaySearch focusOnShow: true
+      Messenger().post 
+        message: code.get('code') + ' could not be found.'
+        type: 'error'
+
+      # if current view isn't SearchForm, show that view
+      unless window.FB.mainRegion.currentView instanceof window.FB.Views.SearchForm
+        controller.displaySearch focusOnShow: true
+
+      # select text inside textbox
+      window.FB.mainRegion.currentView.ui.textbox.select()

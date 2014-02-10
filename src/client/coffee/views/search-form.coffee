@@ -1,4 +1,4 @@
-window.FF.Views.SearchForm = Marionette.ItemView.extend
+window.FB.Views.SearchForm = Marionette.ItemView.extend
 
   # html template
   template: '#tplSearchForm'
@@ -8,7 +8,7 @@ window.FF.Views.SearchForm = Marionette.ItemView.extend
 
   # events
   events:
-    'submit form': 'navigateToCode'
+    'submit form': 'displayCode'
 
   # ui elements
   ui:
@@ -23,7 +23,7 @@ window.FF.Views.SearchForm = Marionette.ItemView.extend
     @ui.textbox.trigger 'focus' if @options.focusOnShow
 
   # on form submit
-  navigateToCode: (e) ->
+  displayCode: (e) ->
     e.preventDefault()
-    window.FF.router.navigate @ui.textbox.val(),
+    window.FB.router.navigate @ui.textbox.val(),
       trigger: true

@@ -1,4 +1,4 @@
-window.FF.Collections.MriFees = window.FF.Collections.Fees.extend
+window.FB.Collections.MriFees = window.FB.Collections.Fees.extend
 
   comparator: (fee1, fee2) ->
     
@@ -9,4 +9,5 @@ window.FF.Collections.MriFees = window.FF.Collections.Fees.extend
     if f1.modifier1 != f2.modifier1
       return (if f1.modifier1.toUpperCase() == 'TC' then -1 else 1)
 
-    window.FF.Collections.Fees::comparator.call this, fee1, fee2
+    # continue sorting normally
+    window.FB.Collections.Fees::comparator.call this, fee1, fee2

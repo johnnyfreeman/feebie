@@ -3,35 +3,35 @@
   "version": "0.2.1",
   "description": "A fee schedule lookup engine",
   "bugs": {
-    "url": "https://github.com/vovn/feefinder/issues"
+    "url": "https://github.com/vovn/feebie/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vovn/feefinder.git"
+    "url": "https://github.com/vovn/feebie.git"
   },
   "scripts": {
-    "postinstall": "./node_modules/.bin/gulp --require coffee-script bower",
+    "postinstall": "./node_modules/.bin/gulp bower --require coffee-script/register",
     "start": "./bin/start"
   },
   "dependencies": {
-    "express": "3.1.0",
-    "mongoose": "3.5.7"
+    "express": "~3.4.8",
+    "mongoose": "~3.8.6"
   },
   "devDependencies": {
-    "gulp-util": "~2.2.12",
-    "gulp": "~3.4.0",
-    "coffee-script": "~1.6.3",
-    "gulp-coffee": "~1.2.5",
+    "express": "~3.1.0",
+    "mongoose": "~3.5.7",
+    "gulp": "~3.5.2",
+    "gulp-util": "~2.2.14",
+    "coffee-script": "~1.7.1",
+    "gulp-coffee": "~1.4.1",
     "gulp-concat": "~2.1.7",
     "gulp-clean": "~0.2.4",
     "event-stream": "~3.1.0",
-    "gulp-uglify": "~0.1.0",
-    "gulp-notify": "~0.3.5-0",
-    "gulp-coffeelint": "~0.1.2",
+    "gulp-uglify": "~0.2.0",
+    "gulp-notify": "~0.4.1",
+    "gulp-coffeelint": "~0.2.0",
     "gulp-bower": "0.0.2",
-    "gulp-stylus": "0.0.11",
-    "express": "~3.1.0",
-    "mongoose": "~3.5.7",
+    "gulp-stylus": "0.0.12",
     "node-monkey": "~0.2.8"
   },
   "private": true

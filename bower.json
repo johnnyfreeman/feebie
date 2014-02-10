@@ -16,6 +16,8 @@
     "flat-ui": "*",
     "font-awesome": "*",
     "bean": "*",
-    "greensock": "*"
+    "greensock": "*",
+    "messenger": "*",
+    "pace": "*"
   }
 }
