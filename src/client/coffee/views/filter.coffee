@@ -52,8 +52,17 @@ window.FB.Views.Filter = Marionette.ItemView.extend
       if $target.hasClass('changeModel')
         value = $target.text()
         field = $target.data 'model-field'
+        # quantity
         value = parseInt value if field is 'quantity'
-        value = '' if value is '(none)'
+        # mod1 or mod2
+        if (field is 'modifier1' or field is 'modifier2') and value is '(none)'
+          value = ''
+        # fac
+        if field is 'fac'
+          value = (if value is 'Out of Office' then true else false)
+
+        console.log field, value
+
         _this.model.set field, value
 
     @$el.on 'keydown', (e) ->
@@ -66,44 +75,45 @@ window.FB.Views.Filter = Marionette.ItemView.extend
 
 
   onRender: ->
-    _this = this
-
-    # toggle fac value of model when clicked
-    @ui.fac.find('a').on 'click', (e) ->
-      e.preventDefault()
-      _this.model.toggleFac()
-
-    facValues = []
-    
-    # loop through collection
-    @model.code.fees.each (model) ->
-      value = model.get('fac')
-      unless _.contains(facValues, value)
-        facValues.push value
-    
-    if facValues.length < 2
-      @ui.fac.find('a').replaceWith '<span class=\'faded\'>' + (if @model.get 'fac' then 'Out of Office' else 'In Office') + '</span>'
-
-    # @buildPopover @ui.fac.find('a'), 'fac'
+    @buildPopover @ui.fac.find('a'), 'fac'
     @buildCoInsurancePopover()
     @buildPopover @ui.qty.find('a'), 'quantity'
     @buildPopover @ui.mod1.find('a'), 'modifier1'
     @buildPopover @ui.mod2.find('a'), 'modifier2'
-    # return
 
   
   # build popover of unique values in the collection
   buildPopover: (domField, modelField) ->
-    currentSelection = @model.get(modelField) or '(none)'
+
+    # mod1 and mod2
+    if modelField is 'modifier1' or modelField is 'modifier2'
+      currentSelection = @model.get(modelField) or '(none)'
+    # fac
+    else if modelField is 'fac'
+      currentSelection = (if @model.get(modelField) then 'Out of Office' else 'In Office')
+    else
+      currentSelection = @model.get(modelField)
+
     html = '<ul>'
     uniqueValues = []
     
     # loop through collection
     @model.code.fees.each (model) ->
       value = model.get(modelField)
+
+      # if value isnt in the uniqueValues array
       unless _.contains(uniqueValues, value)
         uniqueValues.push value
-        value = '(none)' if value is ''
+
+        # mod1 and mod2
+        if modelField is 'modifier1' or modelField is 'modifier2'
+          value = '(none)' if value is ''
+
+        # fac
+        if modelField is 'fac'
+          value = (if value then 'Out of Office' else 'In Office')
+
+
         if value is currentSelection
           html += '<li><span>' + value + '</span></li>'
         else
@@ -122,8 +132,6 @@ window.FB.Views.Filter = Marionette.ItemView.extend
         content: html
         container: domField.closest('.option')
 
-  # return
-
   buildCoInsurancePopover: ->
     coinsuranceMultiplier = parseInt(@model.get('coinsuranceMultiplier')*100)
     @ui.coInsurance.find(@ui.popoverTriggers).popover
@@ -132,5 +140,3 @@ window.FB.Views.Filter = Marionette.ItemView.extend
       html: true
       content: '<input placeholder=\'' + coinsuranceMultiplier + '\' type=\'text\'><button class=\'btn btn-info\'><i class=\'fa fa-check\'></i></button>'
       container: @ui.coInsuranceOption
-
-  # return
