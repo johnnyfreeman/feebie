@@ -4,7 +4,7 @@ coffee      = require 'gulp-coffee'
 concat      = require 'gulp-concat'
 clean       = require 'gulp-clean'
 uglify      = require 'gulp-uglify'
-notify      = require 'gulp-notify'
+notifier    = require 'node-notifier'
 coffeelint  = require 'gulp-coffeelint'
 eventStream = require 'event-stream'
 bower       = require 'gulp-bower'
@@ -114,7 +114,7 @@ LINT
 
 # lint source files
 gulp.task 'lint', ->
-  gulp.src(paths.coffee)
+  gulp.src(paths.app.coffee)
     .pipe(coffeelint({max_line_length: {value: 170, limitComments: false}}))
     .pipe(coffeelint.reporter()) # Using `coffeelint-stylish` reporter https://npmjs.org/package/coffeelint-stylish
 
@@ -173,7 +173,7 @@ gulp.task 'build:vendor:css', ->
 
 # build app js
 gulp.task 'build:app:js', ->
-  gulp.src(paths.coffee)
+  gulp.src(paths.app.coffee)
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(concat('app.js'))
     # .pipe(uglify())
@@ -204,29 +204,10 @@ gulp.task 'build', [
   'build:app:js'
   'build:vendor:js'
   'build:server:js'
-]
-
-# # build source files
-# gulp.task 'build', ['clean:public'], ->
-
-#   ###
-#   NOTIFY
-#   ###
-
-#   # return concatenated server and client streams
-#   eventStream.merge(
-#     appHtml, 
-#     appImages, 
-#     vendorFonts, 
-#     appCss, 
-#     vendorCss, 
-#     vendorsJs, 
-#     appJs, 
-#     serverJs
-#   )
-#   .pipe(notify({title: 'Gulp', message: 'Build complete, sir.', onLast: true}))
-
-
+], ->
+  notifier.notify
+    title: 'Gulp'
+    message: 'Build complete, sir.'
 
 # start watch server
 gulp.task 'watch', ->
