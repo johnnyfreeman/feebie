@@ -61,11 +61,11 @@ paths =
     images: './bower_components/flat-ui/images/**/*'
     fonts: './bower_components/font-awesome/fonts/*'
     css: [
-      './bower_components/bootstrap/dist/css/bootstrap.min.css',
-      './bower_components/font-awesome/css/font-awesome.min.css',
-      './bower_components/flat-ui/css/flat-ui.css',
-      './bower_components/messenger/build/css/messenger.css',
-      './bower_components/messenger/build/css/messenger-theme-flat.css',
+      './bower_components/bootstrap/dist/css/bootstrap.min.css'
+      './bower_components/font-awesome/css/font-awesome.min.css'
+      './bower_components/flat-ui/css/flat-ui.css'
+      './bower_components/messenger/build/css/messenger.css'
+      './bower_components/messenger/build/css/messenger-theme-flat.css'
       './bower_components/pace/themes/pace-theme-minimal.css'
     ]
   server:
