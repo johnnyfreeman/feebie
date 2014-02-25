@@ -215,6 +215,7 @@ gulp.task 'watch', ->
   gulp.watch paths.app.coffee, ['build:app:js']
   gulp.watch paths.app.html, ['build:app:html']
   gulp.watch paths.app.images, ['build:app:images']
+  gulp.watch paths.app.stylus, ['build:app:css']
   gulp.watch paths.vendor.fonts, ['build:vendor:fonts']
   gulp.watch paths.vendor.images, ['build:vendor:images']
   gulp.watch paths.vendor.css, ['build:vendor:css']
