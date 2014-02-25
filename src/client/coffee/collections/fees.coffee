@@ -21,9 +21,9 @@ window.FB.Collections.Fees = Backbone.Collection.extend
     @on 'reset', (fees) ->
       fees.each (fee) ->
         # only non-medicare fees
-        return if fee.get('categoryId') is 'MEDICARE'
+        return if fee.get('categoryId') is 'ALLOWABLE'
         # find source fee
-        source = fees.findWhere _.extend(fee.getFilterAttrs(), {categoryId:'MEDICARE'})
+        source = fees.findWhere _.extend(fee.getFilterAttrs(), {categoryId:'ALLOWABLE'})
         # if source is an instance of
         # Fee, add refs to each other
         if source instanceof window.FB.Models.Fee
@@ -38,7 +38,7 @@ window.FB.Collections.Fees = Backbone.Collection.extend
       # loop through fees
       fees.each (fee) ->
         # clone medicare fees
-        return if fee.get('categoryId') isnt 'MEDICARE'
+        return if fee.get('categoryId') isnt 'ALLOWABLE'
         # if there isn't a coinsurance clone, create one
         if fee.clones.where(categoryId:'COINSURANCE').length is 0
           newFees.push fee.cloneAsCoinsurance()
@@ -122,9 +122,9 @@ window.FB.Collections.Fees = Backbone.Collection.extend
 
     # category
     if f1.categoryId != f2.categoryId
-      if f1.categoryId == 'MEDICARE'
+      if f1.categoryId == 'ALLOWABLE'
         return -1
-      if f2.categoryId == 'MEDICARE'
+      if f2.categoryId == 'ALLOWABLE'
         return 1
       if f1.categoryId == 'SELFPAY'
         return 1

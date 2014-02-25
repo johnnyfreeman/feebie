@@ -1,1 +1,1 @@
-{ "options" : { "create" : "feeCategories", "capped" : { "$undefined" : true }, "size" : { "$undefined" : true } }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "fee_finder_2014.feeCategories", "name" : "_id_" } ] }
+{ "options" : { "create" : "feeCategories" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "feebie.feeCategories", "name" : "_id_" } ] }
