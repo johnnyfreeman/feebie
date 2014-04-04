@@ -175,7 +175,7 @@ gulp.task 'build:app:js', ->
   gulp.src(paths.app.coffee)
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(concat('app.js'))
-    # .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./public/client/js/'))
 
 # build vendor js
