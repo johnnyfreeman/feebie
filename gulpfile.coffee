@@ -44,11 +44,10 @@ paths =
     stylus: './src/client/styl/**/*.styl'
   vendor:
     js: [
-      './bower_components/jquery/jquery.min.js'
-      './bower_components/underscore/underscore-min.js'
-      './bower_components/backbone/backbone-min.js'
+      './bower_components/jquery/dist/jquery.min.js'
+      './bower_components/underscore/underscore.js'
+      './bower_components/backbone/backbone.js'
       './bower_components/backbone.marionette/lib/backbone.marionette.min.js'
-      './bower_components/jquery-zclip/jquery.zclip.js'
       './bower_components/bootstrap/dist/js/bootstrap.js'
       './bower_components/flat-ui/js/jquery.placeholder.js'
       './bower_components/greensock/src/minified/easing/EasePack.min.js'
@@ -183,7 +182,7 @@ gulp.task 'build:app:js', ->
 gulp.task 'build:vendor:js', ->
   gulp.src(paths.vendor.js)
     .pipe(concat('vendors.js'))
-    .pipe(uglify())
+    # .pipe(uglify())
     .pipe(gulp.dest('./public/client/js/'))
 
 # build server js
