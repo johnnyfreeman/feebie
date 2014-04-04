@@ -8,7 +8,7 @@ window.FB.Views.Code = Marionette.ItemView.extend
 
   # events
   events:
-    'click .close-fee': 'navigateToSearch'
+    'click .close-fee, #header a': 'navigateToSearch'
 
   # model events mapped to view methods
   modelEvents:
