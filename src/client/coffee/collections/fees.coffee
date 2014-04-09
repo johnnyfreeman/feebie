@@ -14,13 +14,13 @@ window.FB.Collections.Fees = Backbone.Collection.extend
 
     # when the code is synced to the
     # server, update this fees collection
-    @code.on 'sync', (code) ->
+    @listenTo @code, 'sync', (code) ->
       _this.reset code.get 'fees'
 
     # find all initial source/clones
-    @on 'reset', (fees) ->
+    @listenTo this, 'reset', (fees) ->
       fees.each (fee) ->
-        # only non-medicare fees
+        # only non-allowable fees
         return if fee.get('categoryId') is 'ALLOWABLE'
         # find source fee
         source = fees.findWhere _.extend(fee.getFilterAttrs(), {categoryId:'ALLOWABLE'})
@@ -30,14 +30,14 @@ window.FB.Collections.Fees = Backbone.Collection.extend
           fee.source = source
           source.clones.add fee
 
-    # clone medicare fees that didn't have
+    # clone allowable fees that didn't have
     # any clones is previous reset callback
-    @on 'reset', (fees) ->
+    @listenTo this, 'reset', (fees) ->
       # new fees array
       newFees = []
       # loop through fees
       fees.each (fee) ->
-        # clone medicare fees
+        # clone allowable fees
         return if fee.get('categoryId') isnt 'ALLOWABLE'
         # if there isn't a coinsurance clone, create one
         if fee.clones.where(categoryId:'COINSURANCE').length is 0
@@ -50,12 +50,12 @@ window.FB.Collections.Fees = Backbone.Collection.extend
 
       # get filter attrs from first fee in the collection
       # then we'll save that as the current filter
-    @on 'reset', (fees) ->
-      _this.code.filter.set fees.at(0).getFilterAttrs(), {silent: true}
+    @listenTo this, 'reset', (fees) ->
+      @code.filter.set fees.at(0).getFilterAttrs(), {silent: true}
 
     # show/hide fees when fees are reset based
     # on current filter and also each time the filter changes
-    @on 'reset', _.bind(@autoShowHideAll, this)
+    @listenTo this, 'reset', @autoShowHideAll
     @listenTo @code.filter, 'change', _.bind(@autoShowHideAll, this)
 
     # recalculate all coinsurance fees when the

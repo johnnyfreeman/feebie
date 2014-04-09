@@ -14,16 +14,13 @@ window.FB.Views.SearchForm = Marionette.ItemView.extend
   ui:
     textbox: 'input'
 
-  # options passed to constructor
-  options:
-    focusOnShow: false
-
   # after this view is made visible in a region
   onShow: ->
-    @ui.textbox.trigger 'focus' if @options.focusOnShow
+    @ui.textbox.trigger 'focus'
 
   # on form submit
   displayCode: (e) ->
     e.preventDefault()
+
     window.FB.router.navigate @ui.textbox.val(),
       trigger: true

@@ -9,6 +9,7 @@ window.FB.Views.Fees = Marionette.CollectionView.extend
   collectionEvents:
     change: 'render'
 
+
   # ** Override Marionette.CollectionView.showCollection **
   # Internal method to loop through each item in the
   # collection view and show it

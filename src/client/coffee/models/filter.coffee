@@ -19,7 +19,7 @@ window.FB.Models.Filter = Backbone.Model.extend
     @code = options.code
 
     # notify user when options change
-    @on 'change', _.bind(@_notifyOfChange, this)
+    @listenTo this, 'change', @_notifyOfChange
 
   # get search attributes
   getFilterAttrs: () ->

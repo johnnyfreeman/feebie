@@ -23,56 +23,10 @@ window.FB.Views.Filter = Marionette.ItemView.extend
   modelEvents:
     change: 'render'
 
-  initialize: ->
-
-    _this = this
-    
-    @$el.on 'click', (e) ->
-      e.preventDefault() # all
-
-      target = e.target
-      $target = $(target)
-      
-      # handles hiding and showing of all popovers
-      if $target.hasClass('popover-trigger')
-        _this.ui.popoverTriggers.not(target).popover 'hide'
-        $target.popover 'toggle'
-        $target.closest('.option').find('input').trigger 'focus'
-      
-      # update coinsurance button
-      if $target.closest('.btn').length > 0
-        # update model
-        _this.model.set 'coinsuranceMultiplier', parseInt($target.closest('.btn').siblings('input').val())/100
-        # hides popover
-        $target.closest('.popover').siblings('.popover-trigger').popover 'hide'
-      
-      # handles finding the new modal and firing
-      # change events so that all appropriate
-      # views are re-rendered
-      if $target.hasClass('changeModel')
-        value = $target.text()
-        field = $target.data 'model-field'
-        # quantity
-        value = parseInt value if field is 'quantity'
-        # mod1 or mod2
-        if (field is 'modifier1' or field is 'modifier2') and value is '(none)'
-          value = ''
-        # fac
-        if field is 'fac'
-          value = (if value is 'Out of Office' then true else false)
-
-        console.log field, value
-
-        _this.model.set field, value
-
-    @$el.on 'keydown', (e) ->
-      target = e.target
-      $target = $(target)
-      if $target.closest('.coinsurance-option .popover')
-        if e.which is 13
-          e.preventDefault()
-          _this.model.set 'coinsuranceMultiplier', parseInt($target.val())/100
-
+  # events
+  events:
+    click: 'onClick'
+    keydown: 'setCoinsuranceOnEnter'
 
   onRender: ->
     @buildPopover @ui.fac.find('a'), 'fac'
@@ -140,3 +94,47 @@ window.FB.Views.Filter = Marionette.ItemView.extend
       html: true
       content: '<input placeholder=\'' + coinsuranceMultiplier + '\' type=\'text\'><button class=\'btn btn-info\'><i class=\'fa fa-check\'></i></button>'
       container: @ui.coInsuranceOption
+
+  onClick: (e) ->
+    e.preventDefault() # all
+
+    target = e.target
+    $target = $(target)
+    
+    # handles hiding and showing of all popovers
+    if $target.hasClass('popover-trigger')
+      @ui.popoverTriggers.not(target).popover 'hide'
+      $target.popover 'toggle'
+      $target.closest('.option').find('input').trigger 'focus'
+    
+    # update coinsurance button
+    if $target.closest('.btn').length > 0
+      # update model
+      @model.set 'coinsuranceMultiplier', parseInt($target.closest('.btn').siblings('input').val())/100
+      # hides popover
+      $target.closest('.popover').siblings('.popover-trigger').popover 'hide'
+    
+    # handles finding the new modal and firing
+    # change events so that all appropriate
+    # views are re-rendered
+    if $target.hasClass('changeModel')
+      value = $target.text()
+      field = $target.data 'model-field'
+      # quantity
+      value = parseInt value if field is 'quantity'
+      # mod1 or mod2
+      if (field is 'modifier1' or field is 'modifier2') and value is '(none)'
+        value = ''
+      # fac
+      if field is 'fac'
+        value = (if value is 'Out of Office' then true else false)
+
+      @model.set field, value
+
+  setCoinsuranceOnEnter: (e) ->
+    target = e.target
+    $target = $(target)
+    if $target.closest('.coinsurance-option .popover')
+      if e.which is 13
+        e.preventDefault()
+        @model.set 'coinsuranceMultiplier', parseInt($target.val())/100

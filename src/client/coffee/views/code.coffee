@@ -19,9 +19,7 @@ window.FB.Views.Code = Marionette.ItemView.extend
   $body: $ 'body'
 
   initialize: ->
-      
     # navigate back to search form on escape
-    @navigateToSearch = _.bind @navigateToSearch, this
     @$body.on 'keydown', @navigateToSearch
     
     # hide all popovers when clicking outside
@@ -55,15 +53,20 @@ window.FB.Views.Code = Marionette.ItemView.extend
     # prevent default action
     e.preventDefault()
 
-    # remove handlers from body
-    @$body.off 'keydown', @navigateToSearch
-    @$body.off 'click', @closeAllPopups
-
-    # destroy model (which in turns
-    # triggers this view's destruction)
-    @model.destroy()
-
     # explicitly using controller so that
     # we can pass focusOnShow option
     window.FB.controller.displaySearch focusOnShow: true
     window.FB.router.navigate ''
+
+  # executed just before this view is closed() by its region
+  onBeforeClose: ->
+    # remove handlers from body
+    @$body.off 'keydown', @navigateToSearch
+    @$body.off 'click', @closeAllPopups
+
+    # close child views
+    @filterView.close()
+    @feesView.close()
+
+    # destroy model
+    @model.destroy()
