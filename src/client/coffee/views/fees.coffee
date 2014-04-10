@@ -1,14 +1,13 @@
-window.FB.Views.Fees = Marionette.CollectionView.extend
+FB.Views.Fees = Marionette.CollectionView.extend
 
   # item view
-  itemView: window.FB.Views.Fee
+  itemView: FB.Views.Fee
 
   # wrap template with div.fees.row
   className: 'fees row'
 
   collectionEvents:
     change: 'render'
-
 
   # ** Override Marionette.CollectionView.showCollection **
   # Internal method to loop through each item in the

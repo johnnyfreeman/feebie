@@ -1,4 +1,4 @@
-window.FB.Router = Marionette.AppRouter.extend
+FB.Router = Marionette.AppRouter.extend
   appRoutes:
     '': 'displaySearch'
     ':code': 'displayCode'

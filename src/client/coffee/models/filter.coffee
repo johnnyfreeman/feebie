@@ -1,6 +1,6 @@
 # this options model instance will
 # represent the current filtering options
-window.FB.Models.Filter = Backbone.Model.extend
+FB.Models.Filter = Backbone.Model.extend
 
   # default options
   defaults:

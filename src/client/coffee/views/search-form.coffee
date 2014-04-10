@@ -1,4 +1,4 @@
-window.FB.Views.SearchForm = Marionette.ItemView.extend
+FB.Views.SearchForm = Marionette.ItemView.extend
 
   # html template
   template: '#tplSearchForm'
@@ -23,5 +23,5 @@ window.FB.Views.SearchForm = Marionette.ItemView.extend
   displayCode: (e) ->
     e.preventDefault()
 
-    window.FB.router.navigate @ui.textbox.val(),
+    FB.router.navigate @ui.textbox.val(),
       trigger: true

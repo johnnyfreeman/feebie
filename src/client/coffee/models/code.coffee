@@ -6,7 +6,7 @@ mricodes = ['74181', '74183', '70551', '70552', '70553', 'A9579', '73718', '7372
 protocol = window.location.protocol
 hostname = window.location.hostname
 
-window.FB.Models.Code = Backbone.Model.extend
+FB.Models.Code = Backbone.Model.extend
 
   # url to API endpoint
   urlRoot: "#{protocol}//#{hostname}:81/code"
@@ -30,9 +30,9 @@ window.FB.Models.Code = Backbone.Model.extend
 
   # constructor
   initialize: ->
-    @filter = new window.FB.Models.Filter [], code: this
+    @filter = new FB.Models.Filter [], code: this
 
     if @get('code') in mricodes
-      @fees = new window.FB.Collections.MriFees [], code: this
+      @fees = new FB.Collections.MriFees [], code: this
     else
-      @fees = new window.FB.Collections.Fees [], code: this
+      @fees = new FB.Collections.Fees [], code: this

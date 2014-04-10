@@ -1,13 +1,13 @@
-window.FB.Controller = Marionette.Controller.extend
+FB.Controller = Marionette.Controller.extend
 
   displaySearch: (options) ->
-    window.FB.mainRegion.show new window.FB.Views.SearchForm(options)
+    FB.mainRegion.show new FB.Views.SearchForm(options)
 
   displayCode: (code) ->
     controller = this
 
     # create code model
-    code = new window.FB.Models.Code code: code
+    code = new FB.Models.Code code: code
 
     # fetch from server
     response = code.fetch()
@@ -15,7 +15,7 @@ window.FB.Controller = Marionette.Controller.extend
     # on success
     # create the view and pass model to it
     response.done ->
-      window.FB.mainRegion.show new window.FB.Views.Code model: code
+      FB.mainRegion.show new FB.Views.Code model: code
 
     # on failure
     response.fail ->
@@ -25,8 +25,8 @@ window.FB.Controller = Marionette.Controller.extend
         type: 'error'
 
       # if current view isn't SearchForm, show that view
-      unless window.FB.mainRegion.currentView instanceof window.FB.Views.SearchForm
+      unless FB.mainRegion.currentView instanceof FB.Views.SearchForm
         controller.displaySearch focusOnShow: true
 
       # select text inside textbox
-      window.FB.mainRegion.currentView.ui.textbox.select()
+      FB.mainRegion.currentView.ui.textbox.select()

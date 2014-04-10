@@ -1,4 +1,4 @@
-window.FB.Regions.Main = Marionette.Region.extend
+FB.Regions.Main = Marionette.Region.extend
   el: '#main'
   open: (view) ->
     # region

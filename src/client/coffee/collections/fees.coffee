@@ -1,7 +1,7 @@
-window.FB.Collections.Fees = Backbone.Collection.extend
+FB.Collections.Fees = Backbone.Collection.extend
   
   # model
-  model: window.FB.Models.Fee
+  model: FB.Models.Fee
 
   # fees are always passed
   # to the initialize method
@@ -26,7 +26,7 @@ window.FB.Collections.Fees = Backbone.Collection.extend
         source = fees.findWhere _.extend(fee.getFilterAttrs(), {categoryId:'ALLOWABLE'})
         # if source is an instance of
         # Fee, add refs to each other
-        if source instanceof window.FB.Models.Fee
+        if source instanceof FB.Models.Fee
           fee.source = source
           source.clones.add fee
 

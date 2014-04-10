@@ -1,7 +1,7 @@
 ###
-Fee Finder Application
+Application
 ###
-window.FB = new Marionette.Application
+FB = new Marionette.Application
   
   # architecture namespaces
   Collections: {}
@@ -31,7 +31,42 @@ window.FB = new Marionette.Application
   # String Helpers
   String:
     toMoney: (string) ->
-      window.FB.Number.toMoney parseFloat(string)
+      FB.Number.toMoney parseFloat(string)
 
     fromMoney: (string) ->
       string.replace ',', ''
+
+# setup application
+FB.addInitializer ->
+  @controller = new @Controller()
+  @router = new @Router controller: @controller
+  @mainRegion = new @Regions.Main()
+  return
+
+# config for Messenger
+FB.addInitializer ->
+  Messenger.options =
+    extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right'
+    theme: 'flat'
+  return
+
+# Start Google Analytics
+FB.addInitializer ->
+  _gaq = _gaq or []
+  _gaq.push [
+    "_setAccount"
+    "UA-39622852-1"
+  ]
+  _gaq.push ["_trackPageview"]
+  ga = document.createElement("script")
+  ga.type = "text/javascript"
+  ga.async = true
+  ga.src = ((if "https:" is document.location.protocol then "https://ssl" else "http://www")) + ".google-analytics.com/ga.js"
+  s = document.getElementsByTagName("script")[0]
+  s.parentNode.insertBefore ga, s
+  return
+
+
+# start Backbone history
+FB.on 'initialize:after', ->
+  Backbone.history.start pushState: true

@@ -1,4 +1,4 @@
-window.FB.Views.Code = Marionette.ItemView.extend
+FB.Views.Code = Marionette.ItemView.extend
 
   # html template
   template: '#tplCode'
@@ -27,8 +27,8 @@ window.FB.Views.Code = Marionette.ItemView.extend
     @$body.on 'click', @closeAllPopups
 
     # build child views
-    @filterView = new window.FB.Views.Filter model: @model.filter
-    @feesView = new window.FB.Views.Fees collection: @model.fees
+    @filterView = new FB.Views.Filter model: @model.filter
+    @feesView = new FB.Views.Fees collection: @model.fees
   
   # after rendering
   onRender: (codeView) ->
@@ -55,8 +55,8 @@ window.FB.Views.Code = Marionette.ItemView.extend
 
     # explicitly using controller so that
     # we can pass focusOnShow option
-    window.FB.controller.displaySearch focusOnShow: true
-    window.FB.router.navigate ''
+    FB.controller.displaySearch focusOnShow: true
+    FB.router.navigate ''
 
   # executed just before this view is closed() by its region
   onBeforeClose: ->

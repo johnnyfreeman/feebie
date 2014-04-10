@@ -1,4 +1,4 @@
-window.FB.Models.Fee = Backbone.Model.extend
+FB.Models.Fee = Backbone.Model.extend
   
   # Fee defaults
   defaults:
@@ -14,7 +14,7 @@ window.FB.Models.Fee = Backbone.Model.extend
   initialize: (attributes, options) ->
     # make clones a generic collection so
     # that we can use it's methods
-    @clones = new window.Backbone.Collection
+    @clones = new Backbone.Collection
     
   show: () ->
     @set 'hidden', false
