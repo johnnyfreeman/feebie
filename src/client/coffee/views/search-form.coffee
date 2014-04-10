@@ -9,6 +9,7 @@ window.FB.Views.SearchForm = Marionette.ItemView.extend
   # events
   events:
     'submit form': 'displayCode'
+    'click .fa-search': 'displayCode'
 
   # ui elements
   ui:
