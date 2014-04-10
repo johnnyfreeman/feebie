@@ -44,7 +44,7 @@ paths =
     stylus: './src/client/styl/**/*.styl'
   vendor:
     js: [
-      './bower_components/jquery/dist/jquery.min.js'
+      './bower_components/jquery/dist/jquery.js'
       './bower_components/underscore/underscore.js'
       './bower_components/backbone/backbone.js'
       './bower_components/backbone.marionette/lib/backbone.marionette.min.js'
