@@ -9,12 +9,7 @@ FB.Models.Filter = Backbone.Model.extend
   # FF.Models.Code
   code: null
 
-  # messenger instance
-  messenger: null
-
   initialize: (attributes, options) ->
-    _this = this
-
     # save reference to fees collection
     @code = options.code
 
