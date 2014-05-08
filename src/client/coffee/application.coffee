@@ -52,21 +52,19 @@ FB.addInitializer ->
 
 # Start Google Analytics
 FB.addInitializer ->
-  _gaq = _gaq or []
-  _gaq.push [
-    "_setAccount"
-    "UA-39622852-1"
-  ]
-  _gaq.push ["_trackPageview"]
-  ga = document.createElement("script")
-  ga.type = "text/javascript"
-  ga.async = true
-  ga.src = ((if "https:" is document.location.protocol then "https://ssl" else "http://www")) + ".google-analytics.com/ga.js"
-  s = document.getElementsByTagName("script")[0]
-  s.parentNode.insertBefore ga, s
-  return
+  ((i, s, o, g, r, a, m) ->
+    i['GoogleAnalyticsObject'] = r
+    i[r] = i[r] or ->
+      (i[r].q = i[r].q or []).push arguments
 
+    i[r].l = 1 * new Date()
 
-# start Backbone history
-FB.on 'initialize:after', ->
-  Backbone.history.start pushState: true
+    a = s.createElement(o)
+    m = s.getElementsByTagName(o)[0]
+
+    a.async = 1
+    a.src = g
+    m.parentNode.insertBefore a, m
+  ) window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga'
+  ga 'create', 'UA-39622852-2', '192.168.37.31'
+  ga 'send', 'pageview'

@@ -6,8 +6,5 @@ FB.Router = Marionette.AppRouter.extend
   
   # update google analytics
   navigate: (fragment, options) ->
-    _gaq.push [
-      '_trackPageview'
-      fragment
-    ]
+    ga 'send', 'pageview', fragment
     Marionette.AppRouter::navigate.call this, fragment, options
