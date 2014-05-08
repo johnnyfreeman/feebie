@@ -8,3 +8,7 @@ FB.Router = Marionette.AppRouter.extend
   navigate: (fragment, options) ->
     ga 'send', 'pageview', fragment
     Marionette.AppRouter::navigate.call this, fragment, options
+
+# start Backbone history
+FB.on 'initialize:after', ->
+  Backbone.history.start pushState: true
