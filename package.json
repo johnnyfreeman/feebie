@@ -14,25 +14,23 @@
     "start": "./bin/start"
   },
   "dependencies": {
-    "express": "~3.4.8",
-    "mongoose": "~3.8.6"
+    "express": "^3.8.1",
+    "mongoose": "^3.8.11"
   },
   "devDependencies": {
-    "express": "~3.1.0",
-    "mongoose": "~3.5.7",
-    "gulp": "~3.5.2",
-    "gulp-util": "~2.2.14",
-    "coffee-script": "~1.7.1",
-    "gulp-coffee": "~1.4.1",
-    "gulp-concat": "~2.1.7",
-    "gulp-clean": "~0.2.4",
+    "coffee-script": "^1.7.1",
     "event-stream": "~3.1.0",
-    "gulp-uglify": "~0.2.0",
-    "node-notifier": "~1.1.2-0",
-    "gulp-coffeelint": "~0.2.0",
-    "gulp-bower": "0.0.2",
-    "gulp-stylus": "0.0.12",
-    "node-monkey": "~0.2.8"
+    "gulp": "^3.6.2",
+    "gulp-bower": "0.0.5",
+    "gulp-clean": "^0.3.0",
+    "gulp-coffee": "~1.4.1",
+    "gulp-coffeelint": "^0.3.3",
+    "gulp-concat": "^2.2.0",
+    "gulp-stylus": "^1.0.2",
+    "gulp-uglify": "^0.3.0",
+    "gulp-util": "~2.2.14",
+    "node-monkey": "~0.2.8",
+    "node-notifier": "^3.0.0"
   },
   "private": true
 }
