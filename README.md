@@ -1,7 +1,3 @@
-# Feebie
-
-Feebie is a fee schedule lookup engine.
-
 ![Screenshot](https://s3.amazonaws.com/feebie/feebie_852.png)
 
 ## Install Locally
