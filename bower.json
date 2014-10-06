@@ -12,7 +12,7 @@
     "backbone": "1.1.2",
     "backbone.marionette": "1.7.4",
     "jquery": "2.1.0",
-    "flat-ui": "2.2.0",
+    "flat-ui": "2.0.0",
     "font-awesome": "4.0.3",
     "bean": "1.0.6",
     "greensock": "1.11.6",
